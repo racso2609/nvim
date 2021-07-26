@@ -39,7 +39,7 @@ set rtp+=~/tabnine-vim
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
 inoremap [ []<Esc>i
-inoremap < <><Esc>i
+"inoremap < <><Esc>i
 inoremap " ""<Esc>i
 inoremap ' ''<Esc>i
 "snippets
