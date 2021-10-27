@@ -37,6 +37,7 @@ set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
+
 so ~/.config/nvim/Config/plugin.vim
 so ~/.config/nvim/Config/plugin-config.vim
 so ~/.config/nvim/Config/maps.vim
@@ -45,7 +46,7 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
-"set autochdir                           " Your working directory will always be the same as your working directory
+set autochdir                           " Your working directory will always be the same as your working directory
 set rtp+=~/tabnine-vim
 
 " if hidden is not set, TextEdit might fail.
@@ -92,5 +93,6 @@ set diffopt+=vertical
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 
 

@@ -6,37 +6,35 @@ snippet route "expres route"
 router.route('/holamarico')
 endsnippet
 
-snippet get ".get(async(req,res)=>{})"
-.get(async(req,res)=>{})
+snippet impAsErr ".get(async(req,res)=>{})"
+import {asyncHandler} from '../utils/asyncHandler'
+import {AppError} from '../utils/AppError'
 endsnippet
 
 snippet error ".get(async(req,res)=>{})"
 return next(new AppError("Hola bebe",400))
-
-endsnippet
-s
-snippet impAsErr ".get(async(req,res)=>{})"
-const {asyncHandler}= require('../utils/asyncHandler')
-const {AppError} = require('../utils/AppError')
 endsnippet
 
 snippet asH ".get(async(req,res)=>{})"
-exports.hola = asyncHandler(async(req,res,_next)={
+export const hola = asyncHandler(async(req:Request,res: Response,_next:NextFunction)={
 
 })
 endsnippet
-
+snippet get ".get(async(req,res)=>{})"
+.get(async(req:Request,res:Response)=>{})
+endsnippet
 
 snippet post ".get(async(req,res)=>{})"
-.post(async(req,res)=>{})
+.post(async(req:Request,res:Response)=>{})
+
 endsnippet
 
 snippet put ".get(async(req,res)=>{})"
-.put(async(req,res)=>{})
+.put(async(req: Request,res:Response)=>{})
 endsnippet
 
 snippet delete ".get(async(req,res)=>{})"
-.delete(async(req,res)=>{})
+.delete(async(req:Request,res:Response)=>{})
 endsnippet
 
 snippet router "express router"
@@ -48,15 +46,17 @@ module.exports = router
 endsnippet
 
 snippet body "req.body"
-let {} = req.body;
+const {} = req.body;
 endsnippet
 
 snippet params "req.params"
-let {} = req.params;
+const {} = req.params;
 endsnippet
+
 #snippet clo "console.log(hola,hola)" b
 #console.log(${1:'$2', $3})
 #endsnippet
+
 snippet try "try and catch"
 try{
 
@@ -126,7 +126,7 @@ endsnippet
 
 snippet rfc "React function component" b
 import React from 'react'
-const $1 = ${2:($3)} => {
+const $1:FC = ${2:($3)} => {
   return (
     <$4>
       $5
@@ -141,7 +141,7 @@ snippet rnfc "React native function component" b
 import React from 'react'
 import { ${4} } from 'react-native'
 
-const $1 = ${2:($3)} => {
+const $1:FC = ${2:($3)} => {
   return (
     <$4>
       $5

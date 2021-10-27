@@ -1,7 +1,10 @@
 
+"nvim config
+let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css']
+"Syntax typescript
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 " HTML, JSX
 let g:closetag_filenames = '*.html,*.js,*.jsx,*.ts,*.tsx'
-
 "  nerdtree
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
@@ -10,7 +13,8 @@ let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeMapOpenInTab='\t'
-
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 
 "------------------react Snippets--------------------------
@@ -36,7 +40,7 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
 " kite
-"let g:kite_supported_languages = ['*']
+let g:kite_supported_languages = ['*']
 let g:coc_global_extensions = [
       \ 'coc-tsserver'
       \ ]
@@ -84,8 +88,10 @@ function! s:show_documentation()
 endfunction
 
 
-
-
+"prettier
+au FileType css,scss let b:prettier_exec_cmd = "prettier-stylelint"
+"let g:prettier#autoformat = 1
+"let g:prettier#autoformat_require_pragma = 0
 " show function firm
 let g:echodoc_enable_at_startup = 1
 

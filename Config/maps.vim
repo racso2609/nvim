@@ -6,14 +6,15 @@ inoremap [ []<Esc>i
 inoremap " ""<Esc>i
 inoremap ' ''<Esc>i
 "put ; at final"
-nnoremap <Leader>; $a;<Esc>
+nnoremap <C-M>; $a;<Esc>
 
+nnoremap <C-M-f> :Rg<CR>
 
 "fold
-inoremap <C-i> <C-O>za
-nnoremap <C-i> za
-onoremap <C-i> <C-C>za
-vnoremap <C-i> zf
+"inoremap <C-i> <C-O>za
+"nnoremap <C-i> za
+"onoremap <C-i> <C-C>za
+"vnoremap <C-i> zf
 
 "save and close
 
@@ -24,7 +25,6 @@ nnoremap <C-S> :w <CR>
 " run current file
 nnoremap <Leader>n :!node %<cr>
 
-set splitright
 function! OpenTerminal()
   " move to right most buffer
   execute "normal \<C-l>"
@@ -68,7 +68,7 @@ map <C-Up> <C-w>k
 map <C-Right> <C-w>l
 
 "move top"
-map <C-p> gg=G
+map <C-M-g> gg=G
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -100,7 +100,8 @@ nmap <silent> <C-[> <Plug>(ale_previous_wrap)
 nmap <silent> <C-]> <Plug>(ale_next_wrap)
 
 "Prettier
-nmap <C-M-f> :Prettier<CR>
+nmap <C-p> <Plug>(Prettier)
+"nmap <C-p> :Prettier<CR>
 "FZF
 nnoremap <C-f> :Files<CR>
 nnoremap <C-g> :Buffers<CR>

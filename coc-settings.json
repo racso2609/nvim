@@ -2,12 +2,7 @@
     "languageserver": {
         "ccls": {
             "command": "ccls",
-            "filetypes": [
-                "c",
-                "cpp",
-                "objc",
-                "objcpp"
-            ],
+            "filetypes": ["c", "cpp", "objc", "objcpp", "hpp", "h"],
             "rootPatterns": [
                 ".ccls",
                 "compile_commands.json",

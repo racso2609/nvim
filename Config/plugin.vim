@@ -2,6 +2,8 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 "syntax
+Plug 'leafgarland/typescript-vim' " syntax typescript
+"Plug 'HerringtonDarkholme/yats.vim'
 Plug 'sheerun/vim-polyglot' "syntax
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'norcalli/nvim-colorizer.lua'
@@ -17,6 +19,7 @@ Plug 'Shougo/echodoc.vim'
 
 "file finder
 Plug 'junegunn/fzf.vim' "file finder fzf
+Plug 'junegunn/fzf' "file finder fzf
 
 "close html tags "
 Plug 'alvan/vim-closetag'
@@ -33,7 +36,7 @@ Plug 'mlaursen/vim-react-snippets'
 
 "pretier and eslint configuration
 Plug 'dense-analysis/ale' "Eslint
-Plug 'prettier/vim-prettier', {'do': 'yarn install','branch': 'release/0.x','for':['javascript','typescript','css','less','less','json', 'html','jsx']} "Format 
+Plug 'prettier/vim-prettier', {'do': 'yarn install','for':['javascript','typescript','css','less','less','json', 'html','jsx']} "Format 
 
 "make comments
 Plug 'preservim/nerdcommenter'
