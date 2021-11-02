@@ -15,8 +15,8 @@ snippet error ".get(async(req,res)=>{})"
 return next(new AppError("Hola bebe",400))
 endsnippet
 
-snippet asH ".get(async(req,res)=>{})"
-export const hola = asyncHandler(async(req:Request,res: Response,_next:NextFunction)={
+snippet asH "asyncHandler error"
+asyncHandler(async(req:Request,res: Response,_next:NextFunction)=>{
 
 })
 endsnippet

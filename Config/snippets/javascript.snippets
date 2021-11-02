@@ -14,14 +14,14 @@ snippet error ".get(async(req,res)=>{})"
 return next(new AppError("Hola bebe",400))
 
 endsnippet
-s
+
 snippet impAsErr ".get(async(req,res)=>{})"
 const {asyncHandler}= require('../utils/asyncHandler')
 const {AppError} = require('../utils/AppError')
 endsnippet
 
 snippet asH ".get(async(req,res)=>{})"
-exports.hola = asyncHandler(async(req,res,_next)={
+asyncHandler(async(req,res,_next)=>{
 
 })
 endsnippet

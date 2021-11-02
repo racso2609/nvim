@@ -92,6 +92,7 @@ nnoremap <leader>w :bd<cr>
 " NerdCommenter Toggle remap to CTRL+/
 vmap <C-_> <Plug>NERDCommenterToggle<cr>
 nmap <C-_> <Plug>NERDCommenterToggle<cr>
+
 "NerdTree
 nnoremap <C-b> :NERDTreeToggle<CR>
 
