@@ -45,6 +45,7 @@ Plug 'alvan/vim-closetag'
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
 
+
 "----------------------pretier and eslint configuration--------------
 Plug 'dense-analysis/ale' "Eslint
 Plug 'prettier/vim-prettier', {'do': 'yarn install','for':['javascript','typescript','css','less','less','json', 'html','jsx','tsx']} "Format 
@@ -57,15 +58,15 @@ Plug 'mattn/emmet-vim'
 Plug 'ryanoasis/vim-devicons'
 "----------nerd Tree-----------
 Plug 'preservim/nerdtree'
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'scrooloose/nerdtree-project-plugin'
+"Plug 'preservim/nerdtree' |
+            "\ Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"Plug 'scrooloose/nerdtree-project-plugin'
 
 " Plug 'Shougo/vimfiler.vim'
 "-------extra utilities------
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'editorconfig/editorconfig-vim'
+"Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+"Plug 'editorconfig/editorconfig-vim'
 
 "
 "
