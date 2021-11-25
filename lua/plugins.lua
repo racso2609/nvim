@@ -21,7 +21,10 @@ local fn = vim.fn
 
 cmd 'packadd paq-nvim'               -- load the package manager
 local paq = require('paq-nvim').paq  -- a convenient alias
-paq {'folke/tokyonight.nvim'}
+-- color schemas
+-- paq {'folke/tokyonight.nvim'}
+paq {'tjdevries/colorbuddy.vim'}
+paq {"Th3Whit3Wolf/onebuddy"}
 -- paq {'prettier/vim-prettier'}
 -- paq 'mhartington/formatter.nvim'
 paq 'sbdchd/neoformat'
@@ -29,7 +32,11 @@ paq 'sbdchd/neoformat'
 paq {'savq/paq-nvim', opt = true}    -- paq-nvim manages itself
 paq {'shougo/deoplete-lsp'}
 paq {'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']}
+-- tree sitter and plugins
 paq {'nvim-treesitter/nvim-treesitter'}
+paq 'romgrk/nvim-treesitter-context'
+paq 'windwp/nvim-ts-autotag'
+
 paq {'neovim/nvim-lspconfig'}
 paq {'junegunn/fzf', run = './install --bin'}
 paq {'junegunn/fzf.vim'}
@@ -49,8 +56,10 @@ paq 'honza/vim-snippets'
 paq {'lukas-reineke/indent-blankline.nvim'}
 
 --   ----- css
-paq  'ap/vim-css-color'
-paq  'hail2u/vim-css3-syntax'
+-- paq  'ap/vim-css-color'
+-- paq  'hail2u/vim-css3-syntax'
+paq 'tree-sitter/tree-sitter-css'
+paq 'norcalli/nvim-colorizer.lua'
 
 ------ ts and js --------
 paq {'HerringtonDarkholme/yats.vim'}                -- "ts syntax
