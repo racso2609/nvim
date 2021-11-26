@@ -23,8 +23,10 @@ cmd 'packadd paq-nvim'               -- load the package manager
 local paq = require('paq-nvim').paq  -- a convenient alias
 -- color schemas
 -- paq {'folke/tokyonight.nvim'}
-paq {'tjdevries/colorbuddy.vim'}
-paq {"Th3Whit3Wolf/onebuddy"}
+-- paq {'tjdevries/colorbuddy.vim'}
+-- paq {"Th3Whit3Wolf/onebuddy"}
+paq 'Matsuuu/pinkmare'
+
 -- paq {'prettier/vim-prettier'}
 -- paq 'mhartington/formatter.nvim'
 paq 'sbdchd/neoformat'

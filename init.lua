@@ -63,7 +63,9 @@ g.mapleader=' '
 
 -- --Theme
 opt.background='dark'                     -- tell vim what the background color looks like
-cmd 'colorscheme onebuddy'
+
+cmd 'colorscheme pinkmare'
+-- cmd 'colorscheme onebuddy'
 -- cmd 'colorscheme desert'
 
 
