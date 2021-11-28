@@ -1,4 +1,4 @@
--- --init autocmd
+--init autocmd
 
 -- -- set script encoding
 -- scriptencoding utf-8
@@ -59,7 +59,7 @@ opt.ignorecase=true                  -- searches are case insensitive...
 opt.smartcase = true                   -- ... unless they contain at least one capital letter
 opt.autochdir = true                           -- Your working directory will always be the same as your working directory
 
-g.mapleader=' '
+g.mapleader='<20>'
 
 -- --Theme
 opt.background='dark'                     -- tell vim what the background color looks like

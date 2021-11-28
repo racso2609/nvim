@@ -38,6 +38,7 @@ paq {'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']}
 paq {'nvim-treesitter/nvim-treesitter'}
 paq 'romgrk/nvim-treesitter-context'
 paq 'windwp/nvim-ts-autotag'
+paq 'voldikss/vim-floaterm'
 
 paq {'neovim/nvim-lspconfig'}
 paq {'junegunn/fzf', run = './install --bin'}

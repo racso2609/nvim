@@ -18,6 +18,7 @@ require('ultiSnipt')
 require'colorizer'.setup()
 -- auto complete html tags
 require('nvim-ts-autotag').setup()
+require('floatTerm')
 local filetypes = {
   'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue'
 }
@@ -30,8 +31,11 @@ local skip_tags = {
 local map = require('functions').map
 local g = vim.g
 
-
+-- " Open the current file in the default program
+map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
 map('', '<C-z>', '<C-g>u<C-u>')  -- Make <C-u> undo-friendly
+map('','<C-M-r>','<cmd>:source ~/.config/nvim/init.lua<cr>')
+
 
 -- <Tab> to navigate the completion menu
 map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
@@ -41,7 +45,7 @@ map('n', '<C-l>', '<cmd>noh<CR>')    -- Clear highlights
 map('n', '<C-s>', '<cmd>:w<CR>')    -- save
 map('n', '<C-q>', '<cmd>:q<CR>')    -- quit
 
-map('n','<c-m>', "<cmd>lua require('OpenTerminal').OpenTerminal() <cr>")
+-- map('n','<c-m>', "<cmd>lua require('OpenTerminal').OpenTerminal() <cr>")
 
 local ts = require 'nvim-treesitter.configs'
 ts.setup{
