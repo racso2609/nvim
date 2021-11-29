@@ -1,16 +1,5 @@
--- map('n',' <C-S> :w <CR>
-
-
-
--- "let g:prettier#autoformat = 1
-
-
-
-
-
--- lua <<EOF
+require'lspsagaconfig'
 require'lspconfig'.eslint.setup{}
--- require'lspconfig'.html.setup{}
 require'lspconfig'.tsserver.setup{}
 require('nvim_comment').setup({line_mapping = "<c-_>", operator_mapping = "<leader>c"})
 require('nvimTreeConfig')
@@ -84,12 +73,5 @@ map ('n','<c-m-Right>','<cmd>:bnext<CR>')
 map ('n','<c-m-Left>','<cmd>:bprev<CR>')
 
 
-
-
-
--- "------ prettier ----
 map ('','<c-p>', '<cmd>Neoformat<cr>')
--- g['prettier#autoformat'] = 1
--- g['prettier#autoformat_require_pragma']= 0
--- g['prettier#autoformat_config_present']= 1
 
