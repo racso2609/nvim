@@ -4,12 +4,13 @@ require'lspconfig'.tsserver.setup{}
 require('nvim_comment').setup({line_mapping = "<c-_>", operator_mapping = "<leader>c"})
 require('nvimTreeConfig')
 require('ultiSnipt')
+require('vimwiki')
 require'colorizer'.setup()
 -- auto complete html tags
 require('nvim-ts-autotag').setup()
 require('floatTerm')
 local filetypes = {
-  'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue'
+  'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'typescript'
 }
 local skip_tags = {
   'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',
@@ -23,6 +24,7 @@ local g = vim.g
 -- " Open the current file in the default program
 map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
 map('', '<C-z>', '<C-g>u<C-u>')  -- Make <C-u> undo-friendly
+map('', '<C-m-z>', '<cmd>:redo<cr>')  -- Make <C-u> undo-friendly
 map('','<C-M-r>','<cmd>:source ~/.config/nvim/init.lua<cr>')
 
 

@@ -59,7 +59,7 @@ opt.ignorecase=true                  -- searches are case insensitive...
 opt.smartcase = true                   -- ... unless they contain at least one capital letter
 opt.autochdir = true                           -- Your working directory will always be the same as your working directory
 
-g.mapleader='<20>'
+g.mapleader=','
 
 -- --Theme
 opt.background='dark'                     -- tell vim what the background color looks like
@@ -70,7 +70,7 @@ cmd 'colorscheme pinkmare'
 
 
 -- -- Set cursor line color on visual mode
-cmd [[highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40]]
-cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
+-- cmd [[highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40]]
+-- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
 
 

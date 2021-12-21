@@ -2,6 +2,7 @@ local cmd = vim.cmd
 local g = vim.g
 local fn = vim.fn
 
+
 cmd 'packadd paq-nvim'               -- load the package manager
 local paq = require('paq-nvim').paq  -- a convenient alias
 -- color schemas
@@ -15,6 +16,8 @@ paq 'sbdchd/neoformat'
 paq {'savq/paq-nvim', opt = true}    -- paq-nvim manages itself
 paq {'shougo/deoplete-lsp'}
 paq {'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']}
+paq {'tbodt/deoplete-tabnine', run = './install.sh' }
+-- paq {'neoclide/coc.nvim', run = fn['yarn install --frozen-lockfile']}
 
 -- tree sitter and plugins
 paq {'nvim-treesitter/nvim-treesitter'}
@@ -26,6 +29,7 @@ paq 'terrortylor/nvim-comment'
 paq 'kyazdani42/nvim-tree.lua'
 paq 'jiangmiao/auto-pairs'
 paq 'glepnir/lspsaga.nvim'
+paq 'vimwiki/vimwiki'
 
 
 paq {'neovim/nvim-lspconfig'}

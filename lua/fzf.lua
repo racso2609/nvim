@@ -14,11 +14,12 @@ lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
 
 
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>')
-map('n', 'gr', '<cmd>lua vim.lsp.buf.rename()<CR>')
+map('n', '<space>', '<cmd>lua vim.lsp.buf.hover()<CR>')
+map('n', 're', '<cmd>lua vim.lsp.buf.rename()<CR>')
 map('n', 'gf', '<cmd>lua vim.lsp.buf.references()<CR>')
+
 --------fzf
-map('n', '<c-f>', "<cmd>lua require('fzf-lua').files()<cr>")
+map('n', '<c-f>', "<cmd>lua require'fzf-lua'.files()<CR>")
 map('n', '<c-m-b>', "<cmd>lua require('fzf-lua').buffers()<cr>")
 map('n', '<c-t>', "<cmd>lua require('fzf-lua').grep_project()<cr>")
 map('n', '<c-m-t>', "<cmd>lua require('fzf-lua').git_status()<cr>")
