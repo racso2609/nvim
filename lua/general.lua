@@ -1,6 +1,14 @@
+local util = require "lspconfig/util"
+
 require'lspsagaconfig'
+-- // ---- language server ----
 require'lspconfig'.eslint.setup{}
 require'lspconfig'.tsserver.setup{}
+require('./languages/solidity')
+require'lspconfig'.pyright.setup{}
+-- averiguar como funciona
+-- require'lspconfig'.stylelint_lsp.setup{}
+-- // ---- language server ----
 require('nvim_comment').setup({line_mapping = "<c-_>", operator_mapping = "<leader>c"})
 require('nvimTreeConfig')
 require('ultiSnipt')
@@ -9,6 +17,7 @@ require'colorizer'.setup()
 -- auto complete html tags
 require('nvim-ts-autotag').setup()
 require('floatTerm')
+
 local filetypes = {
   'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'typescript'
 }
@@ -42,7 +51,7 @@ local ts = require 'nvim-treesitter.configs'
 ts.setup{
    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = { "rust" },  -- list of language that will be disabled
@@ -50,7 +59,7 @@ ts.setup{
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
 }
 
