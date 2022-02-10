@@ -28,7 +28,7 @@ local skip_tags = {
 
 
 local map = require('functions').map
-local g = vim.g
+-- local g = vim.g
 
 -- " Open the current file in the default program
 map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
@@ -51,10 +51,10 @@ local ts = require 'nvim-treesitter.configs'
 ts.setup{
    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  ignore_install = { "solidity" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "rust" },  -- list of language that will be disabled
+    disable = { "rust","solidity" },  -- list of language that will be disabled
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
@@ -84,5 +84,5 @@ map ('n','<c-m-Right>','<cmd>:bnext<CR>')
 map ('n','<c-m-Left>','<cmd>:bprev<CR>')
 
 
-map ('','<c-p>', '<cmd>Neoformat<cr>')
+map ('','<c-p>', '<cmd>:Prettier<cr>')
 

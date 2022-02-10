@@ -12,17 +12,21 @@ require('paq') -- a convenient alias
 --  {'tjdevries/colorbuddy.vim'}
 --  {"Th3Whit3Wolf/onebuddy"}
  'Matsuuu/pinkmare';
+'tomlion/vim-solidity';
 
- 'sbdchd/neoformat';
+ -- 'sbdchd/neoformat';
 
  {'savq/paq-nvim', opt = true};    -- paq-nvim manages itself
  {'shougo/deoplete-lsp'};
  {'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']};
- {'tbodt/deoplete-tabnine', run = './install.sh' };
+ -- {'tbodt/deoplete-tabnine', run = './install.sh' };
 --  {'neoclide/coc.nvim', run = fn['yarn install --frozen-lockfile']}
+  {'prettier/vim-prettier',run = fn['yarn install && yarn add prettier-plugin-solidity']};
+
 
 -- tree sitter and plugins
  {'nvim-treesitter/nvim-treesitter'};
+ 'nvim-treesitter/playground';
  'romgrk/nvim-treesitter-context';
  'windwp/nvim-ts-autotag';
  'voldikss/vim-floaterm';
