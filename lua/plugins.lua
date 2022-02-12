@@ -13,12 +13,14 @@ require('paq') -- a convenient alias
 --  {"Th3Whit3Wolf/onebuddy"}
  'Matsuuu/pinkmare';
 'tomlion/vim-solidity';
+'hrsh7th/nvim-compe';
+"ray-x/lsp_signature.nvim";
 
  -- 'sbdchd/neoformat';
 
  {'savq/paq-nvim', opt = true};    -- paq-nvim manages itself
- {'shougo/deoplete-lsp'};
- {'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']};
+ -- {'shougo/deoplete-lsp'};
+ -- {'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']};
  -- {'tbodt/deoplete-tabnine', run = './install.sh' };
 --  {'neoclide/coc.nvim', run = fn['yarn install --frozen-lockfile']}
   {'prettier/vim-prettier',run = fn['yarn install && yarn add prettier-plugin-solidity']};
@@ -65,4 +67,8 @@ require('paq') -- a convenient alias
 
 
 }
-g['deoplete#enable_at_startup'] = 1  -- enable deoplete at startup
+-- g['deoplete#enable_at_startup'] = 1  -- enable deoplete at startup
+-- g['completion_enable_auto_popup'] = 1
+-- g['completion_enable_snippet'] = 'UltiSnips'
+-- g['completion_enable_auto_hover'] = 1
+
