@@ -38,22 +38,10 @@ require'nvim-tree'.setup {
     height = 30,
     hide_root_folder = false,
     side = 'left',
-    auto_resize = false,
+    auto_resize = true,
     mappings = {
       custom_only = false,
       list = {}
     }
   }
 }
-
-local g = vim.g
-local map = require('functions').map
-
-g['nvim_tree_quit_on_open'] = 1
-g['nvim_tree_indent_markers'] = 1
-g['nvim_tree_highlight_opened_files'] = 1
-g['nvim_tree_disable_window_picker'] = 1
-
-
-map ('n','<C-b>' ,'<cmd>NvimTreeToggle<CR>')
-map ('n','<C-r>' ,'<cmd>NvimTreeRefresh<CR>')

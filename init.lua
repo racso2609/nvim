@@ -38,12 +38,10 @@ opt.laststatus=0                        -- Always display the status line
 opt.number = true             -- show line number
 opt.relativenumber =true
 
--- opt.foldmethod='syntax'                  --fold method
+opt.foldmethod='syntax'                  --fold method
 -- syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
--- opt.foldlevel=0
+opt.foldlevel=0
 
-opt.foldmethod = 'expr'
-opt.foldexpr = 'nvim_treesitter#foldexpr()'
 opt.cursorline = true                          -- Enable highlighting of the current line
 opt.showcmd = true
 opt.showtabline=2                       -- Always show tabs
@@ -53,7 +51,7 @@ opt.wildmode = {'list', 'longest'}  -- Command-line completion mode
 opt.clipboard='unnamedplus'               -- Copy paste between vim and everything else
 
 require'plugins'
-require'general'
+-- require'general'
 
 -- ---- Searching
 opt.hlsearch =true                    -- highlight matches
@@ -67,7 +65,7 @@ g.mapleader=','
 -- --Theme
 opt.background='dark'                     -- tell vim what the background color looks like
 
-cmd 'colorscheme pinkmare'
+--cmd 'colorscheme pinkmare'
 -- cmd 'colorscheme onebuddy'
 -- cmd 'colorscheme desert'
 

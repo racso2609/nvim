@@ -1,6 +1,5 @@
 local M = {}
 local g = vim.g
-require('fzf')
 
 function M.map(mode, lhs, rhs, opts)
   local options = {noremap = true}
