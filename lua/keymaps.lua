@@ -1,4 +1,5 @@
 local map = require('functions').map
+local g = vim.g;
 
 -- " Open the current file in the default program
 map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
@@ -29,21 +30,11 @@ map ('n','<C-Right>','<C-w>l')
 
 
 -- Tree --
-require("Tree")
-local g = vim.g
-local map = require('functions').map
-
-g['nvim_tree_quit_on_open'] = 1
-g['nvim_tree_indent_markers'] = 1
-g['nvim_tree_highlight_opened_files'] = 1
-g['nvim_tree_disable_window_picker'] = 1
-
 
 map ('n','<C-b>' ,'<cmd>NvimTreeToggle<CR>')
 
 -- Float Term --
 
-local g = vim.g;
 g.floaterm_keymap_toggle = '<c-a>'
 
 g.floaterm_gitcommit='floaterm'
@@ -52,5 +43,18 @@ g.floaterm_width=0.8
 g.floaterm_height=0.8
 g.floaterm_wintitle=0
 g.floaterm_autoclose=1
+
+-- UltiSnips
+
+g.UltiSnipsExpandTrigger="<C-space>"
+g.UltiSnipsSnippetsDir="~/.config/nvim/snippets"
+g.UltiSnipsListSnippets="<C-l>"
+g.UltiSnipsJumpForwardTrigger= '<tab>'
+g.UltiSnipsJumpBackwardTrigger= '<s-tab>'
+
+-- "emmet-vim
+--
+g.user_emmet_mode='a'
+g.user_emmet_leader_key='<C-a>'
 
 

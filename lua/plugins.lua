@@ -37,3 +37,11 @@ require('paq'){
 -- use{'tree-sitter/tree-sitter-css'};
 -- use{'norcalli/nvim-colorizer.lua'};
 }
+
+require("Tree")
+require('nvim-ts-autotag').setup()
+require('floatTerm')
+require'colorizer'.setup()
+require('nvim_comment').setup({line_mapping = "<c-_>", operator_mapping = "<leader>c"})
+require('ultiSnipt')
+require'colorizer'.setup()
