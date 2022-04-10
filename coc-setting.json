@@ -1,0 +1,49 @@
+{
+
+"diagnostic-languageserver.enable": {
+  "type": "boolean",
+  "default": true,
+  "description": "enable this extension?"
+},
+"diagnostic-languageserver.mergeConfig": {
+  "type": "boolean",
+  "default": false,
+  "description": "merge config?"
+},
+"diagnostic-languageserver.debug": {
+  "type": "boolean",
+  "default": true,
+  "description": "enable debug?"
+},
+"diagnostic-languageserver.trace.server": {
+  "type": "string",
+  "default": "off",
+  "enum": [
+    "off",
+    "messages",
+    "verbose"
+  ],
+  "description": "Trace level of diagnostic-languageserver"
+},
+"diagnostic-languageserver.linters": {
+  "type": "object",
+  "default": {},
+  "description": "linters config same as diagnostic-languageserver's linters config"
+},
+"diagnostic-languageserver.filetypes": {
+  "type": "object",
+  "default": {},
+  "description": "filetypes config same as diagnostic-languageserver's filetypes config"
+},
+"diagnostic-languageserver.formatters": {
+  "type": "object",
+  "default": {},
+  "description": "formatters config same as diagnostic-languageserver's formatters config"
+},
+"diagnostic-languageserver.formatFiletypes": {
+  "type": "object",
+  "default": {},
+  "description": "formatFiletypes config same as diagnostic-languageserver's formatFiletypes config"
+}
+
+}

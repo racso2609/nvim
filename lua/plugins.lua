@@ -16,6 +16,10 @@ require('paq'){
 {'lukas-reineke/indent-blankline.nvim'}; -- show ident line
 {'neoclide/coc.nvim', run=fn['yarn install --frozen-lockfile']};
 {'rafcamlet/coc-nvim-lua'};
+-- color schemas
+{'folke/tokyonight.nvim'};
+{'tjdevries/colorbuddy.vim'};
+{"Th3Whit3Wolf/onebuddy"};
 
 
 
@@ -27,7 +31,7 @@ require('paq'){
 
 -- web development --
 {'mattn/emmet-vim'};
- {'windwp/nvim-ts-autotag'};
+ -- {'windwp/nvim-ts-autotag'};
  -- js
 {'HerringtonDarkholme/yats.vim'} ;               -- "ts syntax
 {'mxw/vim-jsx'};              --"jsx syntax}
@@ -35,13 +39,12 @@ require('paq'){
 {'mlaursen/vim-react-snippets'};
 -- css
 -- use{'tree-sitter/tree-sitter-css'};
--- use{'norcalli/nvim-colorizer.lua'};
+--
+{'norcalli/nvim-colorizer.lua'};
 }
 
 require("Tree")
-require('nvim-ts-autotag').setup()
-require('floatTerm')
+-- require('nvim-ts-autotag').setup()
 require'colorizer'.setup()
-require('nvim_comment').setup({line_mapping = "<c-_>", operator_mapping = "<leader>c"})
-require('ultiSnipt')
+require('nvim_comment').setup({line_mapping = "<C-_>", operator_mapping = "<leader>c"})
 require'colorizer'.setup()

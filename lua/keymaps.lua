@@ -57,4 +57,37 @@ g.UltiSnipsJumpBackwardTrigger= '<s-tab>'
 g.user_emmet_mode='a'
 g.user_emmet_leader_key='<C-a>'
 
+-- git --
+-- instal coc-git
+
+map ('n','gc','<cmd>:CocList commits<CR>')
+map ('n','gb','<cmd>:CocCommand git.browserOpen<CR>')
+
+-- eslint --
+-- install coc-eslint
+map ('n','ef','<cmd>:CocCommand eslint.executeAutofix<CR>');
+map ('n','ec','<cmd>:CocCommand eslint.createConfig<CR>');
+
+
+-- prettier --
+-- install coc-prettier
+map ('n',"pc",'<cmd>:CocCommand prettier.createConfigFile<CR>');
+map ('n','pf','<cmd>:CocCommand prettier.formatFile<CR>');
+
+
+
+-- swapper -- 
+-- install coc-swapper
+map ('n','<C-M-s>','<cmd>:CocCommand swagger.render<CR>');
+
+-- svg --
+-- install coc-svg
+map ('n','ssvg','<cmd>:CocCommand svg.showSvg<CR>');
+
+-- tabnine --
+-- install coc-tabnine
+
+map ('n','tc','<cmd>:CocCommand tabnine.openConfig<CR>');
+map ('n','th','<cmd>:CocCommand tabnine.openHub<CR>');
+
 
