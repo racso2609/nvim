@@ -90,4 +90,30 @@ map ('n','ssvg','<cmd>:CocCommand svg.showSvg<CR>');
 map ('n','tc','<cmd>:CocCommand tabnine.openConfig<CR>');
 map ('n','th','<cmd>:CocCommand tabnine.openHub<CR>');
 
+-- telescope --
+--
+
+map ('n','<C-f>','<cmd>:Telescope find_files<CR>');
+map ('n','<C-t>','<cmd>:Telescope live_grep<CR>');
+map ('n','<C-M-b>','<cmd>:Telescope buffers<CR>');
+map ('n','<C-h>','<cmd>:Telescope help_tags<CR>');
+
+-- which key --
+
+
+-- dashboard --
+--
+
+g.dashboard_default_executive ='telescope';
+--g.dashboard_custom_shortcut={
+-- 'last_session'       : 'SPC s l',
+-- 'find_history'       : 'SPC f h',
+-- 'find_file'          : 'SPC f f',
+-- 'new_file'           : 'SPC c n',
+-- 'change_colorscheme' : 'SPC t c',
+-- 'find_word'          : 'SPC f a',
+-- 'book_marks'         : 'SPC f b',
+-- };
+
+
 

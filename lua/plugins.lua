@@ -21,6 +21,15 @@ require('paq'){
 {'tjdevries/colorbuddy.vim'};
 {"Th3Whit3Wolf/onebuddy"};
 
+-- which key --
+{"folke/which-key.nvim"};
+
+-- dashboard --
+{"glepnir/dashboard-nvim"};
+-- telescope fuzzy finder --
+{'nvim-lua/plenary.nvim'};
+{'nvim-telescope/telescope.nvim'};
+
 
 
 
@@ -48,3 +57,5 @@ require("Tree")
 require'colorizer'.setup()
 require('nvim_comment').setup({line_mapping = "<C-_>", operator_mapping = "<leader>c"})
 require'colorizer'.setup()
+
+require("which-key").setup();
