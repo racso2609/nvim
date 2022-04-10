@@ -71,8 +71,8 @@ map ('n','ec','<cmd>:CocCommand eslint.createConfig<CR>');
 
 -- prettier --
 -- install coc-prettier
-map ('n',"pc",'<cmd>:CocCommand prettier.createConfigFile<CR>');
-map ('n','pf','<cmd>:CocCommand prettier.formatFile<CR>');
+map ('n',"cp",'<cmd>:CocCommand prettier.createConfigFile<CR>');
+map ('n','fp','<cmd>:CocCommand prettier.formatFile<CR>');
 
 
 
@@ -115,5 +115,10 @@ g.dashboard_default_executive ='telescope';
 -- 'book_marks'         : 'SPC f b',
 -- };
 
+
+-- Todo comments --
+map ('n','ft','<cmd>:TodoQuickFix<CR>');
+
+-- vimwiki --
 
 
