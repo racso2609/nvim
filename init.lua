@@ -38,9 +38,11 @@ opt.laststatus=0                        -- Always display the status line
 opt.number = true             -- show line number
 opt.relativenumber =true
 
-opt.foldmethod='syntax'                  --fold method
+-- opt.foldmethod='syntax'                  --fold method
 -- syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-opt.foldlevel=0
+-- opt.foldlevel=0
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 opt.cursorline = true                          -- Enable highlighting of the current line
 opt.showcmd = true

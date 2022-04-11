@@ -5,7 +5,8 @@ local fn = vim.fn
 -- cmd [[packadd packer.nvim]]
 
 cmd 'packadd paq-nvim'               -- load the package manager
-require 'keymaps'
+require 'keymaps';
+require 'syntax';
 
 require('paq'){
 
@@ -19,24 +20,25 @@ require('paq'){
 -- color schemas
 {'folke/tokyonight.nvim'};
 {'tjdevries/colorbuddy.vim'};
-{"Th3Whit3Wolf/onebuddy"};
-{"xiyaowong/nvim-transparent"};
+{'Th3Whit3Wolf/onebuddy'};
+{'xiyaowong/nvim-transparent'};
 
  -- todo comments --
- {"folke/todo-comments.nvim"};
- {"vimwiki/vimwiki"};
+ {'folke/todo-comments.nvim'};
+ {'vimwiki/vimwiki'};
 -- which key --
-{"folke/which-key.nvim"};
+{'folke/which-key.nvim'};
 
 -- dashboard --
-{"glepnir/dashboard-nvim"};
+{'glepnir/dashboard-nvim'};
 -- telescope fuzzy finder --
 {'nvim-lua/plenary.nvim'};
 {'nvim-telescope/telescope.nvim'};
 
 {'elkowar/yuck.vim'};
 
-
+-- solidity
+{'tomlion/vim-solidity'};
 
 
  -- file management
@@ -44,13 +46,19 @@ require('paq'){
 -- snippet
  {'SirVer/ultisnips'};
 
+
+--treesitter
+{'nvim-treesitter/nvim-treesitter'};
+{'windwp/nvim-ts-autotag'};
+{'YongJieYongJie/tree-sitter-solidity'};
+
+
 -- web development --
 {'mattn/emmet-vim'};
-{'windwp/nvim-ts-autotag'};
  -- {'windwp/nvim-ts-autotag'};
  -- js
-{'HerringtonDarkholme/yats.vim'} ;               -- "ts syntax
-{'mxw/vim-jsx'};              --"jsx syntax}
+{'HerringtonDarkholme/yats.vim'} ;               -- 'ts syntax
+{'mxw/vim-jsx'};              --'jsx syntax}
 
 {'styled-components/vim-styled-components'};
 {'mlaursen/vim-react-snippets'};
@@ -62,27 +70,27 @@ require('paq'){
 {'norcalli/nvim-colorizer.lua'};
 }
 
-require("Tree")
+require('Tree')
 -- require('nvim-ts-autotag').setup()
 require'colorizer'.setup()
-require('nvim_comment').setup({line_mapping = "<C-_>", operator_mapping = "<leader>c"})
+require('nvim_comment').setup({line_mapping = '<C-_>', operator_mapping = '<leader>c'})
 require'colorizer'.setup()
-require("todo-comments").setup();
+require('todo-comments').setup();
 
-require("which-key").setup();
+require('which-key').setup();
 
-require("transparent").setup({
+require('transparent').setup({
   enable = true, -- boolean: enable transparent
   extra_groups = { -- table/string: additional groups that should be clear
     -- In particular, when you set it to 'all', that means all avaliable groups
 
     -- example of akinsho/nvim-bufferline.lua
-    "BufferLineTabClose",
-    "BufferlineBufferSelected",
-    "BufferLineFill",
-    "BufferLineBackground",
-    "BufferLineSeparator",
-    "BufferLineIndicatorSelected",
+    'BufferLineTabClose',
+    'BufferlineBufferSelected',
+    'BufferLineFill',
+    'BufferLineBackground',
+    'BufferLineSeparator',
+    'BufferLineIndicatorSelected',
   },
   exclude = {}, -- table: groups you don't want to clear
 })
