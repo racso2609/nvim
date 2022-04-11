@@ -46,12 +46,16 @@ require('paq'){
 
 -- web development --
 {'mattn/emmet-vim'};
+{'windwp/nvim-ts-autotag'};
  -- {'windwp/nvim-ts-autotag'};
  -- js
 {'HerringtonDarkholme/yats.vim'} ;               -- "ts syntax
 {'mxw/vim-jsx'};              --"jsx syntax}
+
 {'styled-components/vim-styled-components'};
 {'mlaursen/vim-react-snippets'};
+{'jelera/vim-javascript-syntax'};
+
 -- css
 -- use{'tree-sitter/tree-sitter-css'};
 --
