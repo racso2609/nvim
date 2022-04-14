@@ -97,6 +97,8 @@ map ('n','<C-f>','<cmd>:Telescope find_files<CR>');
 map ('n','<C-t>','<cmd>:Telescope live_grep<CR>');
 map ('n','<C-M-b>','<cmd>:Telescope buffers<CR>');
 map ('n','<C-h>','<cmd>:Telescope help_tags<CR>');
+-- comment
+map ('n','<C-c>','<cmd>:CommentToggle<CR>');
 
 -- which key --
 
