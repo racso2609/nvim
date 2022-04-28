@@ -2,7 +2,6 @@ local cmd = vim.cmd
 local g = vim.g
 local fn = vim.fn
 
-
 vim.cmd 'packadd paq-nvim'         -- Load package
 
 require('paq'){
@@ -63,7 +62,6 @@ require('paq'){
 
 require 'keymaps';
 require 'syntax';
-
 require('Tree')
 require('nvim-ts-autotag').setup()
 require'colorizer'.setup()

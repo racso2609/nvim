@@ -124,3 +124,10 @@ map ('n','ft','<cmd>:TodoQuickFix<CR>');
 -- vimwiki --
 
 
+-- install coc-tsserver
+-- install coc-html
+-- install coc-css
+-- install coc-python
+-- install coc-solidity
+-- install coc-spell-checker
+--
