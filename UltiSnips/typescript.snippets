@@ -1,40 +1,21 @@
-snippet clo "console.log(text)" 
+snippet clg "console.log()" b
 console.log(${1:'$2', $2})
 endsnippet
 
-snippet route "expres route"
-router.route(${/${1}})
-endsnippet
-
-snippet impAsErr ".get(async(req,res)=>{})"
-import {asyncHandler} from '../utils/asyncHandler'
-import {AppError} from '../utils/AppError'
-endsnippet
-
 snippet error ".get(async(req,res)=>{})"
-return next(new AppError('$1', $2))
+return next(new AppError("$1",$2))
+
 endsnippet
 
-snippet asH "asyncHandler error"
-asyncHandler(async(req:Request,res: Response,_next:NextFunction)=>{
+snippet impErr "imp asyncHandler and app error"
+const {asyncHandler}= require('../utils/asyncHandler')
+const {AppError} = require('../utils/AppError')
+endsnippet
+
+snippet asH "asyncHandler"
+asyncHandler(async(req,res,_next)=>{
 
 })
-endsnippet
-snippet get ".get(async(req,res)=>{})"
-.get(async(req:Request,res:Response)=>{})
-endsnippet
-
-snippet post ".get(async(req,res)=>{})"
-.post(async(req:Request,res:Response)=>{})
-
-endsnippet
-
-snippet put ".get(async(req,res)=>{})"
-.put(async(req: Request,res:Response)=>{})
-endsnippet
-
-snippet delete ".get(async(req,res)=>{})"
-.delete(async(req:Request,res:Response)=>{})
 endsnippet
 
 snippet router "express router"
@@ -53,47 +34,33 @@ snippet params "req.params"
 const {} = req.params;
 endsnippet
 
-#snippet clo "console.log(hola,hola)" b
-#console.log(${1:'$2', $3})
-#endsnippet
+snippet clo "console.log(hola)" b
+console.log($1)
+endsnippet
 
 snippet try "try and catch"
 try{
 
-}catch(error){
+}catch(${1:error}){
 
 }
 endsnippet
 
-snippet res "res.status.json"
-res.status().json({})
+snippet res.status "res.json"
+res.status($1)
+.json({
+	success: true,
+	status: "success",
+	$2
+})
 endsnippet
-
-
-snippet imp "import from ''" b
-import ${2:{ $3 }} from '$1'
-endsnippet
-
-snippet ed "import from ''" b
-export default $1
-endsnippet
-
-snippet fn "() => {}" i
-const $1 = ${2:($3)} => ${4:{
-  $5
-}};
-endsnippet
-
-snippet afn "() => {}" i
-${2:($3)} => ${4:{
-  $5
-}}
-endsnippet
-
-snippet cf "() {}" b
-$1 ($2) {
-  $3
-}
+snippet res "res.json"
+res
+.json({
+	success: true,
+	status: "success",
+	$2
+})
 endsnippet
 
 snippet it "it('', () => {})" b
@@ -108,20 +75,10 @@ describe('$1', () => {
 })
 endsnippet
 
-snippet co "const = " b
+snippet const "const = " b
 const ${1:{ $2 }} = ${3:{
   $4
 }}
-endsnippet
-
-snippet arr "= []" b
-const $1 = [
-  $2
-]
-endsnippet
-
-snippet des "const {} =" b
-const { $1 } = $2
 endsnippet
 
 snippet rfc "React function component" b

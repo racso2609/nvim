@@ -11,6 +11,9 @@
     "handlebars",
     "json"
   ],
+  "html.format.enable": true,
+  "javascript.suggest.autoImports": true,
+  "javascript.suggest.paths": true,
   "diagnostic-languageserver.enable": {
     "type": "boolean",
     "default": true,

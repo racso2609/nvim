@@ -2,45 +2,20 @@ snippet clg "console.log()" b
 console.log(${1:'$2', $2})
 endsnippet
 
-snippet route "expres route"
-router.route('/$1')
-endsnippet
-
-snippet get ".get(async(req,res)=>{})"
-.get(async(req,res)=>{
-$1
-		})
-endsnippet
-
-snippet error ".get(async(req,res)=>{})"
+snippet error "next(new AppError())"
 return next(new AppError("$1",$2))
 
 endsnippet
 
-snippet impAsErr ".get(async(req,res)=>{})"
+snippet impErr "imp asyncHandler and app error"
 const {asyncHandler}= require('../utils/asyncHandler')
 const {AppError} = require('../utils/AppError')
 endsnippet
 
-snippet asH ".get(async(req,res)=>{})"
+snippet asH "asyncHandler"
 asyncHandler(async(req,res,_next)=>{
 
 })
-endsnippet
-
-
-snippet post ".get(async(req,res)=>{})"
-.post(async(req,res)=>{
-$1
-		})
-endsnippet
-
-snippet put ".get(async(req,res)=>{})"
-.put(async(req,res)=>{})
-endsnippet
-
-snippet delete ".get(async(req,res)=>{})"
-.delete(async(req,res)=>{})
 endsnippet
 
 snippet router "express router"
@@ -59,9 +34,10 @@ snippet params "req.params"
 const {} = req.params;
 endsnippet
 
-snippet clo "console.log(hola,hola)" b
+snippet clo "console.log(hola)" b
 console.log($1)
 endsnippet
+
 snippet try "try and catch"
 try{
 
@@ -70,41 +46,21 @@ try{
 }
 endsnippet
 
-snippet res "res.status.json"
-res
-.status($1)
+snippet res.status "res.json"
+res.status($1)
 .json({
 	success: true,
 	status: "success",
 	$2
 })
 endsnippet
-
-
-snippet imp "import from ''" b
-import ${2:{ $3 }} from '$1'
-endsnippet
-
-snippet ed "import from ''" b
-export default $1
-endsnippet
-
-snippet fn "() => {}" i
-const $1 = ${2:($3)} => ${4:{
-  $5
-}};
-endsnippet
-
-snippet afn "() => {}" i
-${2:($3)} => ${4:{
-  $5
-}}
-endsnippet
-
-snippet cf "() {}" b
-$1 ($2) {
-  $3
-}
+snippet res "res.json"
+res
+.json({
+	success: true,
+	status: "success",
+	$2
+})
 endsnippet
 
 snippet it "it('', () => {})" b
@@ -119,18 +75,21 @@ describe('$1', () => {
 })
 endsnippet
 
-snippet co "const = " b
+snippet const "const = " b
 const ${1:{ $2 }} = ${3:{
   $4
 }}
 endsnippet
 
-snippet arr "= []" b
-const $1 = [
-  $2
-]
-endsnippet
 
-snippet des "const {} =" b
-const { $1 } = $2
+snippet rfc "React function component" b
+import React from 'react'
+export default function $1  () {
+  return (
+    <$2>
+      $3
+    </$2>
+  )
+}
+
 endsnippet
