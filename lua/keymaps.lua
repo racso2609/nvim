@@ -101,21 +101,23 @@ map ('n','<C-h>','<cmd>:Telescope help_tags<CR>');
 map ('n','<C-c>','<cmd>:CommentToggle<CR>');
 
 -- which key --
+-- snippets --
+g.UltiSnipsListSnippets="<C-l>";
 
 
 -- dashboard --
 --
 
 g.dashboard_default_executive ='telescope';
---g.dashboard_custom_shortcut={
--- 'last_session'       : 'SPC s l',
--- 'find_history'       : 'SPC f h',
--- 'find_file'          : 'SPC f f',
--- 'new_file'           : 'SPC c n',
--- 'change_colorscheme' : 'SPC t c',
--- 'find_word'          : 'SPC f a',
--- 'book_marks'         : 'SPC f b',
--- };
+-- g.dashboard_custom_shortcut={
+--  'last_session'       : 'SPC s l',
+--  'find_history'       : 'SPC f h',
+--  'find_file'          : 'SPC f f',
+--  'new_file'           : 'SPC c n',
+--  'change_colorscheme' : 'SPC t c',
+--  'find_word'          : 'SPC f a',
+--  'book_marks'         : 'SPC f b',
+--  };
 
 
 -- Todo comments --
