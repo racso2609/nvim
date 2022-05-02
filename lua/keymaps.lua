@@ -122,13 +122,26 @@ g.dashboard_default_executive ='telescope';
 map ('n','ft','<cmd>:TodoQuickFix<CR>');
 
 -- vimwiki --
+--
+-- coc --
 
+-- " GoTo code navigation.
+map  ("n","gd", "<Plug>(coc-definition)");
+map  ("n","gy" ,"<Plug>(coc-type-definition)");
+map  ("n","gi" ,"<Plug>(coc-implementation)");
+map  ("n","gr" ,"<Plug>(coc-references)");
+
+map ("n","<space>c",":<C-u>CocList commands<cr>");
+map ("n","<space>e",":<C-u>CocList extensions<cr>");
+map ("v","<space>a" ,"<Plug>(coc-codeaction-selected)");
 
 -- install coc-tsserver
 -- install coc-yaml
+-- install coc-clangd
 -- install coc-html
 -- install coc-css
 -- install coc-python
 -- install coc-solidity
 -- install coc-spell-checker
---
+-- CocInstall coc-markdownlint
+--CocInstall coc-react-refactor
