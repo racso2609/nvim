@@ -125,6 +125,7 @@ map ('n','ft','<cmd>:TodoQuickFix<CR>');
 
 
 -- install coc-tsserver
+-- install coc-yaml
 -- install coc-html
 -- install coc-css
 -- install coc-python

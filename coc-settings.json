@@ -51,5 +51,51 @@
     "type": "object",
     "default": {},
     "description": "formatFiletypes config same as diagnostic-languageserver's formatFiletypes config"
+  },
+  "cSpell.enabledLanguageIds": [
+    "1",
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "go",
+    "handlebars",
+    "haskell",
+    "html",
+    "jade",
+    "java",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pug",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "spanidh",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "vim",
+    "yaml",
+    "yml"
+  ],
+  "languageserver": {
+    "solidity": {
+      "command": "/path/to/solc",
+      "args": ["--lsp"],
+      "trace.server": "verbose",
+      "rootPatterns": [".git/"],
+      "filetypes": ["solidity"]
+    }
   }
 }
