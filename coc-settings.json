@@ -68,8 +68,10 @@
       "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
     },
     "lua": {
-      "command": "lua-lsp",
+      "command": "lua",
       "filetypes": ["lua"]
     }
-  }
+  },
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false
 }

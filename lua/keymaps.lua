@@ -5,7 +5,7 @@ local g = vim.g;
 map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
 map('', '<C-z>', '<C-g>u<C-u>')  -- Make <C-u> undo-friendly
 map('', '<C-m-z>', '<cmd>:redo<cr>')  -- Make <C-u> undo-friendly
-map('','<C-M-r>','<cmd>:source ~/.config/nvim/init.lua<cr>')
+map('n','rc','<cmd>:source ~/.config/nvim/init.lua<cr>')
 
 
 -- <Tab> to navigate the completion menu
@@ -22,6 +22,7 @@ map ('n','<C-M-Up>', '<cmd>:resize +2<CR>')
 map('n','<C-M-Left>',  '<cmd>:vertical resize -2<CR>')
 map('n','<C-M-Right>', '<cmd>:vertical resize +2<CR>')
 
+-- Use alt + hjkl to move into windows
 map ('n','<C-Left>','<C-w>h')
 map ('n','<C-Down>','<C-w>j')
 map ('n','<C-Up>','<C-w>k')
@@ -30,7 +31,6 @@ map ('n','<C-Right>','<C-w>l')
 
 
 -- Tree --
-
 map ('n','<C-b>' ,'<cmd>NvimTreeToggle<CR>')
 
 -- Float Term --
@@ -45,22 +45,21 @@ g.floaterm_wintitle=0
 g.floaterm_autoclose=1
 
 -- UltiSnips
-
 g.UltiSnipsExpandTrigger="<C-space>"
 g.UltiSnipsSnippetsDir="~/.config/nvim/snippets"
 g.UltiSnipsListSnippets="<C-l>"
 g.UltiSnipsJumpForwardTrigger= '<tab>'
 g.UltiSnipsJumpBackwardTrigger= '<s-tab>'
+g.UltiSnipsListSnippets="<space>l";
 
 -- "emmet-vim
---
 g.user_emmet_mode='a'
 g.user_emmet_leader_key='<C-a>'
 
 -- git --
 -- instal coc-git
 
-map ('n','gc','<cmd>:CocList commits<CR>')
+map ('n','gco','<cmd>:CocList commits<CR>')
 map ('n','gb','<cmd>:CocCommand git.browserOpen<CR>')
 
 -- eslint --
@@ -101,8 +100,6 @@ map ('n','<C-h>','<cmd>:Telescope help_tags<CR>');
 map ('n','<C-c>','<cmd>:CommentToggle<CR>');
 
 -- which key --
--- snippets --
-g.UltiSnipsListSnippets="<C-l>";
 
 
 -- dashboard --
