@@ -132,6 +132,16 @@ map  ("n","gr" ,"<Plug>(coc-references)");
 
 map ("n","<space>c",":<C-u>CocList commands<cr>");
 map ("n","<space>e",":<C-u>CocList extensions<cr>");
+map ("n","<space>s",":<C-u>CocList snippets<cr>");
+map ("n","<space>d",":<C-u>CocList diagnostic<cr>");
+map ("n","<space>l",":<C-u>CocList lists<cr>");
+
+map ("n","<space>gc",":<C-u>CocList commits<cr>");
+map ("n","<space>gfc",":<C-u>CocList bcommits<cr>");
+map ("n","<space>gs",":<C-u>CocList gstatus<cr>");
+map ("n","<space>gb",":<C-u>CocList branches<cr>");
+
+
 map ("v","<space>a" ,"<Plug>(coc-codeaction-selected)");
 
 -- install coc-tsserver

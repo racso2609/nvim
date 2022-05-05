@@ -52,6 +52,8 @@ require('paq'){
  {'styled-components/vim-styled-components'};
  {'mlaursen/vim-react-snippets'};
  {'jelera/vim-javascript-syntax'};
+ -- markdown
+  {'thypon/vim-mymmd'};
  -- css
  -- use{'tree-sitter/tree-sitter-css'};
  --
