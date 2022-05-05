@@ -1,7 +1,6 @@
 require'nvim-tree'.setup {
   auto_reload_on_write = true,
   disable_netrw = false,
-  hide_root_folder = false,
   hijack_cursor = false,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
@@ -11,10 +10,6 @@ require'nvim-tree'.setup {
   open_on_tab = false,
   sort_by = "name",
   update_cwd = true,
-  update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  },
   view = {
     width = 30,
     height = 30,

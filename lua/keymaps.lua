@@ -6,6 +6,9 @@ map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
 map('', '<C-z>', '<C-g>u<C-u>')  -- Make <C-u> undo-friendly
 map('', '<C-m-z>', '<cmd>:redo<cr>')  -- Make <C-u> undo-friendly
 map('n','rc','<cmd>:source ~/.config/nvim/init.lua<cr>')
+-- prev and next buffer
+map('n','<space>bn','<cmd>:bn<cr>')
+map('n','<space>bp','<cmd>:bp<cr>')
 
 
 -- <Tab> to navigate the completion menu
@@ -32,6 +35,7 @@ map ('n','<C-Right>','<C-w>l')
 
 -- Tree --
 map ('n','<C-b>' ,'<cmd>NvimTreeToggle<CR>')
+
 
 -- Float Term --
 
@@ -146,6 +150,7 @@ map ("v","<space>a" ,"<Plug>(coc-codeaction-selected)");
 
 -- install coc-tsserver
 -- install coc-yaml
+-- install coc-lua
 -- install coc-clangd
 -- install coc-html
 -- install coc-css

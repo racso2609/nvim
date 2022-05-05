@@ -48,7 +48,7 @@
     "rust",
     "scala",
     "scss",
-    "spanidh",
+    "spanish",
     "text",
     "typescript",
     "typescriptreact",
@@ -57,19 +57,10 @@
     "yml"
   ],
   "languageserver": {
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"]
-    },
     "clangd": {
       "command": "clangd",
       "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
       "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-    },
-    "lua": {
-      "command": "lua",
-      "filetypes": ["lua"]
     }
   },
   "diagnostic.virtualText": true,

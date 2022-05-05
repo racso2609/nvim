@@ -14,6 +14,9 @@ require('paq'){
  {'terrortylor/nvim-comment'};
  {'jiangmiao/auto-pairs'};
  {'lukas-reineke/indent-blankline.nvim'}; -- show ident line
+ -- airline
+ {'kyazdani42/nvim-web-devicons'};
+ {"nvim-lualine/lualine.nvim"};
 
  {'neoclide/coc.nvim',branch= 'release'};
  {'rafcamlet/coc-nvim-lua'};
@@ -53,7 +56,7 @@ require('paq'){
  {'mlaursen/vim-react-snippets'};
  {'jelera/vim-javascript-syntax'};
  -- markdown
-  {'thypon/vim-mymmd'};
+  {"preservim/vim-markdown"};
  -- css
  -- use{'tree-sitter/tree-sitter-css'};
  --
@@ -72,6 +75,7 @@ require'colorizer'.setup()
 require('todo-comments').setup();
 
 require('which-key').setup();
+require('lualineConfig');
 
 require('transparent').setup({
   enable = true, -- boolean: enable transparent

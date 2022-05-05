@@ -9,7 +9,7 @@
 -- --
 -- filetype plugin on
 -- set omnifunc=syntaxcomplete#Complete
--- ""
+-- global vim
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 -- local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
