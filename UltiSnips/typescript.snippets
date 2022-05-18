@@ -8,22 +8,24 @@ return next(new AppError("$1",$2))
 endsnippet
 
 snippet impErr "imp asyncHandler and app error"
-const {asyncHandler}= require('../utils/asyncHandler')
-const {AppError} = require('../utils/AppError')
+import {asyncHandler} from '../utils/asyncHandler'
+import {AppError} = from '../utils/AppError'
 endsnippet
 
 snippet asH "asyncHandler"
-asyncHandler(async(req,res,_next)=>{
+asyncHandler(async(req:Request,res:Response,_next:NextFunction)=>{
 
 })
 endsnippet
 
 snippet router "express router"
-const router = require('express').Router();
+import express = require('express');
+const router = express.Router();
 
 
 
-module.exports = router
+const $1 = router;
+export default $1;
 endsnippet
 
 snippet body "req.body"

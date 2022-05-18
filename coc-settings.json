@@ -9,13 +9,14 @@
     "json",
     "graphql",
     "handlebars",
-    "json"
+    "json",
+    "html"
   ],
   "eslint.packageManager": "yarn",
   "eslint.autoFixOnSave": true,
   "workspace.workspaceFolderCheckCwd": false,
-  "typescript.check.npmIsInstalled": true,
   "html.format.enable": true,
+  "typescript.check.npmIsInstalled": true,
   "typescript.updateImportsOnFileMove.enable": true,
   "javascript.suggest.autoImports": true,
   "javascript.suggest.paths": true,
