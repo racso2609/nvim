@@ -18,6 +18,7 @@ vim.o.completeopt = "menuone,noselect"
 
 
 
+
 -- syntax enable                           -- Enables syntax highlighing
 opt.hidden = true                              -- Required to keep multiple buffers open multiple buffers
 opt.wrap = true                                -- No Display long lines as just one line
@@ -52,7 +53,6 @@ opt.termguicolors=true
 opt.wildmode = {'list', 'longest'}  -- Command-line completion mode
 opt.clipboard='unnamedplus'               -- Copy paste between vim and everything else
 
-require'plugins'
 -- require'general'
 
 -- ---- Searching
@@ -77,4 +77,5 @@ cmd 'colorscheme onebuddy'
 -- cmd [[highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40]]
 -- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
 
+require'plugins'
 
