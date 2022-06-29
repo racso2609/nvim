@@ -12,8 +12,10 @@
     "json",
     "html"
   ],
-  "eslint.packageManager": "yarn",
+  "eslint.packageManager": "npm",
+  "eslint.run": "onSave",
   "eslint.autoFixOnSave": true,
+  "eslint.ignoreFile": [".json"],
   "workspace.workspaceFolderCheckCwd": false,
   "html.format.enable": true,
   "typescript.check.npmIsInstalled": true,
