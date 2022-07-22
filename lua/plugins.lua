@@ -5,11 +5,9 @@ local fn = vim.fn
 vim.cmd 'packadd paq-nvim'         -- Load package
 
 require('paq'){
-  {'uarun/vim-protobuf'};
-  {'yoheimuta/vim-protolint'};
   {'savq/paq-nvim'};
-
   {'tpope/vim-sensible'};
+
  -- general
  {'voldikss/vim-floaterm'};
  {'terrortylor/nvim-comment'};
