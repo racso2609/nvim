@@ -1,4 +1,4 @@
-snippet clg "console.log()" b
+snippet clo "console.log()" b
 console.log(${1:'$2', $2})
 endsnippet
 
@@ -26,15 +26,7 @@ const router = require('express').Router();
 module.exports = router
 endsnippet
 
-snippet body "req.body"
-const {} = req.body;
-endsnippet
-
-snippet params "req.params"
-const {} = req.params;
-endsnippet
-
-snippet clo "console.log(hola)" b
+snippet clg "console.log(hola)" b
 console.log($1)
 endsnippet
 
@@ -46,7 +38,7 @@ try{
 }
 endsnippet
 
-snippet res.status "res.json"
+snippet ress "res.json"
 res.status($1)
 .json({
 	success: true,
@@ -64,7 +56,7 @@ res
 endsnippet
 
 snippet it "it('', () => {})" b
-it('$1', () => {
+it('$1', async() => {
   $2
 })
 endsnippet
@@ -74,13 +66,6 @@ describe('$1', () => {
   $2
 })
 endsnippet
-
-snippet const "const = " b
-const ${1:{ $2 }} = ${3:{
-  $4
-}}
-endsnippet
-
 
 snippet rfc "React function component" b
 import React from 'react'

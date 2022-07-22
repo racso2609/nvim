@@ -1,5 +1,22 @@
-snippet clg "console.log()" b
-console.log(${1:'$2', $2})
+snippet grcpE "gcp communt error" b
+const error = '$1';
+pinologger.info({
+		Error: '$2: ${error}'
+})
+return void callback({
+ code: Status.$3,
+ details: error 
+})
+endsnippet
+
+snippet grcpUE "gcp Unexpected error" b
+pinologger.info({
+		Error: '$2: ${error}'
+})
+return void callback({
+ code: Status.UNKNOWN,
+ details: "Unexpected error!" 
+})
 endsnippet
 
 snippet error ".get(async(req,res)=>{})"
@@ -28,15 +45,7 @@ const $1 = router;
 export default $1;
 endsnippet
 
-snippet body "req.body"
-const {} = req.body;
-endsnippet
-
-snippet params "req.params"
-const {} = req.params;
-endsnippet
-
-snippet clo "console.log(hola)" b
+snippet clg "console.log(hola)" b
 console.log($1)
 endsnippet
 
@@ -48,7 +57,7 @@ try{
 }
 endsnippet
 
-snippet res.status "res.json"
+snippet ress "res.json"
 res.status($1)
 .json({
 	success: true,
@@ -65,8 +74,8 @@ res
 })
 endsnippet
 
-snippet it "it('', () => {})" b
-it('$1', () => {
+snippet it "it('', async() => {})" b
+it('$1', async() => {
   $2
 })
 endsnippet
@@ -77,14 +86,9 @@ describe('$1', () => {
 })
 endsnippet
 
-snippet const "const = " b
-const ${1:{ $2 }} = ${3:{
-  $4
-}}
-endsnippet
 
 snippet rfc "React function component" b
-import React from 'react'
+import React. {FC} from 'react'
 const $1:FC = ${2:($3)} => {
   return (
     <$4>
@@ -97,7 +101,7 @@ export default $1
 endsnippet
 
 snippet rnfc "React native function component" b
-import React from 'react'
+import React, {FC} from 'react'
 import { ${4} } from 'react-native'
 
 const $1:FC = ${2:($3)} => {
@@ -111,19 +115,13 @@ const $1:FC = ${2:($3)} => {
 export default $1
 endsnippet
 
-snippet rcc "React class component" b
-import { Component } from 'react'
-
-class $1 extends Component {
-  render() {
-    return (
-      <div>
-        ${2:// here...}
-      </div>
-    )
-  }
+snippet rhc "React function component" b
+import React from 'react'
+const $1 = ${2:($3)} => {
+  return {} 
 }
 
 export default $1
 endsnippet
+
 
