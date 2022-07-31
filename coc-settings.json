@@ -1,4 +1,7 @@
 {
+  "python.autoComplete.addBrackets": true,
+  "python.jediEnabled": true,
+  "python.formatting.provider": "yapf",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
@@ -10,7 +13,8 @@
     "graphql",
     "handlebars",
     "json",
-    "html"
+    "html",
+    "python"
   ],
   "eslint.packageManager": "npm",
   "eslint.run": "onSave",
@@ -59,13 +63,6 @@
     "yaml",
     "yml"
   ],
-  "languageserver": {
-    "clangd": {
-      "command": "clangd",
-      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-    }
-  },
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false
 }
