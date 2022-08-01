@@ -13,7 +13,8 @@ require('paq'){
   {'terrortylor/nvim-comment'};
   {'jiangmiao/auto-pairs'};
   {'lukas-reineke/indent-blankline.nvim'}; -- show ident line
-  {'kyazdani42/nvim-web-devicons'};
+  -- {'kyazdani42/nvim-web-devicons'};
+  {'yamatsum/nvim-nonicons'};
   {'norcalli/nvim-colorizer.lua'};
 
  -- airline
