@@ -148,6 +148,8 @@ map ("n","<space>gb",":<C-u>CocList branches<cr>");
 
 
 map ("v","<space>a" ,"<Plug>(coc-codeaction-selected)");
+-- git
+map('n','<space>gd',':Neogit')
 
 -- install coc-tsserver
 -- install coc-yaml
