@@ -29,9 +29,10 @@ require('paq'){
   {'Th3Whit3Wolf/onebuddy'};
   {'xiyaowong/nvim-transparent'};
 
-  -- todo comments --
+  -- todo--
   {'folke/todo-comments.nvim'};
-  {'vimwiki/vimwiki'};
+  {'renerocksai/telekasten.nvim'};
+  -- {'vimwiki/vimwiki'};
 
 -- which key --
   {'folke/which-key.nvim'};
@@ -42,6 +43,10 @@ require('paq'){
  -- telescope fuzzy finder --
   {'nvim-lua/plenary.nvim'};
   {'nvim-telescope/telescope.nvim'};
+  {'nvim-telescope/telescope-media-files.nvim'};
+  {'nvim-lua/popup.nvim'};
+  {'ibhagwan/fzf-lua'};
+
  -- eww support
   {'elkowar/yuck.vim'};
 
@@ -71,13 +76,17 @@ require('paq'){
 
  -- markdown
   {"preservim/vim-markdown"};
+  {'ellisonleao/glow.nvim'};
+  {'jghauser/follow-md-links.nvim'};
 
  -- css
   {'tree-sitter/tree-sitter-css'};
 
 -- git
   {'TimUntersberger/neogit'};
-
+  {'tanvirtin/vgit.nvim'};
+-- clipboard
+  {'AckslD/nvim-neoclip.lua'};
 }
 
 
@@ -89,9 +98,27 @@ require'colorizer'.setup()
 require('nvim_comment').setup()
 require'colorizer'.setup()
 require('todo-comments').setup();
+require'telescope'.setup {
+  extensions = {
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = {"png", "webp", "jpg", "jpeg"},
+      find_cmd = "rg" -- find command (defaults to `fd`)
+    }
+  },
+}
+require('telescope').load_extension('media_files')
+require('telescope').load_extension('neoclip')
 
 require('which-key').setup();
 require('lualineConfig');
+require('vgit').setup()
+require('neoclip').setup()
+require('glow').setup({
+  style = "dark",
+  width = 120,
+})
 
 require('transparent').setup({
   enable = true, -- boolean: enable transparent

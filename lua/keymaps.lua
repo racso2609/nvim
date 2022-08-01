@@ -2,14 +2,15 @@ local map = require('functions').map
 local g = vim.g;
 
 -- " Open the current file in the default program
-map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
+-- map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
 map('', '<C-z>', '<C-g>u<C-u>')  -- Make <C-u> undo-friendly
 map('', '<C-m-z>', '<cmd>:redo<cr>')  -- Make <C-u> undo-friendly
 map('n','rc','<cmd>:source ~/.config/nvim/init.vim<cr>')
 -- prev and next buffer
 map('n','<space>bn','<cmd>:bn<cr>')
 map('n','<space>bp','<cmd>:bp<cr>')
-
+-- todo
+map('n','<space>t',':Telekasten<cr>')
 
 -- <Tab> to navigate the completion menu
 map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
@@ -101,6 +102,9 @@ map ('n','<C-f>','<cmd>:Telescope find_files<CR>');
 map ('n','<C-t>','<cmd>:Telescope live_grep<CR>');
 map ('n','<C-M-b>','<cmd>:Telescope buffers<CR>');
 map ('n','<C-h>','<cmd>:Telescope help_tags<CR>');
+map ('n','<space>p','<cmd>:Telescope neoclip<CR>');
+map ('n','<space>m','<cmd>:Telescope media_files<CR>');
+
 -- comment
 map ('n','<C-c>','<cmd>:CommentToggle<CR>');
 
