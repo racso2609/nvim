@@ -5,7 +5,7 @@ local g = vim.g;
 map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
 map('', '<C-z>', '<C-g>u<C-u>')  -- Make <C-u> undo-friendly
 map('', '<C-m-z>', '<cmd>:redo<cr>')  -- Make <C-u> undo-friendly
-map('n','rc','<cmd>:source ~/.config/nvim/init.lua<cr>')
+map('n','rc','<cmd>:source ~/.config/nvim/init.vim<cr>')
 -- prev and next buffer
 map('n','<space>bn','<cmd>:bn<cr>')
 map('n','<space>bp','<cmd>:bp<cr>')
@@ -38,10 +38,11 @@ map ('n','<C-b>' ,'<cmd>NvimTreeToggle<CR>')
 
 
 -- Float Term --
+map ('n','<C-a>' ,'<cmd>:FloatermToggle<CR>')
 
-g.floaterm_keymap_toggle = '<c-a>'
+-- g.floaterm_keymap_toggle = '<c-a>'
 
-g.floaterm_gitcommit='floaterm'
+-- g.floaterm_gitcommit='floaterm'
 g.floaterm_autoinsert=1
 g.floaterm_width=0.8
 g.floaterm_height=0.8

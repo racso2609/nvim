@@ -9,3 +9,4 @@ let g:ale_fixers = {
 
 " We recommend you set this.
 let g:ale_lint_on_text_changed = 'never'
+" autocmd BufWritePre *.py execute ':Black'

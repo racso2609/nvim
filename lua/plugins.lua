@@ -6,24 +6,28 @@ vim.cmd 'packadd paq-nvim'         -- Load package
 
 require('paq'){
   {'savq/paq-nvim'};
-  {'tpope/vim-sensible'};
+  -- {'tpope/vim-sensible'};
 
  -- general
  {'voldikss/vim-floaterm'};
  {'terrortylor/nvim-comment'};
  {'jiangmiao/auto-pairs'};
  {'lukas-reineke/indent-blankline.nvim'}; -- show ident line
- -- airline
  {'kyazdani42/nvim-web-devicons'};
+
+ -- airline
  {"nvim-lualine/lualine.nvim"};
 
+ -- auto complete
  {'neoclide/coc.nvim',branch= 'release'};
- {'rafcamlet/coc-nvim-lua'};
+
  -- color schemas
  {'folke/tokyonight.nvim'};
  {'tjdevries/colorbuddy.vim'};
+ {'morhetz/gruvbox'};
  {'Th3Whit3Wolf/onebuddy'};
  {'xiyaowong/nvim-transparent'};
+
   -- todo comments --
   {'folke/todo-comments.nvim'};
   {'vimwiki/vimwiki'};

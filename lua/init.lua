@@ -67,10 +67,10 @@ g.mapleader=','
 -- --Theme
 opt.background='dark'                     -- tell vim what the background color looks like
 
---cmd 'colorscheme pinkmare'
-cmd 'colorscheme onebuddy'
+-- cmd 'colorscheme pinkmare'
+-- cmd 'colorscheme onebuddy'
 -- cmd 'colorscheme colorbuddy'
--- cmd 'colorscheme desert'
+cmd 'colorscheme gruvbox'
 
 
 -- -- Set cursor line color on visual mode

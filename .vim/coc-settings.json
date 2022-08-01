@@ -4,5 +4,9 @@
     "nvim",
     "objc",
     "objcpp"
+  ],
+  "cSpell.ignoreWords": [
+    "enabled",
+    "pylint"
   ]
 }
