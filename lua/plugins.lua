@@ -9,61 +9,74 @@ require('paq'){
   -- {'tpope/vim-sensible'};
 
  -- general
- {'voldikss/vim-floaterm'};
- {'terrortylor/nvim-comment'};
- {'jiangmiao/auto-pairs'};
- {'lukas-reineke/indent-blankline.nvim'}; -- show ident line
- {'kyazdani42/nvim-web-devicons'};
+  {'voldikss/vim-floaterm'};
+  {'terrortylor/nvim-comment'};
+  {'jiangmiao/auto-pairs'};
+  {'lukas-reineke/indent-blankline.nvim'}; -- show ident line
+  {'kyazdani42/nvim-web-devicons'};
+  {'norcalli/nvim-colorizer.lua'};
 
  -- airline
- {"nvim-lualine/lualine.nvim"};
+  {"nvim-lualine/lualine.nvim"};
 
- -- auto complete
- {'neoclide/coc.nvim',branch= 'release'};
+-- auto complete
+  {'neoclide/coc.nvim',branch= 'release'};
 
  -- color schemas
- {'folke/tokyonight.nvim'};
- {'tjdevries/colorbuddy.vim'};
- {'morhetz/gruvbox'};
- {'Th3Whit3Wolf/onebuddy'};
- {'xiyaowong/nvim-transparent'};
+  {'folke/tokyonight.nvim'};
+  {'tjdevries/colorbuddy.vim'};
+  {'morhetz/gruvbox'};
+  {'Th3Whit3Wolf/onebuddy'};
+  {'xiyaowong/nvim-transparent'};
 
   -- todo comments --
   {'folke/todo-comments.nvim'};
   {'vimwiki/vimwiki'};
+
 -- which key --
- {'folke/which-key.nvim'};
+  {'folke/which-key.nvim'};
+
  -- dashboard --
- {'glepnir/dashboard-nvim'};
+  {'glepnir/dashboard-nvim'};
+
  -- telescope fuzzy finder --
- {'nvim-lua/plenary.nvim'};
- {'nvim-telescope/telescope.nvim'};
- {'elkowar/yuck.vim'};
+  {'nvim-lua/plenary.nvim'};
+  {'nvim-telescope/telescope.nvim'};
+ -- eww support
+  {'elkowar/yuck.vim'};
+
  -- solidity
- {'tomlion/vim-solidity'};
+  {'tomlion/vim-solidity'};
+
   -- file management
   {'kyazdani42/nvim-tree.lua'};
+
  -- snippet
   {'SirVer/ultisnips'};
+
 --treesitter
- {'nvim-treesitter/nvim-treesitter'};
- {'windwp/nvim-ts-autotag'};
- {'YongJieYongJie/tree-sitter-solidity'};
+  {'nvim-treesitter/nvim-treesitter'};
+  {'YongJieYongJie/tree-sitter-solidity'};
+
 -- web development --
- {'mattn/emmet-vim'};
-  -- {'windwp/nvim-ts-autotag'};
+  {'mattn/emmet-vim'};
+  {'windwp/nvim-ts-autotag'};
+
   -- js
- {'HerringtonDarkholme/yats.vim'} ;               -- 'ts syntax
- {'mxw/vim-jsx'};              --'jsx syntax}
- {'styled-components/vim-styled-components'};
- {'mlaursen/vim-react-snippets'};
- {'jelera/vim-javascript-syntax'};
+  {'HerringtonDarkholme/yats.vim'} ;               -- 'ts syntax
+  {'mxw/vim-jsx'};              --'jsx syntax}
+  {'styled-components/vim-styled-components'};
+  {'mlaursen/vim-react-snippets'};
+  {'jelera/vim-javascript-syntax'};
+
  -- markdown
   {"preservim/vim-markdown"};
+
  -- css
- -- use{'tree-sitter/tree-sitter-css'};
- --
- {'norcalli/nvim-colorizer.lua'};
+  {'tree-sitter/tree-sitter-css'};
+
+-- git
+  {'TimUntersberger/neogit'};
 
 }
 
