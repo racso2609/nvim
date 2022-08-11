@@ -154,6 +154,11 @@ map ("n","<space>gb",":<C-u>CocList branches<cr>");
 map ("v","<space>a" ,"<Plug>(coc-codeaction-selected)");
 -- git
 map('n','<space>gd',':Neogit<cr>')
+-- rust
+--
+map('n','<space>rr',':CocCommand rust-analyzer.run<cr>')
+map('n','<space>rc',':CocCommand rust-analyzer.openCargoToml<cr>')
+
 
 -- install coc-tsserver
 -- install coc-yaml
