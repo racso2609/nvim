@@ -91,25 +91,7 @@ require('paq'){
 }
 
 
--- require 'keymaps';
-require('nvim-ts-autotag').setup()
 require'colorizer'.setup()
-require('nvim_comment').setup()
-require'colorizer'.setup()
-require('todo-comments').setup();
-require'telescope'.setup {
-  extensions = {
-    media_files = {
-      -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = {"png", "webp", "jpg", "jpeg"},
-      find_cmd = "rg" -- find command (defaults to `fd`)
-    }
-  },
-}
-require('telescope').load_extension('media_files')
-require('telescope').load_extension('neoclip')
-
 require('which-key').setup();
 require('vgit').setup()
 require('neoclip').setup()
