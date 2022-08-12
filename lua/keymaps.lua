@@ -39,11 +39,11 @@ map ('n','<C-b>' ,'<cmd>NvimTreeToggle<CR>')
 
 
 -- Float Term --
-map ('n','<C-a>' ,'<cmd>:FloatermToggle<CR>')
+-- map ('n','<C-a>' ,'<cmd>:FloatermToggle<CR>')
 
--- g.floaterm_keymap_toggle = '<c-a>'
+g.floaterm_keymap_toggle = '<c-a>'
 
--- g.floaterm_gitcommit='floaterm'
+g.floaterm_gitcommit='floaterm'
 g.floaterm_autoinsert=1
 g.floaterm_width=0.8
 g.floaterm_height=0.8
