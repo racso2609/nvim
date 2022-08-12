@@ -111,7 +111,6 @@ require('telescope').load_extension('media_files')
 require('telescope').load_extension('neoclip')
 
 require('which-key').setup();
-require('lualineConfig');
 require('vgit').setup()
 require('neoclip').setup()
 
