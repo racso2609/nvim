@@ -1,19 +1,16 @@
 {
-  "python.formatting.provider": "black",
-  "languageserver": {
-    "python": {
-      "formatting": {
-        "provider": "black"
-      },
-      "black": {
-        "enabled": true
-      }
-    }
-  },
   "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
+  "python.linting.pylintEnabled": false,
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/usr/bin/black",
+  "coc.source.around.firstMatch": false,
+  "pyright.enable": true,
+  "python.pythonPath": "/usr/bin/python",
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "flake8",
+  "python.linting.enabled": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
@@ -22,11 +19,13 @@
     "typescript",
     "typescriptreact",
     "json",
+    "jsonc",
     "graphql",
     "handlebars",
     "json",
     "html",
     "python",
+    "py",
     "rust",
     "lua"
   ],
@@ -41,35 +40,22 @@
   "javascript.suggest.autoImports": true,
   "javascript.suggest.paths": true,
   "cSpell.enabledLanguageIds": [
-    "1",
-    "asciidoc",
     "c",
     "cpp",
-    "csharp",
     "css",
     "git-commit",
-    "go",
     "handlebars",
-    "haskell",
     "html",
-    "jade",
-    "java",
     "javascript",
     "javascriptreact",
     "json",
     "jsonc",
-    "latex",
     "less",
     "markdown",
-    "php",
     "plaintext",
-    "pug",
     "python",
-    "restructuredtext",
     "rust",
-    "scala",
     "scss",
-    "spanish",
     "text",
     "typescript",
     "typescriptreact",
