@@ -1,24 +1,19 @@
 local map = require('functions').map
 local g = vim.g;
 
--- " Open the current file in the default program
--- map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
-map('', '<C-z>', '<C-g>u<C-u>')  -- Make <C-u> undo-friendly
-map('', '<C-m-z>', '<cmd>:redo<cr>')  -- Make <C-u> undo-friendly
-map('n','rc','<cmd>:source ~/.config/nvim/init.vim<cr>')
--- prev and next buffer
-map('n','<space>bn','<cmd>:bn<cr>')
-map('n','<space>bp','<cmd>:bp<cr>')
--- todo
-map('n','<space>t',':Telekasten<cr>')
+-- Delete a word backwards
+map('n', 'dw', 'vb"_d')
 
--- <Tab> to navigate the completion menu
-map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
-map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
+-- Select all
+map('n', '<C-a>', 'gg<S-v>G')
 
-map('n', '<C-l>', '<cmd>noh<CR>')    -- Clear highlights
-map('n', '<C-s>', '<cmd>:w<CR>')    -- save
-map('n', '<C-q>', '<cmd>:q<CR>')    -- quit
+-- Save with root permission (not working for now)
+--vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
+--
+
+-- Split window
+map('n', 'ss', ':split<Return><C-w>w')
+map('n', 'sv', ':vsplit<Return><C-w>w')
 
 -- Use alt + hjkl to resize windows
 map ('n','<C-M-Down>', '<cmd>:resize -2<CR>')
@@ -32,6 +27,32 @@ map ('n','<C-Down>','<C-w>j')
 map ('n','<C-Up>','<C-w>k')
 map ('n','<C-Right>','<C-w>l')
 
+-- " Open the current file in the default program
+map('n','<C-x>', '<cmd>:!xdg-open %<cr>')
+
+-- Make <C-u> undo-friendly
+map('', '<C-z>', '<C-g>u<C-u>')
+
+-- Make <C-u> undo-friendly
+map('', '<C-m-z>', '<cmd>:redo<cr>')
+
+-- restart vim config
+map('n','rc','<cmd>:source ~/.config/nvim/init.lua<cr>')
+
+-- prev and next buffer
+map('n','<space>bn','<cmd>:bn<cr>')
+map('n','<space>bp','<cmd>:bp<cr>')
+-- todo
+map('n','<space>t',':Telekasten<cr>')
+
+-- Clear highlights
+map('n', '<C-l>', '<cmd>noh<CR>')
+
+-- save
+map('n', '<C-s>', '<cmd>:w<CR>')
+
+-- quit
+map('n', '<C-q>', '<cmd>:q<CR>')
 
 
 -- Tree --
@@ -42,7 +63,6 @@ map ('n','<C-b>' ,'<cmd>NvimTreeToggle<CR>')
 -- map ('n','<C-a>' ,'<cmd>:FloatermToggle<CR>')
 
 g.floaterm_keymap_toggle = '<c-a>'
-
 g.floaterm_gitcommit='floaterm'
 g.floaterm_autoinsert=1
 g.floaterm_width=0.8
@@ -56,7 +76,7 @@ g.UltiSnipsSnippetsDir="~/.config/nvim/snippets"
 g.UltiSnipsListSnippets="<C-l>"
 g.UltiSnipsJumpForwardTrigger= '<tab>'
 g.UltiSnipsJumpBackwardTrigger= '<s-tab>'
-g.UltiSnipsListSnippets="<space>l";
+g.UltiSnipsListSnippets="<space>sl";
 
 -- "emmet-vim
 g.user_emmet_mode='a'
@@ -152,22 +172,10 @@ map ("n","<space>gb",":<C-u>CocList branches<cr>");
 
 
 map ("v","<space>a" ,"<Plug>(coc-codeaction-selected)");
+
 -- git
 map('n','<space>gd',':Neogit<cr>')
+
 -- rust
---
 map('n','<space>rr',':CocCommand rust-analyzer.run<cr>')
 map('n','<space>rc',':CocCommand rust-analyzer.openCargoToml<cr>')
-
-
--- install coc-tsserver
--- install coc-yaml
--- install coc-lua
--- install coc-clangd
--- install coc-html
--- install coc-css
--- install coc-python
--- install coc-solidity
--- install coc-spell-checker
--- CocInstall coc-markdownlint
---CocInstall coc-react-refactor
