@@ -1,6 +1,8 @@
 local map = require('functions').map
 local g = vim.g;
 
+-- coc-format
+map ("n","<space>ff" ,":CocCommand editor.action.formatDocument<cr>");
 -- Delete a word backwards
 map('n', 'dw', 'vb"_d')
 
@@ -97,17 +99,6 @@ map ('n','ec','<cmd>:CocCommand eslint.createConfig<CR>');
 -- prettier --
 -- install coc-prettier
 map ('n',"cp",'<cmd>:CocCommand prettier.createConfigFile<CR>');
-map ('n','fp','<cmd>:CocCommand prettier.formatFile<CR>');
-
-
-
--- swapper -- 
--- install coc-swapper
-map ('n','<C-M-s>','<cmd>:CocCommand swagger.render<CR>');
-
--- svg --
--- install coc-svg
-map ('n','ssvg','<cmd>:CocCommand svg.showSvg<CR>');
 
 -- tabnine --
 -- install coc-tabnine
@@ -171,7 +162,6 @@ map ("n","<space>gs",":<C-u>CocList gstatus<cr>");
 map ("n","<space>gb",":<C-u>CocList branches<cr>");
 
 
-map ("v","<space>a" ,"<Plug>(coc-codeaction-selected)");
 
 -- git
 map('n','<space>gd',':Neogit<cr>')

@@ -1,12 +1,15 @@
-local cmd = vim.cmd
-local g = vim.g
-  local fn = vim.fn
+--/* cSpell:disable */
+-- local cmd = vim.cmd
+-- local g = vim.g
+  -- local fn = vim.fn
 
 vim.cmd 'packadd paq-nvim'         -- Load package
 
 require('paq'){
   {'savq/paq-nvim'};
   -- {'tpope/vim-sensible'};
+  -- documentation
+  -- {'stsewd/sphinx.nvim'};
 
  -- general
   {'voldikss/vim-floaterm'};
@@ -22,6 +25,8 @@ require('paq'){
 
 -- auto complete
   {'neoclide/coc.nvim',branch= 'release'};
+  {'hrsh7th/nvim-compe'};
+  {'tzachar/compe-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-compe'};
 
  -- color schemas
   {'folke/tokyonight.nvim'};
