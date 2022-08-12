@@ -27,7 +27,8 @@
     "handlebars",
     "json",
     "html",
-    "python"
+    "python",
+    "rust"
   ],
   "eslint.packageManager": "npm",
   "eslint.run": "onSave",
