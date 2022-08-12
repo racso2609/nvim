@@ -1,6 +1,6 @@
 local cmd = vim.cmd
 local g = vim.g
-local fn = vim.fn
+  local fn = vim.fn
 
 vim.cmd 'packadd paq-nvim'         -- Load package
 
@@ -91,8 +91,7 @@ require('paq'){
 }
 
 
-require'colorizer'.setup()
-require('which-key').setup();
+    require'colorizer'.setup()
 require('vgit').setup()
 require('neoclip').setup()
 
