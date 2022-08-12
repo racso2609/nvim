@@ -91,9 +91,7 @@ require('paq'){
 }
 
 
-require 'keymaps';
-require 'syntax';
-require('Tree')
+-- require 'keymaps';
 require('nvim-ts-autotag').setup()
 require'colorizer'.setup()
 require('nvim_comment').setup()
@@ -116,10 +114,11 @@ require('which-key').setup();
 require('lualineConfig');
 require('vgit').setup()
 require('neoclip').setup()
-require('glow').setup({
-  style = "dark",
-  width = 120,
-})
+
+-- require('glow').setup({
+  -- style = "dark",
+  -- width = 120,
+-- })
 
 require('transparent').setup({
   enable = true, -- boolean: enable transparent

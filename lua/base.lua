@@ -1,5 +1,3 @@
---init autocmd
-
 -- -- set script encoding
 -- scriptencoding utf-8
 -- -- stop loading config if it's on tiny or small
@@ -42,14 +40,13 @@ opt.relativenumber =true
 -- opt.foldmethod='syntax'                  --fold method
 -- syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 -- opt.foldlevel=0
+opt. pumheight=10                        -- Makes popup menu smaller
 opt.foldmethod = 'expr'
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
-opt.cursorline = true                          -- Enable highlighting of the current line
 opt.showcmd = true
 opt.showtabline=2                       -- Always show tabs
 opt.showmatch=true
-opt.termguicolors=true
 opt.wildmode = {'list', 'longest'}  -- Command-line completion mode
 opt.clipboard='unnamedplus'               -- Copy paste between vim and everything else
 
@@ -64,8 +61,10 @@ opt.autochdir = true                           -- Your working directory will al
 
 g.mapleader=','
 
--- --Theme
-opt.background='dark'                     -- tell vim what the background color looks like
+--alex
+-- g.ale_linters.proto = { 'protolint' }
+-- g.ale_fixers.proto={ 'ale#fixers#protolint#Fix' }
+
 
 -- cmd 'colorscheme pinkmare'
 -- cmd 'colorscheme onebuddy'
@@ -74,8 +73,7 @@ cmd 'colorscheme gruvbox'
 
 
 -- -- Set cursor line color on visual mode
--- cmd [[highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40]]
--- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
+cmd [[highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40]]
+cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
 
-require'plugins'
 
