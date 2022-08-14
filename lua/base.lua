@@ -1,21 +1,9 @@
--- -- set script encoding
--- scriptencoding utf-8
--- -- stop loading config if it's on tiny or small
--- if !1 | finish | endif
 
--- --General
--- --
--- filetype plugin on
--- set omnifunc=syntaxcomplete#Complete
--- global vim
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
--- local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
 local opt = vim.opt  -- to set options
+
 vim.o.completeopt = "menuone,noselect"
-
-
-
 
 -- syntax enable                           -- Enables syntax highlighing
 opt.hidden = true                              -- Required to keep multiple buffers open multiple buffers
@@ -34,42 +22,48 @@ opt.expandtab=true                           -- Converts tabs to spaces
 opt.smartindent=true                         -- Makes indenting smart
 opt.autoindent=true                          -- Good auto indent
 opt.laststatus=0                        -- Always display the status line
-opt.number = true             -- show line number
+
+-- show line number
+opt.number = true
 opt.relativenumber =true
 
--- opt.foldmethod='syntax'                  --fold method
--- syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
--- opt.foldlevel=0
-opt. pumheight=10                        -- Makes popup menu smaller
-opt.foldmethod = 'expr'
-opt.foldexpr = 'nvim_treesitter#foldexpr()'
+-- opt. pumheight=10                        -- Makes popup menu smaller
+-- opt.foldmethod = 'expr'
+-- opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 opt.showcmd = true
-opt.showtabline=2                       -- Always show tabs
+
+-- Always show tabs
+opt.showtabline=2
 opt.showmatch=true
-opt.wildmode = {'list', 'longest'}  -- Command-line completion mode
-opt.clipboard='unnamedplus'               -- Copy paste between vim and everything else
+
+-- Command-line completion mode
+opt.wildmode = {'list', 'longest'}
+
+-- Copy paste between vim and everything else
+opt.clipboard='unnamedplus'
 
 -- require'general'
 
 -- ---- Searching
-opt.hlsearch =true                    -- highlight matches
-opt.incsearch=true                   -- incremental searching
+-- highlight matches
+opt.hlsearch =true
+
+-- incremental searching
+opt.incsearch=true
+
+-- ... unless they contain at least one capital letter
 opt.ignorecase=true                  -- searches are case insensitive...
-opt.smartcase = true                   -- ... unless they contain at least one capital letter
-opt.autochdir = true                           -- Your working directory will always be the same as your working directory
+
+-- Your directory will always be the same as your working directory
+opt.autochdir = true
 
 g.mapleader=','
-
---alex
--- g.ale_linters.proto = { 'protolint' }
--- g.ale_fixers.proto={ 'ale#fixers#protolint#Fix' }
-
 
 -- cmd 'colorscheme pinkmare'
 -- cmd 'colorscheme onebuddy'
 -- cmd 'colorscheme colorbuddy'
-cmd 'colorscheme gruvbox'
+-- cmd 'colorscheme gruvbox'
 
 
 -- -- Set cursor line color on visual mode

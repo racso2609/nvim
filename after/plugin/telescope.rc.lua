@@ -1,3 +1,4 @@
+
 local status, telescope= pcall(require, "telescope")
 if (not status) then return end
 
@@ -13,9 +14,3 @@ telescope.setup({
 })
 telescope.load_extension('media_files')
 telescope.load_extension('neoclip')
-
-local status2, neoclip = pcall(require, "neoclip")
-if (not status2) then return end
-neoclip.setup()
-
-

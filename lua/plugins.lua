@@ -1,107 +1,48 @@
---/* cSpell:disable */
--- local cmd = vim.cmd
--- local g = vim.g
-  -- local fn = vim.fn
+vim.cmd [[packadd packer.nvim]]
 
-vim.cmd 'packadd paq-nvim'         -- Load package
+return require('packer').startup(function(use)
+  use {'wbthomason/packer.nvim'}
 
-require('paq'){
-  {'savq/paq-nvim'};
-  -- {'tpope/vim-sensible'};
-  -- documentation
-  -- {'stsewd/sphinx.nvim'};
+  -- Configurations for Nvim LSP
+  use 'neovim/nvim-lspconfig'
+  use {"williamboman/nvim-lsp-installer"}
 
- -- general
-  {'voldikss/vim-floaterm'};
-  {'terrortylor/nvim-comment'};
-  {'jiangmiao/auto-pairs'};
-  {'lukas-reineke/indent-blankline.nvim'}; -- show ident line
-  -- {'kyazdani42/nvim-web-devicons'};
-  {'yamatsum/nvim-nonicons'};
-  {'norcalli/nvim-colorizer.lua'};
+  -- keymap
+  use {"folke/which-key.nvim"}
 
- -- airline
-  {"nvim-lualine/lualine.nvim"};
-
--- auto complete
-  {'neoclide/coc.nvim',branch= 'release'};
-  {'hrsh7th/nvim-compe'};
-  {'tzachar/compe-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-compe'};
-
- -- color schemas
-  {'folke/tokyonight.nvim'};
-  {'tjdevries/colorbuddy.vim'};
-  {'morhetz/gruvbox'};
-  {'Th3Whit3Wolf/onebuddy'};
-  {'xiyaowong/nvim-transparent'};
-
-  -- todo--
-  {'folke/todo-comments.nvim'};
-  {'renerocksai/telekasten.nvim'};
-  -- {'vimwiki/vimwiki'};
-
--- which key --
-  {'folke/which-key.nvim'};
-
- -- dashboard --
-  {'glepnir/dashboard-nvim'};
-
- -- telescope fuzzy finder --
-  {'nvim-lua/plenary.nvim'};
-  {'nvim-telescope/telescope.nvim'};
-  {'nvim-telescope/telescope-media-files.nvim'};
-  {'nvim-lua/popup.nvim'};
-  {'ibhagwan/fzf-lua'};
-
- -- eww support
-  {'elkowar/yuck.vim'};
-
- -- solidity
-  {'tomlion/vim-solidity'};
+  --term
+  use {'voldikss/vim-floaterm'}
 
   -- file management
-  {'kyazdani42/nvim-tree.lua'};
+  use {'kyazdani42/nvim-tree.lua'}
 
- -- snippet
-  {'SirVer/ultisnips'};
+  -- comment utilities
+  use {'terrortylor/nvim-comment'}
 
---treesitter
-  {'nvim-treesitter/nvim-treesitter'};
-  {'YongJieYongJie/tree-sitter-solidity'};
-
--- web development --
-  {'mattn/emmet-vim'};
-  {'windwp/nvim-ts-autotag'};
-
-  -- js
-  {'HerringtonDarkholme/yats.vim'} ;               -- 'ts syntax
-  {'mxw/vim-jsx'};              --'jsx syntax}
-  {'styled-components/vim-styled-components'};
-  {'mlaursen/vim-react-snippets'};
-  {'jelera/vim-javascript-syntax'};
-
- -- markdown
-  {"preservim/vim-markdown"};
-  -- {'ellisonleao/glow.nvim'};
-  {'jghauser/follow-md-links.nvim'};
-
- -- css
-  {'tree-sitter/tree-sitter-css'};
-
--- git
-  {'TimUntersberger/neogit'};
-  {'tanvirtin/vgit.nvim'};
--- clipboard
-  {'AckslD/nvim-neoclip.lua'};
-  {'nvim-lua/plenary.nvim'};
-}
+  -- snippet
+  use {'SirVer/ultisnips'}
 
 
-require'colorizer'.setup()
 
--- require('glow').setup({
-  -- style = "dark",
-  -- width = 120,
--- })
+  -- web development --
+  use {'mattn/emmet-vim'}
+  use {'windwp/nvim-ts-autotag'}
 
 
+  --treesitter
+  use {'nvim-treesitter/nvim-treesitter'}
+  use {'YongJieYongJie/tree-sitter-solidity'}
+
+ -- telescope fuzzy finder --
+  use {'nvim-lua/plenary.nvim'}
+  use {'nvim-telescope/telescope.nvim'}
+  use {'nvim-telescope/telescope-media-files.nvim'}
+  use {'nvim-lua/popup.nvim'}
+  use {'ibhagwan/fzf-lua'}
+  use {'AckslD/nvim-neoclip.lua'}
+
+  -- git
+  use {'TimUntersberger/neogit'}
+  use {'tanvirtin/vgit.nvim'}
+
+end)
