@@ -3,26 +3,26 @@ local status_cmp, cmp = pcall(require, "cmp")
 if (not status_cmp) then return end
 
 cmp.setup {
- snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      end,
-    },
- mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'ultisnips' }, -- For ultisnips users.
-    })
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'ultisnips' }, -- For ultisnips users.
+  })
 }
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
@@ -71,11 +71,12 @@ local keymap = vim.keymap
 ---- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
+  require "lsp-format".on_attach(client)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -98,23 +99,23 @@ end
 -- 1. Set up nvim-lsp-installer first!
 lsp_installer.setup {
   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
     }
+  }
 }
 
 -- 2. (optional) Override the default configuration to be applied to all servers.
 lspconfig.util.default_config = vim.tbl_extend(
-    "force",
-    lspconfig.util.default_config,
-    {
-        on_attach = on_attach,
-        capabilities = capabilities
-    }
+  "force",
+  lspconfig.util.default_config,
+  {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
 )
 
 
@@ -136,8 +137,8 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
-lspconfig.rust_analyzer.setup{}
-lspconfig.solang.setup{}
-lspconfig.pyright.setup{}
-lspconfig.eslint.setup{}
-lspconfig.tsserver.setup{}
+lspconfig.rust_analyzer.setup {}
+lspconfig.solang.setup {}
+lspconfig.pyright.setup {}
+lspconfig.eslint.setup {}
+lspconfig.tsserver.setup {}

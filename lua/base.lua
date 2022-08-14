@@ -3,6 +3,7 @@ local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local g = vim.g      -- a table to access global variables
 local opt = vim.opt  -- to set options
 
+
 vim.o.completeopt = "menuone,noselect"
 
 -- syntax enable                           -- Enables syntax highlighing
@@ -27,9 +28,9 @@ opt.laststatus=0                        -- Always display the status line
 opt.number = true
 opt.relativenumber =true
 
--- opt. pumheight=10                        -- Makes popup menu smaller
--- opt.foldmethod = 'expr'
--- opt.foldexpr = 'nvim_treesitter#foldexpr()'
+opt. pumheight=10                        -- Makes popup menu smaller
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 opt.showcmd = true
 
@@ -67,7 +68,7 @@ cmd 'colorscheme gruvbox'
 
 
 -- -- Set cursor line color on visual mode
-cmd [[highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40]]
-cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
+-- cmd [[highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40]]
+-- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
 
 

@@ -6,6 +6,8 @@ return require('packer').startup(function(use)
   -- Configurations for Nvim LSP
   use 'neovim/nvim-lspconfig'
   use {"williamboman/nvim-lsp-installer"}
+  use {'jiangmiao/auto-pairs'}
+  use {"lukas-reineke/lsp-format.nvim"}
 
   -- autocomplete
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
@@ -25,8 +27,6 @@ return require('packer').startup(function(use)
 
   -- snippet
   use {'SirVer/ultisnips'}
-
-
 
   -- web development --
   use {'mattn/emmet-vim'}
@@ -51,7 +51,21 @@ return require('packer').startup(function(use)
 
   -- todo--
   use {'folke/todo-comments.nvim'}
+  use {'renerocksai/telekasten.nvim'}
+
+  -- theme and color schema
   use {'morhetz/gruvbox'}
   use {'xiyaowong/nvim-transparent'}
+  use {'lukas-reineke/indent-blankline.nvim'} -- show ident line
+  use {'Th3Whit3Wolf/onebuddy'}
+  use {'kyazdani42/nvim-web-devicons'}
+
+-- js
+  use {'mxw/vim-jsx'}              --'jsx syntax}
+  use {'styled-components/vim-styled-components'}
+  use {'mlaursen/vim-react-snippets'}
+  use {'jelera/vim-javascript-syntax'}
+
+
 
 end)
