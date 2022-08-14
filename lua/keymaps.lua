@@ -23,12 +23,13 @@ wk.register({
      q = { name="set loc list" },
    },
    t = {
-    name = "Terminal / Telescope",
+    name = "Terminal / Telescope / TODO",
     o = { "open" },
-  c = { "Clipboard" },
+    c = { "Clipboard" },
     m = { "Media files" },
     f = {"Find file"},
-    t = { 'Grep text'}
+    t = { 'Grep text'},
+    d = {"get all todo comments"}
    },
    s = {
     name = "Snippets",
@@ -65,6 +66,8 @@ g.floaterm_autoclose=1
 
 -- UltiSnips
 g.UltiSnipsExpandTrigger="<C-space>"
+g.UltiSnipsJumpForwardTrigger= '<tab>'
+g.UltiSnipsJumpBackwardTrigger= '<s-tab>'
 g.UltiSnipsSnippetsDir="~/.config/nvim/snippets"
 g.UltiSnipsListSnippets="<space>sl";
 
@@ -93,4 +96,7 @@ Keymap ('n','<space>tm','<cmd>:Telescope media_files<CR>');
 -- git
 Keymap('n','<space>gd',':Neogit<cr>')
 
+
+-- Todo comments --
+Keymap ('n','<space>td','<cmd>:TodoQuickFix<CR>');
 

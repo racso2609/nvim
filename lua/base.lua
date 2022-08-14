@@ -63,7 +63,7 @@ g.mapleader=','
 -- cmd 'colorscheme pinkmare'
 -- cmd 'colorscheme onebuddy'
 -- cmd 'colorscheme colorbuddy'
--- cmd 'colorscheme gruvbox'
+cmd 'colorscheme gruvbox'
 
 
 -- -- Set cursor line color on visual mode

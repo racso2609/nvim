@@ -7,6 +7,10 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use {"williamboman/nvim-lsp-installer"}
 
+  -- autocomplete
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+
   -- keymap
   use {"folke/which-key.nvim"}
 
@@ -33,7 +37,7 @@ return require('packer').startup(function(use)
   use {'nvim-treesitter/nvim-treesitter'}
   use {'YongJieYongJie/tree-sitter-solidity'}
 
- -- telescope fuzzy finder --
+  -- telescope fuzzy finder --
   use {'nvim-lua/plenary.nvim'}
   use {'nvim-telescope/telescope.nvim'}
   use {'nvim-telescope/telescope-media-files.nvim'}
@@ -44,5 +48,10 @@ return require('packer').startup(function(use)
   -- git
   use {'TimUntersberger/neogit'}
   use {'tanvirtin/vgit.nvim'}
+
+  -- todo--
+  use {'folke/todo-comments.nvim'}
+  use {'morhetz/gruvbox'}
+  use {'xiyaowong/nvim-transparent'}
 
 end)
