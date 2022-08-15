@@ -21,13 +21,12 @@ wk.register({
     q = { name = "set loc list" },
   },
   t = {
-    name = "Terminal / Telescope / TODO",
+    name = "Terminal / Telescope ",
     o = { "open" },
     c = { "Clipboard" },
     m = { "Media files" },
     f = { "Find file" },
     t = { 'Grep text' },
-    d = { "get all todo comments" }
   },
   s = {
     name = "Snippets",
@@ -38,9 +37,27 @@ wk.register({
   g = {
     name = "git",
     d = "open commit dashboard"
-  }
+  },
+  n = {
+    name = 'Notes',
+    l = { "get all todo comments" },
+    t = { "Telekasten" }
+  },
+  c = {
+    name = 'Code action',
+    a = { "Execute code action" }
+  },
+  f = { 'Format' },
+  r = {'Rename action'}
 
 }, { prefix = '<space>' })
+
+wk.register({
+  gd = { 'go to definition' },
+  gi = { 'go to implementation' },
+  gD = { 'go to declaration' },
+  K = { 'open modal hover' },
+})
 
 Keymap('n', '<space>de', vim.diagnostic.open_float, opts)
 Keymap('n', '<space>d[', vim.diagnostic.goto_prev, opts)
@@ -94,8 +111,9 @@ Keymap('n', '<space>tm', '<cmd>:Telescope media_files<CR>');
 Keymap('n', '<space>gd', ':Neogit<cr>')
 
 
--- Todo comments --
-Keymap('n', '<space>td', '<cmd>:TodoQuickFix<CR>');
+-- Todos --
+Keymap('n', '<space>nl', '<cmd>:TodoQuickFix<CR>');
+Keymap('n', '<space>nt', '<cmd>:Telekasten<CR>');
 
 
 -- Clear highlights

@@ -69,6 +69,61 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
+  },
+  everblush = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/everblush",
+    url = "https://github.com/Everblush/everblush"
+  },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
+  },
+  gruvbox = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lsp-format.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/lsp-format.nvim",
+    url = "https://github.com/lukas-reineke/lsp-format.nvim"
+  },
+  neogit = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-comment"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-comment",
+    url = "https://github.com/terrortylor/nvim-comment"
+  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -79,10 +134,120 @@ _G.packer_plugins = {
     path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-neoclip.lua"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua",
+    url = "https://github.com/AckslD/nvim-neoclip.lua"
+  },
+  ["nvim-transparent"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-transparent",
+    url = "https://github.com/xiyaowong/nvim-transparent"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  onebuddy = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/onebuddy",
+    url = "https://github.com/Th3Whit3Wolf/onebuddy"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/racso/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["telekasten.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/telekasten.nvim",
+    url = "https://github.com/renerocksai/telekasten.nvim"
+  },
+  ["telescope-media-files.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
+    url = "https://github.com/nvim-telescope/telescope-media-files.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
+  },
+  ["tree-sitter-solidity"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/tree-sitter-solidity",
+    url = "https://github.com/YongJieYongJie/tree-sitter-solidity"
+  },
+  ultisnips = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/ultisnips",
+    url = "https://github.com/SirVer/ultisnips"
+  },
+  ["vgit.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/vgit.nvim",
+    url = "https://github.com/tanvirtin/vgit.nvim"
+  },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
+  },
+  ["vim-javascript-syntax"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/vim-javascript-syntax",
+    url = "https://github.com/jelera/vim-javascript-syntax"
+  },
+  ["vim-jsx"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/vim-jsx",
+    url = "https://github.com/mxw/vim-jsx"
+  },
+  ["vim-react-snippets"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/vim-react-snippets",
+    url = "https://github.com/mlaursen/vim-react-snippets"
+  },
+  ["vim-styled-components"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/vim-styled-components",
+    url = "https://github.com/styled-components/vim-styled-components"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/home/racso/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

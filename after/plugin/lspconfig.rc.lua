@@ -67,6 +67,7 @@ if (not installer_status) then return end
 
 local keymap = vim.keymap
 
+
 ---- Use an on_attach function to only map the following keys
 ---- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -82,13 +83,8 @@ local on_attach = function(client, bufnr)
   keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
   keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
   keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
@@ -105,7 +101,7 @@ lsp_installer.setup {
       server_pending = "➜",
       server_uninstalled = "✗"
     }
-  }
+  },
 }
 
 -- 2. (optional) Override the default configuration to be applied to all servers.
@@ -141,4 +137,24 @@ lspconfig.rust_analyzer.setup {}
 lspconfig.solang.setup {}
 lspconfig.pyright.setup {}
 lspconfig.eslint.setup {}
+lspconfig.jsonls.setup {}
 lspconfig.tsserver.setup {}
+
+local prettier = {
+  formatCommand = [[prettier --stdin-filepath ${INPUT} ]],
+  formatStdin = true,
+}
+
+require "lsp-format".setup {}
+lspconfig.efm.setup({
+  on_attach = require "lsp-format".on_attach,
+  init_options = { documentFormatting = true },
+  settings = {
+    languages = {
+      typescript = { prettier },
+      typescriptreact = { prettier },
+      json = { prettier },
+      yaml = { prettier },
+    },
+  },
+})
