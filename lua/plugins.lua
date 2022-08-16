@@ -8,6 +8,10 @@ return require('packer').startup(function(use)
   use { "williamboman/nvim-lsp-installer" }
   use { 'jiangmiao/auto-pairs' }
   use { "lukas-reineke/lsp-format.nvim" }
+  use { 'folke/trouble.nvim' }
+
+  -- airline
+  use { "nvim-lualine/lualine.nvim" }
 
   -- autocomplete
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
@@ -48,6 +52,7 @@ return require('packer').startup(function(use)
   -- git
   use { 'TimUntersberger/neogit' }
   use { 'tanvirtin/vgit.nvim' }
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- todo--
   use { 'folke/todo-comments.nvim' }
@@ -60,6 +65,8 @@ return require('packer').startup(function(use)
   use { 'Th3Whit3Wolf/onebuddy' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'Everblush/everblush.nvim', as = 'everblush' }
+  use { 'tjdevries/colorbuddy.vim' }
+  use { 'norcalli/nvim-colorizer.lua' }
 
   -- js
   use { 'mxw/vim-jsx' } --'jsx syntax}
@@ -70,3 +77,4 @@ return require('packer').startup(function(use)
 
 
 end)
+-- require'colorizer'.setup()

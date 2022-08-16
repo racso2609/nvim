@@ -48,7 +48,7 @@ wk.register({
     a = { "Execute code action" }
   },
   f = { 'Format' },
-  r = {'Rename action'}
+  r = { 'Rename action' }
 
 }, { prefix = '<space>' })
 
@@ -79,7 +79,7 @@ g.floaterm_wintitle = 0
 g.floaterm_autoclose = 1
 
 -- UltiSnips
-g.UltiSnipsExpandTrigger = "<C-u>"
+g.UltiSnipsExpandTrigger = "<M-a>"
 g.UltiSnipsJumpForwardTrigger = '<tab>'
 g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
 g.UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
