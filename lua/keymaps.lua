@@ -63,6 +63,7 @@ Keymap('n', '<space>de', vim.diagnostic.open_float, opts)
 Keymap('n', '<space>d[', vim.diagnostic.goto_prev, opts)
 Keymap('n', '<space>d]', vim.diagnostic.goto_next, opts)
 Keymap('n', '<space>dq', vim.diagnostic.setloclist, opts)
+Keymap('n', '<space>dt', ":Trouble<cr>", opts)
 
 -- file explorer
 Keymap('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
