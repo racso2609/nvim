@@ -2,15 +2,7 @@
 local opts = { noremap = true, silent = true }
 local wk = require("which-key")
 local g = vim.g
-
--- Functional wrapper for mapping custom keybindings
-function Keymap(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
-end
+local keymap = require("exports").keymap
 
 wk.register({
   d = {
@@ -26,7 +18,7 @@ wk.register({
     c = { "Clipboard" },
     m = { "Media files" },
     f = { "Find file" },
-    t = { 'Grep text' },
+    t = { "Grep text" },
   },
   s = {
     name = "Snippets",
@@ -36,43 +28,41 @@ wk.register({
   },
   g = {
     name = "git",
-    d = "open commit dashboard"
+    d = "open commit dashboard",
   },
   n = {
-    name = 'Notes',
+    name = "Notes",
     l = { "get all todo comments" },
-    t = { "Telekasten" }
+    t = { "Telekasten" },
   },
   c = {
-    name = 'Code action',
-    a = { "Execute code action" }
+    name = "Code action",
+    a = { "Execute code action" },
   },
-  f = { 'Format' },
-  r = { 'Rename action' }
-
-}, { prefix = '<space>' })
+  f = { "Format" },
+  r = { "Rename action" },
+}, { prefix = "<space>" })
 
 wk.register({
-  gd = { 'go to definition' },
-  gi = { 'go to implementation' },
-  gD = { 'go to declaration' },
-  K = { 'open modal hover' },
+  gd = { "go to definition" },
+  gi = { "go to implementation" },
+  gD = { "go to declaration" },
+  K = { "open modal hover" },
 })
 
-Keymap('n', '<space>de', vim.diagnostic.open_float, opts)
-Keymap('n', '<space>d[', vim.diagnostic.goto_prev, opts)
-Keymap('n', '<space>d]', vim.diagnostic.goto_next, opts)
-Keymap('n', '<space>dq', vim.diagnostic.setloclist, opts)
-Keymap('n', '<space>dt', ":Trouble<cr>", opts)
+keymap("n", "<space>de", vim.diagnostic.open_float, opts)
+keymap("n", "<space>d[", vim.diagnostic.goto_prev, opts)
+keymap("n", "<space>d]", vim.diagnostic.goto_next, opts)
+keymap("n", "<space>dq", vim.diagnostic.setloclist, opts)
+keymap("n", "<space>dt", ":Trouble<cr>", opts)
 
 -- file explorer
-Keymap('n', '<C-b>', '<cmd>NvimTreeToggle<CR>')
-
+keymap("n", "<C-b>", "<cmd>NvimTreeToggle<CR>")
 
 -- Float Term --
 
-g.floaterm_keymap_toggle = '<space>to'
-g.floaterm_gitcommit = 'floaterm'
+g.floaterm_keymap_toggle = "<space>to"
+g.floaterm_gitcommit = "floaterm"
 g.floaterm_autoinsert = 1
 g.floaterm_width = 0.8
 g.floaterm_height = 0.8
@@ -81,79 +71,74 @@ g.floaterm_autoclose = 1
 
 -- UltiSnips
 g.UltiSnipsExpandTrigger = "<M-a>"
-g.UltiSnipsJumpForwardTrigger = '<tab>'
-g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
+g.UltiSnipsJumpForwardTrigger = "<tab>"
+g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
 g.UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
-g.UltiSnipsListSnippets = "<space>sl";
+g.UltiSnipsListSnippets = "<space>sl"
 
-
-Keymap('n', '<space>sa', ":UltiSnipsAddFileTypes", opts)
-Keymap('n', '<space>se', ":UltiSnipsEdit<cr>", opts)
-
+keymap("n", "<space>sa", ":UltiSnipsAddFileTypes", opts)
+keymap("n", "<space>se", ":UltiSnipsEdit<cr>", opts)
 
 -- "emmet-vim
-g.user_emmet_mode = 'a'
-g.user_emmet_leader_key = '<C-a>'
+g.user_emmet_mode = "a"
+g.user_emmet_leader_key = "<C-a>"
 
 -- comment
-Keymap('n', '<C-c>', '<cmd>:CommentToggle<CR>');
+keymap("n", "<C-c>", "<cmd>:CommentToggle<CR>")
 
 -- telescope --
 --
 
-Keymap('n', '<space>tf', '<cmd>:Telescope find_files<CR>');
-Keymap('n', '<space>tt', '<cmd>:Telescope live_grep<CR>');
-Keymap('n', '<space>tb', '<cmd>:Telescope buffers<CR>');
-Keymap('n', '<space>th', '<cmd>:Telescope help_tags<CR>');
-Keymap('n', '<space>tc', '<cmd>:Telescope neoclip<CR>');
-Keymap('n', '<space>tm', '<cmd>:Telescope media_files<CR>');
+keymap("n", "<space>tf", "<cmd>:Telescope find_files<CR>")
+keymap("n", "<space>tt", "<cmd>:Telescope live_grep<CR>")
+keymap("n", "<space>tb", "<cmd>:Telescope buffers<CR>")
+keymap("n", "<space>th", "<cmd>:Telescope help_tags<CR>")
+keymap("n", "<space>tc", "<cmd>:Telescope neoclip<CR>")
+keymap("n", "<space>tm", "<cmd>:Telescope media_files<CR>")
 
 -- git
-Keymap('n', '<space>gd', ':Neogit<cr>')
-
+keymap("n", "<space>gd", ":Neogit<cr>")
 
 -- Todos --
-Keymap('n', '<space>nl', '<cmd>:TodoQuickFix<CR>');
-Keymap('n', '<space>nt', '<cmd>:Telekasten<CR>');
-
+keymap("n", "<space>nl", "<cmd>:TodoQuickFix<CR>")
+keymap("n", "<space>nt", "<cmd>:Telekasten<CR>")
 
 -- Clear highlights
-Keymap('n', '<C-l>', '<cmd>noh<CR>')
+keymap("n", "<C-l>", "<cmd>noh<CR>")
 
 -- save
-Keymap('n', '<C-s>', '<cmd>:w<CR>')
+keymap("n", "<C-s>", "<cmd>:w<CR>")
 
 -- quit
-Keymap('n', '<C-q>', '<cmd>:q<CR>')
-
+keymap("n", "<C-q>", "<cmd>:q<CR>")
 
 -- Split window
-Keymap('n', 'ss', ':split<Return><C-w>w')
-Keymap('n', 'sv', ':vsplit<Return><C-w>w')
+keymap("n", "ss", ":split<Return><C-w>w")
+keymap("n", "sv", ":vsplit<Return><C-w>w")
 
 -- Use alt + hjkl to resize windows
-Keymap('n', '<C-M-Down>', '<cmd>:resize -2<CR>')
-Keymap('n', '<C-M-Up>', '<cmd>:resize +2<CR>')
-Keymap('n', '<C-M-Left>', '<cmd>:vertical resize -2<CR>')
-Keymap('n', '<C-M-Right>', '<cmd>:vertical resize +2<CR>')
+keymap("n", "<C-M-Down>", "<cmd>:resize -2<CR>")
+keymap("n", "<C-M-Up>", "<cmd>:resize +2<CR>")
+keymap("n", "<C-M-Left>", "<cmd>:vertical resize -2<CR>")
+keymap("n", "<C-M-Right>", "<cmd>:vertical resize +2<CR>")
 
 -- Use alt + hjkl to move into windows
-Keymap('n', '<C-Left>', '<C-w>h')
-Keymap('n', '<C-Down>', '<C-w>j')
-Keymap('n', '<C-Up>', '<C-w>k')
-Keymap('n', '<C-Right>', '<C-w>l')
+keymap("n", "<C-Left>", "<C-w>h")
+keymap("n", "<C-Down>", "<C-w>j")
+keymap("n", "<C-Up>", "<C-w>k")
+keymap("n", "<C-Right>", "<C-w>l")
 
 -- Delete a word backwards
-Keymap('n', 'dw', 'vb"_d')
+keymap("n", "dw", 'vb"_d')
 
 -- Select all
-Keymap('n', '<C-a>', 'gg<S-v>G')
+keymap("n", "<C-a>", "gg<S-v>G")
 
 -- Make <C-u> undo-friendly
-Keymap('', '<C-z>', '<C-g>u<C-u>')
+keymap("", "<C-z>", "<C-g>u<C-u>")
 
 -- Make <C-u> undo-friendly
-Keymap('', '<C-m-z>', '<cmd>:redo<cr>')
+keymap("", "<C-m-z>", "<cmd>:redo<cr>")
 
 -- restart vim config
-Keymap('n', 'rc', '<cmd>:source ~/.config/nvim/init.lua<cr>')
+keymap("n", "rc", "<cmd>:source ~/.config/nvim/init.lua<cr>")

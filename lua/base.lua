@@ -71,3 +71,14 @@ require('colorbuddy').colorscheme('onebuddy')
 -- -- Set cursor line color on visual mode
 -- cmd [[highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40]]
 -- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
+
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
+})
