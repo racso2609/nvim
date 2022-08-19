@@ -62,11 +62,11 @@ g.mapleader = ','
 
 -- cmd 'colorscheme pinkmare'
 -- cmd 'colorscheme onebuddy'
-cmd 'colorscheme onebuddy'
+-- cmd 'colorscheme onebuddy'
 -- cmd 'colorscheme gruvbox'
 -- cmd 'colorscheme everblush'
 require('colorbuddy').colorscheme('onebuddy')
-
+cmd 'hi Normal guibg=NONE ctermbg=NONE';
 
 -- -- Set cursor line color on visual mode
 -- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
