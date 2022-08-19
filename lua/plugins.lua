@@ -95,4 +95,6 @@ return require('packer').startup(function(use)
   use({ 'styled-components/vim-styled-components' })
   use({ 'mlaursen/vim-react-snippets' })
   use({ 'jelera/vim-javascript-syntax' })
+  -- yuck
+  use { 'elkowar/yuck.vim' }
 end)
