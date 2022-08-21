@@ -73,7 +73,7 @@ return require('packer').startup(function(use)
 
   -- git
   use({ 'TimUntersberger/neogit' })
-  use({ 'tanvirtin/vgit.nvim' })
+  use({ 'lewis6991/gitsigns.nvim' })
   use({ 'sindrets/diffview.nvim', requires = "nvim-lua/plenary.nvim" })
 
   -- todo--
