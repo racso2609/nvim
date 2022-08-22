@@ -1,9 +1,8 @@
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
-local wk = require("which-key")
+local _, wk = pcall(require, "which-key");
 local g = vim.g
 local keymap = require("exports").keymap
-
 wk.register({
   d = {
     name = "Diagnostic",

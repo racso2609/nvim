@@ -2,9 +2,8 @@ local capabilities = require('exports').capabilities
 
 local status, lspconfig = pcall(require, "lspconfig")
 local installer_status, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status or not installer_status then
-
-  return
+if not status or not installer_status
+then return
 end
 
 local keymap = vim.keymap
@@ -74,7 +73,7 @@ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_c
 -- 3. Loop through all of the installed servers and set it up via lspconfig
 for _, server in ipairs(lsp_installer.get_installed_servers()) do
   lspconfig[server.name].setup {
-    on_attach =  on_attach ,
-    capabilities =  capabilities 
+    on_attach = on_attach,
+    capabilities = capabilities
   }
 end

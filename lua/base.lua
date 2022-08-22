@@ -4,6 +4,7 @@ local opt = vim.opt -- to set options
 
 
 vim.o.completeopt = "menuone,noselect"
+cmd 'set termguicolors'
 
 -- syntax enable                           -- Enables syntax highlighing
 opt.hidden = true -- Required to keep multiple buffers open multiple buffers
@@ -65,8 +66,8 @@ g.mapleader = ','
 -- cmd 'colorscheme onebuddy'
 -- cmd 'colorscheme gruvbox'
 -- cmd 'colorscheme everblush'
-require('colorbuddy').colorscheme('onebuddy')
-cmd 'hi Normal guibg=NONE ctermbg=NONE';
+-- require('colorbuddy').colorscheme('onebuddy')
+-- cmd 'hi Normal guibg=NONE ctermbg=NONE';
 
 -- -- Set cursor line color on visual mode
 -- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
