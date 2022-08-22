@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
   keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
   keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
+  keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
 -- 1. Set up nvim-lsp-installer first!
