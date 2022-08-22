@@ -58,6 +58,7 @@ return require('packer').startup(function(use)
   --treesitter
   use({ 'nvim-treesitter/nvim-treesitter' })
   use({ 'YongJieYongJie/tree-sitter-solidity' })
+  use({ "p00f/nvim-ts-rainbow" })
 
   -- telescope fuzzy finder --
   use({ 'nvim-lua/plenary.nvim' })
