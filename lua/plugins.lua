@@ -94,4 +94,6 @@ return require('packer').startup(function(use)
   use({ 'jelera/vim-javascript-syntax' })
   -- yuck
   use { 'elkowar/yuck.vim' }
+  -- cairo
+  use({"ericglau/vim-cairo"})
 end)
