@@ -72,3 +72,4 @@ g.mapleader = ','
 -- -- Set cursor line color on visual mode
 -- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
 -- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
+vim.g.python3_host_prog = '/home/racso/.pyenv/versions/nvim/bin/python'

@@ -95,5 +95,6 @@ return require('packer').startup(function(use)
   -- yuck
   use { 'elkowar/yuck.vim' }
   -- cairo
-  use({"ericglau/vim-cairo"})
+  use({ "ericglau/vim-cairo" })
+  -- uss
 end)
