@@ -96,5 +96,6 @@ return require('packer').startup(function(use)
   use { 'elkowar/yuck.vim' }
   -- cairo
   use({ "ericglau/vim-cairo" })
-  -- uss
+  use { "miguelmota/cairo.vim" }
+  use { 'neoclide/coc.nvim', branch = 'release' }
 end)
