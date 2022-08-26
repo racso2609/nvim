@@ -64,7 +64,7 @@ g.mapleader = ','
 -- cmd 'colorscheme pinkmare'
 -- cmd 'colorscheme onebuddy'
 -- cmd 'colorscheme onebuddy'
--- cmd 'colorscheme gruvbox'
+cmd 'colorscheme gruvbox'
 -- cmd 'colorscheme everblush'
 -- require('colorbuddy').colorscheme('onebuddy')
 -- cmd 'hi Normal guibg=NONE ctermbg=NONE';

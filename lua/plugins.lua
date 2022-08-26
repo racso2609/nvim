@@ -7,8 +7,9 @@ return require('packer').startup(function(use)
   use('neovim/nvim-lspconfig')
   use({ 'williamboman/nvim-lsp-installer' })
   use({ 'jiangmiao/auto-pairs' })
-  use({ 'lukas-reineke/lsp-format.nvim' })
+  -- use({ 'lukas-reineke/lsp-format.nvim' })
   use({ 'folke/trouble.nvim' })
+  use { "jose-elias-alvarez/null-ls.nvim" }
 
 
   -- airline
