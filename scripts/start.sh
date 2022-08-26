@@ -12,31 +12,6 @@ if [ ! -x "$(command -v node)" ]; then
     npm i -g neovim 
 fi
 
-# Use package feature to install coc.nvim
-
-# for vim8
-# mkdir -p ~/.vim/pack/coc/start
-# cd ~/.vim/pack/coc/start
-# curl --fail -L https://github.com/neoclide/coc.nvim/archive/release.tar.gz | tar xzfv -
-# for neovim
-# mkdir -p ~/.local/share/nvim/site/pack/coc/start
-# cd ~/.local/share/nvim/site/pack/coc/start
-# curl --fail -L https://github.com/neoclide/coc.nvim/archive/release.tar.gz | tar xzfv -
-
-# Install extensions
-# mkdir -p ~/.config/coc/extensions
-# cd ~/.config/coc/extensions
-# if [ ! -f package.json ]
-# then
-#  rm -r ~/.config/coc
-#  cd ~/.config
-#  git clone https://github.com/racso2609/coc-config
-#  mv coc-config ./coc
-  # echo '{"dependencies":{}}'> package.json
-# fi
-# Change extension names to the extensions you need
-# npm install coc-snippets --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
-
 #install paq
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
