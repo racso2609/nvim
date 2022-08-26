@@ -1,0 +1,28 @@
+snippet fn "function"
+function $1($2):
+	$3
+  return ()
+end
+endsnippet
+
+snippet str "storagevar"
+
+@storage_var
+func $1() -> (res : $2):
+end
+ 
+endsnippet
+
+snippet co "constructor"
+
+@constructor
+func $1{$2}($3):
+	$4
+  return ()
+end
+
+endsnippet
+
+snippet start "start contract"
+%lang starknet
+endsnippet
