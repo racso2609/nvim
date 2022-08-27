@@ -13,6 +13,7 @@ local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
+	-- disable lsp formatting to use null-ls
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 
