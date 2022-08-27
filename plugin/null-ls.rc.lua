@@ -6,9 +6,12 @@ end
 
 local null_config = {
 	sources = {
-		require("null-ls").builtins.formatting.stylua,
-		require("null-ls").builtins.diagnostics.eslint,
-		require("null-ls").builtins.completion.spell,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.completion.spell,
+		null_ls.builtins.code_actions.gitsigns,
+		null_ls.builtins.diagnostics.alex,
+null_ls.builtins.diagnostics.codespel
 	},
 	on_attach = function(client)
 		if client.server_capabilities.documentFormattingProvider then
