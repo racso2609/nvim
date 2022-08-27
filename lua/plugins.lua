@@ -39,7 +39,7 @@ return require("packer").startup(function(use)
 	use({ "folke/which-key.nvim" })
 
 	--term
-	use({ "voldikss/vim-floaterm" })
+	-- use({ "voldikss/vim-floaterm" })
 
 	-- file management
 	use({ "kyazdani42/nvim-tree.lua" })
