@@ -6,7 +6,6 @@ if not status or not installer_status then
 	return
 end
 
-local keymap = vim.keymap
 ---- Use an on_attach function to only map the following keys
 ---- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -16,20 +15,6 @@ local on_attach = function(client, bufnr)
 	-- disable lsp formatting to use null-ls
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
-
-	-- Mappings.
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-	keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-	keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-	keymap.set("n", "<space>r", vim.lsp.buf.rename, bufopts)
-	keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-	keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	-- keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
 end
 
 -- 1. Set up nvim-lsp-installer first!
