@@ -11,7 +11,7 @@ local null_config = {
 		null_ls.builtins.completion.spell,
 		null_ls.builtins.code_actions.gitsigns,
 		null_ls.builtins.diagnostics.alex,
-null_ls.builtins.diagnostics.codespel
+		null_ls.builtins.diagnostics.codespel,
 	},
 	on_attach = function(client)
 		if client.server_capabilities.documentFormattingProvider then
