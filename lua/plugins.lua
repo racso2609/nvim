@@ -47,6 +47,7 @@ return require("packer").startup(function(use)
 
 	-- comment utilities
 	use({ "terrortylor/nvim-comment" })
+	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
 	-- snippet
 	use({ "SirVer/ultisnips" })

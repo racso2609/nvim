@@ -75,6 +75,12 @@ local shortcuts = {
 				commands = {
 					{ key = "<C-b>", command = "<cmd>NvimTreeToggle<cr>", name = "Open nvim tree lua" },
 					{ key = "<C-c>", command = "<cmd>CommentToggle<cr>", name = "Quick comment line" },
+					{
+						key = "<C-c>",
+						mode = "all",
+						command = "<cmd>'<,'>CommentToggle<cr>",
+						name = "Quick comment line",
+					},
 					{ key = "<C-l>", command = ":noh<cr>", name = "Clear highlights" },
 					-- save close
 					{ key = "<C-s>", command = ":w<cr>", name = "Save" },
@@ -142,7 +148,9 @@ for _, activator in ipairs(shortcuts) do
 			local rhs = command.command
 
 			local mode
-			if command.mode then
+			if command.mode == "all" then
+				mode = ""
+			elseif command.mode then
 				mode = command.mode
 			else
 				mode = "n"
