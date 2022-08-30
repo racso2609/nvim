@@ -52,6 +52,7 @@ local shortcuts = {
 				commands = {
 					{ key = "l", command = ":TodoQuickFix<cr>", name = "List todo comments" },
 					{ key = "t", command = ":Telekasten<cr>", name = "Open telekasten menu" },
+					{ key = "p", command = ":Glow", name = "Open Markdown preview" },
 				},
 			},
 			{
