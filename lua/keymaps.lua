@@ -45,13 +45,13 @@ local shortcuts = {
 				commands = {
 					{ key = "d", command = ":Neogit<cr>", name = "Git commit dashboard" },
 				},
-				{
-					prefix = "n",
-					name = "Notes / Todo",
-					commands = {
-						{ key = "l", command = ":TodoQuickFix<cr>", name = "List todo comments" },
-						{ key = "t", command = ":Telekasten<cr>", name = "Open telekasten menu" },
-					},
+			},
+			{
+				prefix = "n",
+				name = "Notes / Todo",
+				commands = {
+					{ key = "l", command = ":TodoQuickFix<cr>", name = "List todo comments" },
+					{ key = "t", command = ":Telekasten<cr>", name = "Open telekasten menu" },
 				},
 			},
 			{

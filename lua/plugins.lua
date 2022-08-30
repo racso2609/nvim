@@ -99,4 +99,6 @@ return require("packer").startup(function(use)
 	use({ "ericglau/vim-cairo" })
 	use({ "miguelmota/cairo.vim" })
 	use({ "neoclide/coc.nvim", branch = "release" })
+	-- md
+	use({ "ellisonleao/glow.nvim" })
 end)
