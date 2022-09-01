@@ -88,6 +88,7 @@ return require("packer").startup(function(use)
 	use({ "Everblush/everblush.nvim", as = "everblush" })
 	use({ "tjdevries/colorbuddy.vim" })
 	use({ "norcalli/nvim-colorizer.lua" })
+	use("Mofiqul/vscode.nvim")
 
 	-- js
 	use({ "mxw/vim-jsx" }) --"jsx syntax}
