@@ -103,4 +103,6 @@ return require("packer").startup(function(use)
 	use({ "neoclide/coc.nvim", branch = "release" })
 	-- md
 	use({ "ellisonleao/glow.nvim" })
+	-- my Plugin
+	use("racso2609/keymaps-nvim")
 end)

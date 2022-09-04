@@ -1,8 +1,10 @@
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local status, keymaps = pcall(require, "keymaps-nvim")
+if not status then
+	return
+end
 local opts = { noremap = true, silent = true }
-local _, wk = pcall(require, "which-key")
 local g = vim.g
-local keymap = require("exports").keymap
 local shortcuts = {
 	{
 		activator = "<space>",
@@ -74,10 +76,10 @@ local shortcuts = {
 				prefix = "",
 				commands = {
 					{ key = "<C-b>", command = "<cmd>NvimTreeToggle<cr>", name = "Open nvim tree lua" },
-					{ key = "<C-c>", command = "<cmd>CommentToggle<cr>", name = "Quick comment line" },
+					{ key = "<C-c>", mode = "n", command = "<cmd>CommentToggle<cr>", name = "Quick comment line" },
 					{
 						key = "<C-c>",
-						mode = "all",
+						mode = "v",
 						command = "<cmd>'<,'>CommentToggle<cr>",
 						name = "Quick comment line",
 					},
@@ -127,6 +129,7 @@ local shortcuts = {
 		},
 	},
 }
+keymaps.setup(shortcuts)
 
 -- UltiSnips
 g.UltiSnipsExpandTrigger = "<M-a>"
@@ -138,27 +141,3 @@ g.UltiSnipsListSnippets = "<space>sl"
 -- "emmet-vim
 g.user_emmet_mode = "a"
 g.user_emmet_leader_key = "<C-a>"
-
-for _, activator in ipairs(shortcuts) do
-	local wikiInfo = {}
-	for _, prefix in ipairs(activator.keymaps) do
-		wikiInfo[prefix.prefix] = { name = prefix.name }
-		for _, command in ipairs(prefix.commands) do
-			local lhs = activator.activator .. prefix.prefix .. command.key
-			local rhs = command.command
-
-			local mode
-			if command.mode == "all" then
-				mode = ""
-			elseif command.mode then
-				mode = command.mode
-			else
-				mode = "n"
-			end
-
-			keymap(mode, lhs, rhs, command.options)
-			wikiInfo[prefix.prefix][command.key] = { name = command.name }
-		end
-	end
-	wk.register(wikiInfo, { prefix = activator.activator })
-end
