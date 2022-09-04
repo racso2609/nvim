@@ -1,5 +1,5 @@
 snippet fn "function"
-function $1($2):
+func $1($2):
 	$3
   return ()
 end
@@ -25,4 +25,11 @@ endsnippet
 
 snippet start "start contract"
 %lang starknet
+endsnippet
+
+snippet errM "error message"
+with_attr error_message("$1"):
+	$2
+	# assert 
+end
 endsnippet
