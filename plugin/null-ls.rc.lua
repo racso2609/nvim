@@ -8,10 +8,13 @@ local null_config = {
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.diagnostics.eslint,
-		null_ls.builtins.completion.spell,
+		-- null_ls.builtins.completion.spell,
 		null_ls.builtins.code_actions.gitsigns,
 		null_ls.builtins.diagnostics.alex,
-		null_ls.builtins.diagnostics.codespel,
+		null_ls.builtins.diagnostics.codespell.with({ filetypes = {} }),
+		-- general
+		null_ls.builtins.formatting.trim_newlines,
+		null_ls.builtins.formatting.trim_whitespace,
 	},
 	on_attach = function(client)
 		if client.server_capabilities.documentFormattingProvider then
