@@ -8,8 +8,8 @@ autocmd("FileType", {
 	pattern = "cairo",
 	callback = function()
 		print("cairo")
-		require("cmp").setup.buffer({ enabled = false })
+		-- require("cmp").setup.buffer({ enabled = false })
 
-		vim.cmd(":CocStart")
+		-- vim.cmd(":CocStart")
 	end,
 })

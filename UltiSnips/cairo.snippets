@@ -10,7 +10,7 @@ snippet str "storagevar"
 @storage_var
 func $1() -> (res : $2):
 end
- 
+
 endsnippet
 
 snippet co "constructor"
@@ -30,6 +30,32 @@ endsnippet
 snippet errM "error message"
 with_attr error_message("$1"):
 	$2
-	# assert 
+	# assert
 end
 endsnippet
+
+snippet  pK "partitioned key"
+let (key) = hash2{hash_ptr=pedersen_ptr}($1, $2)
+let ($3Key) = feltToUint256(key)
+endsnippet
+
+snippet aC "add comment"
+#############################################
+##                 $1                  ##
+#############################################
+endsnippet
+
+snippet uC "uint check"
+with_attr error_message("$1: $2 is not a valid Uint256"):
+  uint256_check(_$2)
+end
+endsnippet
+
+
+snippet adC "add comment"
+#
+# @$1 $2
+#
+endsnippet
+
+

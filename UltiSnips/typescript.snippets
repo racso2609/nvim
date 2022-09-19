@@ -5,7 +5,7 @@ pinologger.info({
 })
 return void callback({
  code: Status.$3,
- details: error 
+ details: error
 })
 endsnippet
 
@@ -15,7 +15,7 @@ pinologger.info({
 })
 return void callback({
  code: Status.UNKNOWN,
- details: "Unexpected error!" 
+ details: "Unexpected error!"
 })
 endsnippet
 
@@ -118,10 +118,35 @@ endsnippet
 snippet rhc "React function component" b
 import React from 'react'
 const $1 = ${2:($3)} => {
-  return {} 
+  return {}
 }
 
 export default $1
 endsnippet
 
+snippet sdkM "ini module to sdk"
+import { NetworkContract } from '../../base/NetworkContract'
+import {  ContractInterface } from 'ethers'
+import { BaseModule } from '../base/BaseModule'
+import { BundledAbis } from '../../BundledAbis'
 
+export class $1Module extends BaseModule {
+
+	/**
+   * Instantiates a MetaNFT module.
+   * @param networkContract the network contract this module should use
+   */
+
+	constructor(protected networkContract: NetworkContract, abis: ContractInterface[] = []) {
+    super(networkContract, [BundledAbis.$2].concat(abis))
+  }
+}
+endsnippet
+
+snippet sdkRead "create read function"
+public $1 = async():Promise<$2> => this.read("$1")
+endsnippet
+
+snippet sdkTx "create tx function"
+public $1 = async():Promise<Transaction> => this.transaction("$1",$2)
+endsnippet

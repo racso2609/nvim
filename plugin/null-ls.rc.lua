@@ -6,11 +6,10 @@ end
 
 local null_config = {
 	sources = {
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.diagnostics.eslint,
-		-- null_ls.builtins.completion.spell,
-		null_ls.builtins.code_actions.gitsigns,
-		null_ls.builtins.diagnostics.alex,
+		null_ls.builtins.formatting.stylua.with({ filetypes = { "lua" } }),
+
+		-- null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.completion.spell,
 		null_ls.builtins.diagnostics.codespell.with({ filetypes = {} }),
 		-- general
 		null_ls.builtins.formatting.trim_newlines,

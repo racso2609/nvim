@@ -29,17 +29,12 @@ local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 --
 -- cmd 'colorscheme pinkmare'
 -- cmd 'colorscheme onebuddy'
--- -- cmd 'colorscheme onebuddy'
+-- cmd("colorscheme onebuddy")
 cmd("colorscheme gruvbox")
 -- cmd 'colorscheme everblush'
 -- require('colorbuddy').colorscheme('onebuddy')
 -- cmd 'hi Normal guibg=NONE ctermbg=NONE';
 
 -- -- Set cursor line color on visual mode
--- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
--- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]-- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
--- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]-- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
--- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]-- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
--- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]-- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
--- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]-- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
--- cmd [[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]
+cmd([[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey39]])
+-- cmd([[highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000]]) -- cmd [[highlight Visual cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40]]
