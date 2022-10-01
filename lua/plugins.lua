@@ -100,8 +100,8 @@ return require("packer").startup(function(use)
 	-- cairo
 	use({ "ericglau/vim-cairo" })
 	use({ "miguelmota/cairo.vim" })
-	-- use({ "racso2609/cairo-support-nvim"   })
-	use({ "~/Programming/nvim-plugins/cairo-support" })
+	use({ "racso2609/cairo-support-nvim"   })
+	-- use({ "~/Programming/nvim-plugins/cairo-support" })
 	-- use({ "neoclide/coc.nvim", branch = "release" })
 	-- md
 	use({ "ellisonleao/glow.nvim" })
