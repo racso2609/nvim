@@ -13,8 +13,8 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
 	-- disable lsp formatting to use null-ls
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
+	client.server_capabilities.document_formatting = false
+	client.server_capabilities.document_range_formatting = false
 end
 
 -- 1. Set up nvim-lsp-installer first!

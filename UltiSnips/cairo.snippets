@@ -1,25 +1,37 @@
 snippet fn "function"
-func $1($2):
+func $1($2){
+
 	$3
-  return ()
-end
+  return ();
+}
 endsnippet
 
 snippet str "storagevar"
 
 @storage_var
-func $1() -> (res : $2):
-end
+func $1() -> (res : $2){\
+}
 
 endsnippet
+
+snippet event "event"
+
+@event
+func $1($2){
+}
+endsnippet
+
+
+
 
 snippet co "constructor"
 
 @constructor
-func $1{$2}($3):
+func $1{$2}($3){
+
 	$4
-  return ()
-end
+  return ();
+}
 
 endsnippet
 
@@ -28,15 +40,16 @@ snippet start "start contract"
 endsnippet
 
 snippet errM "error message"
-with_attr error_message("$1"):
+with_attr error_message("$1"){
+
 	$2
 	# assert
-end
+}
 endsnippet
 
 snippet  pK "partitioned key"
-let (key) = hash2{hash_ptr=pedersen_ptr}($1, $2)
-let ($3Key) = feltToUint256(key)
+let (key) = hash2{hash_ptr=pedersen_ptr}($1, $2);
+let ($3Key) = feltToUint256(key);
 endsnippet
 
 snippet aC "add comment"
@@ -46,9 +59,10 @@ snippet aC "add comment"
 endsnippet
 
 snippet uC "uint check"
-with_attr error_message("$1: $2 is not a valid Uint256"):
-  uint256_check(_$2)
-end
+with_attr error_message("$1: $2 is not a valid Uint256"){
+
+  uint256_check(_$2);
+}
 endsnippet
 
 

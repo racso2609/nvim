@@ -148,5 +148,11 @@ public $1 = async():Promise<$2> => this.read("$1")
 endsnippet
 
 snippet sdkTx "create tx function"
-public $1 = async():Promise<Transaction> => this.transaction("$1",$2)
+public $1 = async($2):Promise<Transaction> => this.transaction("$1",$2)
+endsnippet
+
+snippet sdkfTx "create tx function"
+public async $1 ($2):Promise<Transaction> {
+	return this.transaction("$1",$2)
+}
 endsnippet
