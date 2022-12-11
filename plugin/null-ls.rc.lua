@@ -36,13 +36,7 @@ local null_config = {
         vim.lsp.buf.format({ async = false })
       end)
 
-      -- format on save
-      autocmd("BufWritePost", {
-        callback = function()
-          vim.lsp.buf.format({ async = false })
-        end,
-      })
-    end
+   end
 
     if client.server_capabilities.documentRangeFormattingProvider then
       vim.keymap.set("v", "<Leader>f", vim.lsp.buf.range_formatting)

@@ -1,4 +1,5 @@
- local prettier = require("prettier")
+ local status, prettier  = pcall(require, "prettier")
+ if (not status) then return end
  -- local exist = prettier.config_exists({ check_package_json = true })
  
  prettier.setup({
