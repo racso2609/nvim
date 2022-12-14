@@ -84,6 +84,9 @@ local plugins = {
   -- cairo
   { name =  "~/Programming/nvim-plugins/cairo-support"  },
 
+  { name= "ericglau/vim-cairo" },
+  { name= "miguelmota/cairo.vim" },
+
   {name= "morhetz/gruvbox" }
 }
 
