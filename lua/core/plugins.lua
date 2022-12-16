@@ -63,6 +63,11 @@ local plugins = {
   -- html and jsx
   { name = "mattn/emmet-vim" },
   { name = "windwp/nvim-ts-autotag" },
+  -- js
+  { name = "styled-components/vim-styled-components" },
+  { name = "mlaursen/vim-react-snippets" },
+  -- eww
+{ name="elkowar/yuck.vim" },
   -- syntax (treesitter)
   { name = "nvim-treesitter/nvim-treesitter" },
   { name = "YongJieYongJie/tree-sitter-solidity" },
@@ -82,12 +87,20 @@ local plugins = {
   { name = "folke/todo-comments.nvim" },
   { name = "renerocksai/telekasten.nvim" },
   -- cairo
-  { name =  "~/Programming/nvim-plugins/cairo-support"  },
+  { name = "~/Programming/nvim-plugins/cairo-support" },
 
-  { name= "ericglau/vim-cairo" },
-  { name= "miguelmota/cairo.vim" },
+  { name = "ericglau/vim-cairo" },
+  { name = "miguelmota/cairo.vim" },
+  -- theme
+  { name = "morhetz/gruvbox" },
+  { name = "xiyaowong/nvim-transparent" },
+  { name = "lukas-reineke/indent-blankline.nvim" },
+  { name = "kyazdani42/nvim-web-devicons" },
 
-  {name= "morhetz/gruvbox" }
+  { name = "norcalli/nvim-colorizer.lua" },
+  -- md
+
+{ name="ellisonleao/glow.nvim" }
 }
 
 packer.startup(function(use)
