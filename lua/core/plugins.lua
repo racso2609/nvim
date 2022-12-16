@@ -67,7 +67,7 @@ local plugins = {
   { name = "styled-components/vim-styled-components" },
   { name = "mlaursen/vim-react-snippets" },
   -- eww
-{ name="elkowar/yuck.vim" },
+  { name = "elkowar/yuck.vim" },
   -- syntax (treesitter)
   { name = "nvim-treesitter/nvim-treesitter" },
   { name = "YongJieYongJie/tree-sitter-solidity" },
@@ -100,7 +100,7 @@ local plugins = {
   { name = "norcalli/nvim-colorizer.lua" },
   -- md
 
-{ name="ellisonleao/glow.nvim" }
+  { name = "ellisonleao/glow.nvim" }
 }
 
 packer.startup(function(use)

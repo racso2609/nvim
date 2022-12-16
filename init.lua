@@ -2,8 +2,8 @@ local foldersTable = {
   'core',
   'core.autocmds',
   'core.plugins',
-  'keymaps',
-  'base',
+  'core.base',
+  'core.keymaps',
 }
 
 for _, folder in ipairs(foldersTable) do
