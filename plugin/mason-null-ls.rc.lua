@@ -1,0 +1,54 @@
+-- Package installation folder
+-- local install_root_dir = vim.fn.stdpath "data" .. "/mason"
+--
+-- require("mason-null-ls").setup({
+--   ensure_installed = {
+--     "stylua",
+--     "eslint",
+--     "prettier",
+--   },
+--   automatic_setup = true,
+--   automatic_update = true,
+--   automatic_installation = true,
+-- })
+-- require("mason-null-ls").setup_handlers({
+--   function(source_name, methods)
+--     -- all sources with no handler get passed here
+--
+--     -- To keep the original functionality of `automatic_setup = true`,
+--     -- please add the below.
+--     require(
+--       "mason-null-ls.automatic_setup"
+--     )(
+--       source_name,
+--       methods
+--     )
+--   end,
+--   stylua = function(source_name, methods)
+--     null_ls.register(
+--       null_ls.builtins.formatting.stylua
+--     )
+--   end,
+-- })
+
+-- local null_ls = require("null-ls")
+
+-- local formatting = null_ls.builtins.formatting
+-- local diagnostics = null_ls.builtins.diagnostics
+-- local code_actions = null_ls.builtins.code_actions
+
+-- null_ls.setup({
+--   debug = true,
+--   sources = {
+--     -- lua
+--     formatting.stylua,
+--     -- tsserver
+--     formatting.prettier,
+--     code_actions.eslint,
+--     -- general
+--     diagnostics.shellcheck,
+--     diagnostics.write_good,
+--     diagnostics.cspell,
+--     code_actions.cspell,
+--   },
+-- })
