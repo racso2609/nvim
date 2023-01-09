@@ -1,0 +1,180 @@
+snippet sdkMD "sdk create method"
+### $1
+
+▸ **$1**(sdkProvider, sdkSigner, includeAbis?): Omit<[$2]($2.md), "contract"\>
+
+Extend fungible assets' amounts
+
+#### Type parameters
+
+| Name |
+| :------ |
+| T |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| $3 | $4 | - |
+
+#### Returns
+
+Promise<$5\>
+___
+endsnippet
+
+snippet sdkD "sdk documentation"
+[@nexeraprotocol/metanft-sdk](../README.md) / [Exports](../modules.md) / $1
+
+# Class: $1
+$1 Sdk Module
+
+## Hierarchy
+  - [BaseModule](BaseModule.md)
+
+  ↳ **$1**
+
+## Table of contents
+
+### Constructors
+
+- [constructor]($1.md#constructor)
+
+###
+
+- [abis]($1.md#abis)
+- [networkContract]($1.md#networkcontract)
+- [sdkProvider]($1.md#sdkprovider)
+- [sdkSigner]($1.md#sdksigner)
+
+### Accessors
+
+- [address]($1.md#address)
+- [getContract]($1.md#getcontract)
+
+### Methods
+
+
+## Constructors
+
+### constructor
+
+• **new $1 **(networkContract, abis?)
+
+Instantiates a TokenWrapper module.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| networkContract | [NetworkContract](NetworkContract.md) | undefined | the network contract this module should use |
+| abis | ContractInterface[] | [] | - |
+
+#### Overrides
+
+[BaseModule](BaseModule.md).[constructor](BaseModule.md#constructor)
+
+## Properties
+
+### abis
+
+• Protected **abis**: ContractInterface[]
+
+#### Inherited from
+
+[BaseModule](BaseModule.md).[abis](BaseModule.md#abis)
+
+#### Defined in
+
+[src/contracts/modules/base/BaseModule.ts:13](https://github.com/NexeraProtocol/MetaNFT-sdk/blob/ed955c0/src/contracts/modules/base/BaseModule.ts#L13)
+
+___
+
+### networkContract
+
+• Protected **networkContract**: [NetworkContract](NetworkContract.md)
+
+#### Inherited from
+
+[BaseModule](BaseModule.md).[networkContract](BaseModule.md#networkcontract)
+
+#### Defined in
+
+[src/contracts/modules/KYCPropertyManager/KYCPropertyManagerModule.ts:22](https://github.com/NexeraProtocol/MetaNFT-sdk/blob/ed955c0/src/contracts/modules/KYCPropertyManager/KYCPropertyManagerModule.ts#L22)
+
+___
+
+### sdkProvider
+
+• Protected **sdkProvider**: SdkProvider
+
+#### Inherited from
+
+[BaseModule](BaseModule.md).[sdkProvider](BaseModule.md#sdkprovider)
+
+#### Defined in
+
+[src/contracts/modules/base/BaseModule.ts:9](https://github.com/NexeraProtocol/MetaNFT-sdk/blob/ed955c0/src/contracts/modules/base/BaseModule.ts#L9)
+
+___
+
+### sdkSigner
+
+• Protected **sdkSigner**: Signer
+
+#### Inherited from
+
+[BaseModule](BaseModule.md).[sdkSigner](BaseModule.md#sdksigner)
+
+#### Defined in
+
+[src/contracts/modules/base/BaseModule.ts:10](https://github.com/NexeraProtocol/MetaNFT-sdk/blob/ed955c0/src/contracts/modules/base/BaseModule.ts#L10)
+
+
+
+
+
+## Accessors
+
+### address
+
+• get **address**(): string
+
+Gets the current contract address.
+
+#### Returns
+
+string
+
+#### Inherited from
+
+BaseModule.address
+
+___
+
+### getContract
+
+• get **getContract**(): Contract
+
+Gets the EthersJs Contract instance
+
+**See**
+
+ [https://docs.ethers.io/v5/api/contract/contract/](https://docs.ethers.io/v5/api/contract/contract/)
+
+#### Returns
+
+Contract
+
+#### Inherited from
+
+BaseModule.getContract
+
+
+## Methods
+
+
+
+
+
+endsnippet
