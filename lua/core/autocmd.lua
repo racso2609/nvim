@@ -16,24 +16,18 @@ cmd("TextYankPost", {
 })
 
 -- format on save
--- cmd("BufWritePost", {
---   callback = function()
---     vim.lsp.buf.format({
---       async = true,
---       filter = function(
---     client
---       )
---         if client.name
---             == "tsserver"
---         then
---           vim.cmd(
---             ":EslintFixAll"
---           )
---           return false
---         end
---
---         return true
---       end,
---     })
---   end,
--- })
+cmd("BufWritePost", {
+	callback = function()
+		vim.lsp.buf.format({
+			async = false,
+			filter = function(client)
+				if client.name == "tsserver" then
+					vim.cmd(":EslintFixAll")
+					return false
+				end
+
+				return true
+			end,
+		})
+	end,
+})
