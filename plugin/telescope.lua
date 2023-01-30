@@ -1,16 +1,19 @@
-local telescope = racsonvim.safeRequire "telescope"
+local telescope = racsonvim.safeRequire("telescope")
 
 telescope.setup({
-  extensions = {
-    media_files = {
-      -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = { "png", "webp", "jpg", "jpeg" },
-      find_cmd = "rg" -- find command (defaults to `fd`)
-    }
-  },
+	defaults = {
+		path_display = { "smart" },
+	},
+	extensions = {
+		media_files = {
+			-- filetypes whitelist
+			-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+			filetypes = { "png", "webp", "jpg", "jpeg" },
+			find_cmd = "rg", -- find command (defaults to `fd`)
+		},
+	},
 })
-telescope.load_extension('media_files')
-telescope.load_extension('neoclip')
-local neoclip = racsonvim.safeRequire "neoclip"
+telescope.load_extension("media_files")
+telescope.load_extension("neoclip")
+local neoclip = racsonvim.safeRequire("neoclip")
 neoclip.setup({})

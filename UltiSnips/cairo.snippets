@@ -43,7 +43,7 @@ from starkware.cairo.common.cairo_builtins import HashBuiltin
 // from contracts.utils.Uint256Utils import feltToUint256
 
 namespace $1{
-	
+
 }
 endsnippet
 
@@ -55,7 +55,7 @@ from starkware.cairo.common.uint256 import Uint256
 
 @contract_interface
 namespace I$1{
-	
+
 }
 endsnippet
 
@@ -63,7 +63,7 @@ snippet errM "error message"
 with_attr error_message("$1"){
 
 	$2
-	# assert
+	// assert
 }
 endsnippet
 
@@ -73,9 +73,9 @@ let ($3Key) = feltToUint256(key);
 endsnippet
 
 snippet aC "add comment"
-#############################################
-##                 $1                  ##
-#############################################
+/////////////////////////////////////////////
+//                 $1                  //
+/////////////////////////////////////////////
 endsnippet
 
 snippet uC "uint check"
@@ -87,9 +87,7 @@ endsnippet
 
 
 snippet adC "add comment"
-#
-# @$1 $2
-#
+/
+/ @$1 $2
+/
 endsnippet
-
-
