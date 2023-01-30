@@ -77,8 +77,13 @@ local shortcuts = {
 						name = "Find files",
 					},
 					{
-						key = "t",
+						key = "T",
 						command = ":Telescope live_grep<cr>",
+						name = "Find Text",
+					},
+					{
+						key = "t",
+						command = ":lua require('telescope.builtin').live_grep({cwd=vim.fn.systemlist('git rev-parse --show-toplevel')[1]})<cr>",
 						name = "Find Text",
 					},
 					{
