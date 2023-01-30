@@ -70,6 +70,12 @@ local shortcuts = {
 						command = ":lua require('telescope.builtin').find_files({cwd =vim.fn.systemlist('git rev-parse --show-toplevel')[1]})<cr>",
 						name = "Find files",
 					},
+
+					{
+						key = "D",
+						command = ":lua require('telescope.builtin').find_files()<cr>",
+						name = "Find files",
+					},
 					{
 						key = "t",
 						command = ":Telescope live_grep<cr>",
