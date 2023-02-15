@@ -69,7 +69,6 @@ masonConfig.setup_handlers({
 					},
 				},
 			})
-		--elseif(server_name == 'efm') then
 		else
 			lspconfig[server_name].setup({
 				on_attach = on_attach,
@@ -78,3 +77,4 @@ masonConfig.setup_handlers({
 		end
 	end,
 })
+lspconfig.solc.setup({})
