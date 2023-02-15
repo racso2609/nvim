@@ -140,7 +140,7 @@ require("packer").startup(function(use)
 		"ericglau/vim-cairo",
 		requires = {
 			"miguelmota/cairo.vim",
-			"~/Programming/nvim-plugins/cairo-support",
+			"racso2609/cairo-support-nvim",
 		},
 	})
 	-- js
@@ -152,7 +152,13 @@ require("packer").startup(function(use)
 		},
 	})
 	use("elkowar/yuck.vim")
-	use("ellisonleao/glow.nvim")
+
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 	use("ckipp01/stylua-nvim")
 
 	-- auto close brackets etc

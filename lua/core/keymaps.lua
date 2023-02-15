@@ -129,14 +129,27 @@ local shortcuts = {
 						name = "List todo comments",
 					},
 					{
-						key = "t",
+						key = "tm",
 						command = ":Telekasten<cr>",
 						name = "Open telekasten menu",
 					},
+
 					{
-						key = "p",
-						command = ":Glow",
-						name = "Open Markdown preview",
+						key = "a",
+						command = ":Telekasten new_note<cr>",
+						name = "Open telekasten menu",
+					},
+
+					{
+						key = "to",
+						command = ":Telekasten toggle_todo<cr>",
+						name = "Open telekasten menu",
+					},
+					{
+						key = "n",
+						command = ":lua require('telescope.builtin').find_files({cwd ="
+							.. "'/home/racso/notes'})<cr>",
+						name = "Find files",
 					},
 				},
 			},
