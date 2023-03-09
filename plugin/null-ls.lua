@@ -22,12 +22,19 @@ local sources = {
 	-- spell
 	completion.spell,
 	diagnostics.codespell,
+	diagnostics.solhint,
 }
 
 local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
 		timeout = 5000,
 		filter = function(client)
+			print(client.name)
+			if client.name == "tsserver" then
+				vim.cmd(":EslintFixAll")
+				return false
+			end
+
 			-- apply whatever logic you want (in this example, we'll only use null-ls)
 			return client.name == "null-ls"
 		end,
