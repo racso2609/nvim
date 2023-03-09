@@ -59,11 +59,10 @@ opt.smartcase = true -- searches are case insensitive...
 -- Your directory will always be the same as your working directory
 opt.autochdir = true
 
-g.mapleader = ","
+vim.g.mapleader = " "
 
 -- Save undo history
 vim.o.undofile = true
-
 
 vim.g.python3_host_prog = "/home/racso/.pyenv/versions/nvim/bin/python"
 
