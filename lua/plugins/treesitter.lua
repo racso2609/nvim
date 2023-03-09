@@ -2,15 +2,11 @@ return {
 	-- Highlight, edit, and navigate code
 	{
 		"nvim-treesitter/nvim-treesitter",
-		-- event = { "BufReadPost", "BufNewFile", "BufEnter" },
+		event = { "BufEnter" },
 		dependencies = {
 			"p00f/nvim-ts-rainbow",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-textobjects",
-			{
-				"windwp/nvim-ts-autotag",
-				config = true,
-			},
 		},
 		version = false, -- last release is way too old and doesn't work on Windows
 		build = ":TSUpdate",
@@ -30,7 +26,6 @@ return {
 				extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
 				max_file_lines = nil, -- Do not enable for files with more than n lines, int
 			},
-			autotag = { enable = true },
 			context_commentstring = {
 				enable = true,
 				enable_autocmd = false,
@@ -40,5 +35,11 @@ return {
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
-	{ "YongJieYongJie/tree-sitter-solidity", lazy = true, event = { "BufEnter *.sol" } },
+	{
+		"YongJieYongJie/tree-sitter-solidity",
+		lazy = true,
+		event = { "BufEnter *.sol" },
+
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 }

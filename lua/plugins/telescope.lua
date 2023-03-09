@@ -27,12 +27,12 @@ return {
 			},
 			-- Search Files
 			{
-				"<leader>tff",
+				"<leader>tfF",
 				":lua require('telescope.builtin').find_files()<cr>",
 				desc = "Search file on actual dir",
 			},
 			{
-				"<leader>tfF",
+				"<leader>tff",
 				":lua require('telescope.builtin').find_files({cwd =vim.fn.systemlist('git rev-parse --show-toplevel')[1]})<cr>",
 				desc = "Search file on root dir",
 			},

@@ -70,23 +70,7 @@ local shortcuts = {
 						command = ":TodoQuickFix<cr>",
 						name = "List todo comments",
 					},
-					{
-						key = "tm",
-						command = ":Telekasten<cr>",
-						name = "Open telekasten menu",
-					},
 
-					{
-						key = "a",
-						command = ":Telekasten new_note<cr>",
-						name = "Open telekasten menu",
-					},
-
-					{
-						key = "to",
-						command = ":Telekasten toggle_todo<cr>",
-						name = "Open telekasten menu",
-					},
 					{
 						key = "n",
 						command = ":lua require('telescope.builtin').find_files({cwd ="
@@ -220,5 +204,5 @@ g.UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
 g.UltiSnipsListSnippets = "<space>sl"
 
 -- "emmet-vim
-g.user_emmet_mode = "a"
-g.user_emmet_leader_key = "<C-a>"
+-- g.user_emmet_mode = "a"
+-- g.user_emmet_leader_key = "<C-a>"

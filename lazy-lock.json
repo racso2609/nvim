@@ -2,7 +2,15 @@
   "auto-pairs": { "branch": "master", "commit": "39f06b873a8449af8ff6a3eee716d3da14d63a76" },
   "cairo-support-nvim": { "branch": "main", "commit": "a462357f22bea6815625e468b3e982ee650386d2" },
   "cairo.vim": { "branch": "master", "commit": "d3cf09cec98fe35f4a07b3d1b90a3ecd55e231bc" },
+  "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
+  "cmp-cmdline": { "branch": "main", "commit": "8fcc934a52af96120fe26358985c10c035984b53" },
+  "cmp-nvim-lsp": { "branch": "main", "commit": "0e6b2ed705ddcff9738ec4ea838141654f12eeef" },
+  "cmp-nvim-lsp-signature-help": { "branch": "main", "commit": "3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1" },
+  "cmp-nvim-ultisnips": { "branch": "main", "commit": "43b69a235b2dc54db692049fe0d5cc60c6b58b4b" },
+  "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
+  "cmp-tabnine": { "branch": "main", "commit": "a6cb553143573861d2d98da86ceb3074c87fc536" },
   "diffview.nvim": { "branch": "main", "commit": "ecaa0f3ec11f4e826d17d347c929d9e54a035db8" },
+  "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "gitsigns.nvim": { "branch": "main", "commit": "b1f9cf7c5c5639c006c937fc1819e09f358210fc" },
   "gruvbox": { "branch": "master", "commit": "bf2885a95efdad7bd5e4794dd0213917770d79b7" },
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
@@ -33,6 +41,7 @@
   "telescope.nvim": { "branch": "0.1.x", "commit": "766a45a972408f67e793a3b63e3c419ff5458753" },
   "todo-comments.nvim": { "branch": "main", "commit": "74c7d28cb50b0713c881ef69bcb6cdd77d8907d1" },
   "tree-sitter-solidity": { "branch": "master", "commit": "defd9e5a2aef4e6fd848d0a7e779400747bc45dd" },
+  "ultisnips": { "branch": "3.2", "commit": "7dc30c55e5c41c98a8c7421bb01fec1d559256fd" },
   "vim-cairo": { "branch": "master", "commit": "fc655b4cc7631203e93774ff8aacf892fa5e50f5" },
   "which-key.nvim": { "branch": "main", "commit": "fb027738340502b556c3f43051f113bcaa7e8e63" }
 }
