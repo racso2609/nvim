@@ -1,6 +1,8 @@
 return {
 	{
 		"ericglau/vim-cairo",
+		lazy = true,
+		event = { "BufEnter *.cairo" },
 		dependencies = {
 			"miguelmota/cairo.vim",
 			{

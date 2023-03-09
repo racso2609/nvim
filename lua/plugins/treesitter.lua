@@ -2,23 +2,22 @@ return {
 	-- Highlight, edit, and navigate code
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
+		-- event = { "BufReadPost", "BufNewFile", "BufEnter" },
 		dependencies = {
 			"p00f/nvim-ts-rainbow",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-textobjects",
-			"YongJieYongJie/tree-sitter-solidity",
 			{
 				"windwp/nvim-ts-autotag",
-				config = function()
-					require("nvim-ts-autotag").setup({})
-				end,
+				config = true,
 			},
 		},
 		version = false, -- last release is way too old and doesn't work on Windows
 		build = ":TSUpdate",
 		opts = {
 			ensure_installed = { "rust", "lua", "javascript", "typescript" },
+			sync_install = false,
+			auto_install = true,
 			highlight = {
 				enable = true, -- false will disable the whole extension
 				-- disable = { 'json' }, -- list of language that will be disabled
@@ -41,4 +40,5 @@ return {
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
+	{ "YongJieYongJie/tree-sitter-solidity", lazy = true, event = { "BufEnter *.sol" } },
 }
