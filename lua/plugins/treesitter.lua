@@ -8,7 +8,6 @@ return {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
-		version = false, -- last release is way too old and doesn't work on Windows
 		build = ":TSUpdate",
 		opts = {
 			ensure_installed = { "rust", "lua", "javascript", "typescript" },
