@@ -24,10 +24,16 @@ return {
 		},
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			"folke/todo-comments.nvim",
 		},
 		keys = {
 			{ "<C-c>", "<cmd>CommentToggle<cr>", desc = "Quick comment line" },
 		},
+	},
+	{
+		"folke/todo-comments.nvim",
+		lazy = false,
+		config = function()
+			require("todo-comments").setup()
+		end,
 	},
 }

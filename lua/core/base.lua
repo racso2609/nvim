@@ -28,8 +28,8 @@ opt.number = true
 opt.relativenumber = true
 
 opt.pumheight = 10 -- Makes popup menu smaller
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
 opt.showcmd = true
 
@@ -59,7 +59,7 @@ opt.smartcase = true -- searches are case insensitive...
 -- Your directory will always be the same as your working directory
 opt.autochdir = true
 
-vim.g.mapleader = " "
+g.mapleader = " "
 
 -- Save undo history
 vim.o.undofile = true

@@ -80,6 +80,17 @@ return {
 										},
 									},
 								})
+							elseif server_name == "solc" then
+								lspconfig.solc.setup({
+									on_attach = on_attach,
+									capabilities = capabilities,
+									settings = {
+										cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+										filetypes = { "solidity" },
+										root_dir = require("lspconfig.util").find_git_ancestor,
+										single_file_support = true,
+									},
+								})
 							else
 								lspconfig[server_name].setup({
 									on_attach = on_attach,
@@ -88,7 +99,6 @@ return {
 							end
 						end,
 					})
-					lspconfig.solc.setup({})
 				end,
 			},
 		},
@@ -100,6 +110,7 @@ return {
 			{ "gd", vim.lsp.buf.definition, desc = "Goto definition" },
 			{ "gD", vim.lsp.buf.declaration, desc = "go to declaration" },
 			{ "gi", vim.lsp.buf.implementation, desc = "go to implementation" },
+			{ "<C-f>", vim.lsp.buf.format, desc = "format document" },
 		},
 	},
 }

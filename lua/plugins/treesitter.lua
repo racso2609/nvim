@@ -10,7 +10,7 @@ return {
 		},
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "rust", "lua", "javascript", "typescript" },
+			ensure_installed = { "rust", "lua", "javascript", "typescript", "tsx" },
 			sync_install = false,
 			auto_install = true,
 			highlight = {
