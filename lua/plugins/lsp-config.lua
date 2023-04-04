@@ -1,11 +1,17 @@
 return {
-	{ -- LSP Configuration & Plugins
+	{
+		-- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		lazy = true,
-		event = { "BufRead" },
+		event = {
+			"BufRead",
+		},
 		dependencies = {
 			-- Automatically install LSPs to stdpath for neovim
-			{ "williamboman/mason.nvim", config = true },
+			{
+				"williamboman/mason.nvim",
+				config = true,
+			},
 			{
 				"WhoIsSethDaniel/mason-tool-installer.nvim",
 				opts = {
@@ -30,7 +36,9 @@ return {
 					local on_attach = function(client, bufnr)
 						-- Enable completion triggered by <c-x><c-o>
 						vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-						vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
+						vim.api.nvim_exec_autocmds("User", {
+							pattern = "LspAttached",
+						})
 						-- disable lsp formatting to use null-ls
 						client.server_capabilities.document_formatting = false
 						client.server_capabilities.document_range_formatting = false
@@ -38,7 +46,9 @@ return {
 						-- Create a command `:Format` local to the LSP buffer
 						vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
 							vim.lsp.buf.format()
-						end, { desc = "Format current buffer with LSP" })
+						end, {
+							desc = "Format current buffer with LSP",
+						})
 					end
 					local capabilities = vim.lsp.protocol.make_client_capabilities()
 					local masonConfig = racsonvim.safeRequire("mason-lspconfig")
@@ -48,20 +58,26 @@ return {
 						function(server_name)
 							if server_name == "efm" then
 								lspconfig[server_name].setup({
-									init_options = { documentFormatting = true },
+									init_options = {
+										documentFormatting = true,
+									},
 									settings = {
-										rootMarkers = { ".git/" },
+										rootMarkers = {
+											".git/",
+										},
 									},
 								})
-							elseif server_name == "sumneko_lua" then
+							elseif server_name == "lua_ls" then
 								lspconfig[server_name].setup({
 									on_attach = on_attach,
 									capabilities = capabilities,
 									settings = {
 										Lua = {
 											diagnostics = {
-												-- Get the language server to recognize the `vim` global
-												globals = { "vim", "racsonvim" },
+												globals = {
+													"vim",
+													"racsonvim",
+												},
 											},
 											path = {
 												"?.lua",
@@ -71,7 +87,6 @@ return {
 												"/usr/share/5.3/?.lua",
 												"/usr/share/lua/5.3/?/init.lua",
 											},
-
 											workspace = {
 												-- Make the server aware of Neovim runtime files
 												library = vim.api.nvim_get_runtime_file("", true),
@@ -85,8 +100,13 @@ return {
 									on_attach = on_attach,
 									capabilities = capabilities,
 									settings = {
-										cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
-										filetypes = { "solidity" },
+										cmd = {
+											"nomicfoundation-solidity-language-server",
+											"--stdio",
+										},
+										filetypes = {
+											"solidity",
+										},
 										root_dir = require("lspconfig.util").find_git_ancestor,
 										single_file_support = true,
 									},
@@ -103,14 +123,46 @@ return {
 			},
 		},
 		keys = {
-			{ "<leader>D", vim.lsp.buf.type_definition, desc = "Type definition" },
-			{ "<leader>r", vim.lsp.buf.rename, desc = "Rename variables" },
-			{ "<C-k>", vim.lsp.buf.hover, desc = "open hover help" },
-			{ "K", vim.lsp.buf.signature_help, desc = "open help" },
-			{ "gd", vim.lsp.buf.definition, desc = "Goto definition" },
-			{ "gD", vim.lsp.buf.declaration, desc = "go to declaration" },
-			{ "gi", vim.lsp.buf.implementation, desc = "go to implementation" },
-			{ "<C-f>", vim.lsp.buf.format, desc = "format document" },
+			{
+				"<leader>D",
+				vim.lsp.buf.type_definition,
+				desc = "Type definition",
+			},
+			{
+				"<leader>r",
+				vim.lsp.buf.rename,
+				desc = "Rename variables",
+			},
+			{
+				"<C-k>",
+				vim.lsp.buf.hover,
+				desc = "open hover help",
+			},
+			{
+				"K",
+				vim.lsp.buf.signature_help,
+				desc = "open help",
+			},
+			{
+				"gd",
+				vim.lsp.buf.definition,
+				desc = "Goto definition",
+			},
+			{
+				"gD",
+				vim.lsp.buf.declaration,
+				desc = "go to declaration",
+			},
+			{
+				"gi",
+				vim.lsp.buf.implementation,
+				desc = "go to implementation",
+			},
+			{
+				"<C-f>",
+				vim.lsp.buf.format,
+				desc = "format document",
+			},
 		},
 	},
 }

@@ -10,8 +10,14 @@ local configNullLs = function()
 		--[[ formatting ]]
 		formatting.eslint,
 		formatting.autopep8,
-		formatting.stylua,
+		formatting.stylua.with({
+			extra_args = {
+				"--config-path",
+				vim.lsp.buf.list_workspace_folders()[1] .. "/stylua.toml",
+			},
+		}),
 		formatting.clang_format,
+		formatting.stylua,
 		formatting.stylelint,
 		formatting.prettier,
 		formatting.phpcbf,
@@ -71,7 +77,9 @@ return {
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		lazy = true,
-		event = { "BufRead" },
+		event = {
+			"BufRead",
+		},
 		config = configNullLs,
 	},
 }

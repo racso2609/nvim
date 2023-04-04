@@ -23,7 +23,9 @@ return {
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<CR>"] = cmp.mapping.confirm({
+						select = true,
+					}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 					["<M-a>"] = cmp.mapping(function(fallback)
 						cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
 					end, {
@@ -37,32 +39,59 @@ return {
 						"s", --[[ "c" (to enable the mapping in command mode) ]]
 					}),
 				}),
-				formatting = { format = lspkind.cmp_format() },
+				formatting = {
+					format = lspkind.cmp_format(),
+				},
 				sources = cmp.config.sources({
-					{ name = "path" },
-					{ name = "nvim_lsp", keyword_length = 3 },
-					{ name = "cmp_tabnine", keyword_length = 3 },
-					{ name = "ultisnips", keyword_length = 2 }, -- For ultisnips users.
-					{ name = "buffer" },
-					{ name = "nvim_lsp_signature_help" },
-					{ name = "plugins" },
+					{
+						name = "path",
+					},
+					{
+						name = "nvim_lsp",
+						keyword_length = 3,
+					},
+					{
+						name = "cmp_tabnine",
+						keyword_length = 3,
+					},
+					{
+						name = "ultisnips",
+						keyword_length = 2,
+					}, -- For ultisnips users.
+					{
+						name = "buffer",
+					},
+					{
+						name = "nvim_lsp_signature_help",
+					},
+					{
+						name = "plugins",
+					},
 				}),
 			})
 			-- Set configuration for specific filetype.
 			cmp.setup.filetype("gitcommit", {
 				sources = cmp.config.sources({
-					{ name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+					{
+						name = "cmp_git",
+					}, -- You can specify the `cmp_git` source if you were installed it.
 				}, {
-					{ name = "buffer" },
+					{
+						name = "buffer",
+					},
 				}),
 			})
 
 			-- Set configuration for specific filetype.
 			cmp.setup.filetype("gitcommit", {
 				sources = cmp.config.sources({
-					{ name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+					{
+						name = "cmp_git",
+					}, -- You can specify the `cmp_git` source if you were installed it.
 				}, {
-					{ name = "buffer" },
+					{
+						name = "buffer",
+					},
 				}),
 			})
 
@@ -70,7 +99,9 @@ return {
 			cmp.setup.cmdline("/", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
-					{ name = "buffer" },
+					{
+						name = "buffer",
+					},
 				},
 			})
 
@@ -78,9 +109,13 @@ return {
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
-					{ name = "path" },
+					{
+						name = "path",
+					},
 				}, {
-					{ name = "cmdline" },
+					{
+						name = "cmdline",
+					},
 				}),
 			})
 		end,
@@ -103,7 +138,10 @@ return {
 					-- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 				end,
 				dependencies = {
-					{ "SirVer/ultisnips", branch = "3.2" },
+					{
+						"SirVer/ultisnips",
+						branch = "3.2",
+					},
 				},
 			},
 			"hrsh7th/cmp-nvim-lsp",

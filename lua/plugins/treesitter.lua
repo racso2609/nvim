@@ -2,7 +2,9 @@ return {
 	-- Highlight, edit, and navigate code
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufEnter" },
+		event = {
+			"BufEnter",
+		},
 		dependencies = {
 			"p00f/nvim-ts-rainbow",
 			"JoosepAlviste/nvim-ts-context-commentstring",
@@ -10,16 +12,27 @@ return {
 		},
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "rust", "lua", "javascript", "typescript", "tsx" },
+			ensure_installed = {
+				"rust",
+				"lua",
+				"javascript",
+				"typescript",
+				"tsx",
+			},
 			sync_install = false,
-			auto_install = true,
 			highlight = {
 				enable = true, -- false will disable the whole extension
 				-- disable = { 'json' }, -- list of language that will be disabled
 			},
-
-			indent = { enable = true },
-			autopairs = { enable = true },
+			indent = {
+				enable = true,
+			},
+			autopairs = {
+				enable = true,
+			},
+			autotag = {
+				enable = true,
+			},
 			rainbow = {
 				enable = true,
 				extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
@@ -36,9 +49,26 @@ return {
 	},
 	{
 		"YongJieYongJie/tree-sitter-solidity",
-		lazy = true,
-		event = { "BufEnter *.sol" },
-
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		event = {
+			"BufEnter *.sol",
+		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {},
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		event = {
+			"InsertEnter",
+		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("nvim-ts-autotag").setup({
+				enable = true,
+			})
+		end,
 	},
 }

@@ -13,7 +13,11 @@ return {
 		cmd = "Telescope",
 		keys = {
 			--buffers
-			{ "<leader>tb", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
+			{
+				"<leader>tb",
+				"<cmd>Telescope buffers show_all_buffers=true<cr>",
+				desc = "Switch Buffer",
+			},
 			-- Grep Search
 			{
 				"<leader>tT",
@@ -36,27 +40,66 @@ return {
 				":lua require('telescope.builtin').find_files({cwd =vim.fn.systemlist('git rev-parse --show-toplevel')[1]})<cr>",
 				desc = "Search file on root dir",
 			},
-			{ "<leader>tfr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+			{
+				"<leader>tfr",
+				"<cmd>Telescope oldfiles<cr>",
+				desc = "Recent",
+			},
 			--	-- git
-			{ "<leader>tgc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-			{ "<leader>tgs", "<cmd>Telescope git_status<CR>", desc = "status" },
+			{
+				"<leader>tgc",
+				"<cmd>Telescope git_commits<CR>",
+				desc = "commits",
+			},
+			{
+				"<leader>tgs",
+				"<cmd>Telescope git_status<CR>",
+				desc = "status",
+			},
 
 			--	-- search
-			{ "<leader>tsb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
-			{ "<leader>tsd", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
-			{ "<leader>tcs", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
-			{ "<leader>tch", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-			{ "<leader>tcc", "<cmd>Telescope commands<cr>", desc = "Commands" },
+			{
+				"<leader>tsb",
+				"<cmd>Telescope current_buffer_fuzzy_find<cr>",
+				desc = "Buffer",
+			},
+			{
+				"<leader>tsd",
+				"<cmd>Telescope diagnostics<cr>",
+				desc = "Diagnostics",
+			},
+			{
+				"<leader>tcs",
+				"<cmd>Telescope colorscheme<cr>",
+				desc = "Colorscheme",
+			},
+			{
+				"<leader>tch",
+				"<cmd>Telescope command_history<cr>",
+				desc = "Command History",
+			},
+			{
+				"<leader>tcc",
+				"<cmd>Telescope commands<cr>",
+				desc = "Commands",
+			},
 		},
 		opts = {
 			defaults = {
-				path_display = { "smart" },
+				path_display = {
+					"smart",
+				},
 			},
 			extensions = {
 				media_files = {
 					-- filetypes whitelist
 					-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-					filetypes = { "png", "webp", "jpg", "jpeg" },
+					filetypes = {
+						"png",
+						"webp",
+						"jpg",
+						"jpeg",
+					},
 					find_cmd = "rg", -- find command (defaults to `fd`)
 				},
 				lazy = {

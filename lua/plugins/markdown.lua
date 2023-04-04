@@ -12,7 +12,9 @@ return {
 			app = "webview", -- 'webview', 'browser', string or a table of strings
 			-- explained below
 
-			filetype = { "markdown" }, -- list of filetypes to recognize as markdown
+			filetype = {
+				"markdown",
+			}, -- list of filetypes to recognize as markdown
 			-- relevant if update_on_change is true
 			throttle_at = 200000, -- start throttling when file exceeds this
 			-- amount of bytes in size
@@ -20,7 +22,11 @@ return {
 			-- that has to pass before starting new render
 		},
 		keys = {
-			{ "<space>np", ":lua require('peek').open()<cr>", desc = "Note preview" },
+			{
+				"<space>np",
+				":lua require('peek').open()<cr>",
+				desc = "Note preview",
+			},
 		},
 	},
 }

@@ -26,7 +26,11 @@ return {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		keys = {
-			{ "<C-c>", "<cmd>CommentToggle<cr>", desc = "Quick comment line" },
+			{
+				"<C-c>",
+				"<cmd>CommentToggle<cr>",
+				desc = "Quick comment line",
+			},
 		},
 	},
 	{
