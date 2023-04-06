@@ -1,7 +1,7 @@
 local themes_table = {
 	"gruvbox",
 	"gruvbox-material",
-	"kanagawa-lotus",
+	"kanagawa",
 	"kanagawa-dragon",
 	"kanagawa",
 	"everforest",
