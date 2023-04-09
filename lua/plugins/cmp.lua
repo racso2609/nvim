@@ -1,6 +1,7 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
+		event = "BufEnter",
 		config = function()
 			local g = vim.g
 			local cmp = racsonvim.safeRequire("cmp")
@@ -151,6 +152,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 			{
 				"tzachar/cmp-tabnine",
+				events = "BufEnter",
 				build = "./install.sh",
 				dependencies = "hrsh7th/nvim-cmp",
 				config = function()

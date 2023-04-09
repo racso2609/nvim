@@ -5,7 +5,7 @@ local opt = vim.opt -- to set options
 vim.o.completeopt = "menuone,noselect"
 cmd("set termguicolors")
 
--- syntax enable                           -- Enables syntax highlighing
+-- syntax enable                           -- Enables syntax highlighting
 opt.hidden = true -- Required to keep multiple buffers open multiple buffers
 opt.wrap = true -- No Display long lines as just one line
 opt.pumheight = 10 -- Makes popup menu smaller

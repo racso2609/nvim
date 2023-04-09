@@ -1,11 +1,9 @@
 local themes_table = {
 	"gruvbox",
 	"gruvbox-material",
-	"kanagawa",
 	"kanagawa-dragon",
 	"kanagawa",
 	"everforest",
-	"catppuccin-macchiato",
 	"catppuccin-frappe",
 }
 
@@ -17,6 +15,8 @@ local get_random_theme = function()
 end
 
 local theme = get_random_theme()
-print("theme ", theme)
+local set_theme = function()
+	vim.cmd("colorscheme " .. theme)
+end
 
-vim.cmd("colorscheme " .. theme)
+vim.api.nvim_create_autocmd("VimEnter", { callback = set_theme })

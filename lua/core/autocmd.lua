@@ -1,7 +1,5 @@
--- local is_available = racsonvim.is_available
 local cmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
--- local create_command = vim.api.nvim_create_user_command
 
 cmd("TextYankPost", {
 	desc = "Highlight yanked text",
@@ -27,6 +25,7 @@ local function open_nvim_tree(data)
 
 	-- open the tree
 	vim.cmd(":NvimTreeOpen<cr>")
+	-- vim.cmd("lua require('telescope.builtin').find_files({cwd =vim.fn.systemlist('git rev-parse --show-toplevel')[1]})")
 end
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+cmd("VimEnter", { callback = open_nvim_tree })

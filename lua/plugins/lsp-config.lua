@@ -44,7 +44,7 @@ return {
             client.server_capabilities.document_range_formatting = false
 
             -- Create a command `:Format` local to the LSP buffer
-            vim.api.nvim_buf_create_user_command(bufnr, "Format", racsonvim.lsp_formatting(bufnr), {
+            vim.api.nvim_buf_create_user_command(bufnr, "Format", function() racsonvim.lsp_formatting(bufnr) end, {
               desc = "Format current buffer with LSP",
             })
           end

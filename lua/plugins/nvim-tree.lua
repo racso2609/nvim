@@ -1,12 +1,16 @@
 return {
+	"nvim-tree/nvim-web-devicons",
 	{
 		"kyazdani42/nvim-tree.lua",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
+		dependencies = {},
 		opts = {
 			sort_by = "name",
 			update_cwd = true,
+			actions = {
+				open_file = {
+					quit_on_open = true,
+				},
+			},
 			view = {
 				width = 30,
 				side = "left",

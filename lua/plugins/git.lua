@@ -1,6 +1,8 @@
 return {
 	{
+
 		"TimUntersberger/neogit",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
 			{
 				"<leader>gd",
@@ -15,5 +17,4 @@ return {
 	},
 	-- TODO: check commands
 	"sindrets/diffview.nvim",
-	"nvim-lua/plenary.nvim",
 }

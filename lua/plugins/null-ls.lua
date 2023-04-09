@@ -10,12 +10,7 @@ local configNullLs = function()
 		--[[ formatting ]]
 		formatting.eslint,
 		formatting.autopep8,
-		formatting.stylua.with({
-			extra_args = {
-				"--config-path",
-				vim.lsp.buf.list_workspace_folders()[1] .. "/stylua.toml",
-			},
-		}),
+		formatting.stylua,
 		formatting.clang_format,
 		formatting.stylua,
 		formatting.stylelint,

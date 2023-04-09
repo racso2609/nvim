@@ -3,7 +3,6 @@
 local keymaps = racsonvim.safeRequire("keymaps-nvim")
 
 local opts = { noremap = true, silent = true }
-local g = vim.g
 local shortcuts = {
 	{
 		activator = "<space>",
