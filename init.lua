@@ -1,8 +1,8 @@
 local foldersTable = {
 	"core",
-	"core.autocmd",
-	"core.plugin",
 	"core.base",
+	"core.plugin",
+	"core.autocmd",
 	"core.keymaps",
 }
 

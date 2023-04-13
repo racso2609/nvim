@@ -3,7 +3,6 @@
 local keymaps = racsonvim.safeRequire("keymaps-nvim")
 
 local opts = { noremap = true, silent = true }
-local g = vim.g
 local shortcuts = {
 	{
 		activator = "<space>",
@@ -36,12 +35,6 @@ local shortcuts = {
 						options = opts,
 						name = "set loc list t",
 					},
-					{
-						key = "t",
-						command = ":Trouble<cr>",
-						options = opts,
-						name = "Trouble list",
-					},
 				},
 			},
 			{
@@ -60,65 +53,7 @@ local shortcuts = {
 					},
 				},
 			},
-			{
-				prefix = "t",
-				name = "Telescope",
-				commands = {
 
-					{
-						key = "d",
-						command = ":lua require('telescope.builtin').find_files({cwd =vim.fn.systemlist('git rev-parse --show-toplevel')[1]})<cr>",
-						name = "Find files",
-					},
-
-					{
-						key = "D",
-						command = ":lua require('telescope.builtin').find_files()<cr>",
-						name = "Find files",
-					},
-					{
-						key = "T",
-						command = ":Telescope live_grep<cr>",
-						name = "Find Text",
-					},
-					{
-						key = "t",
-						command = ":lua require('telescope.builtin').live_grep({cwd=vim.fn.systemlist('git rev-parse --show-toplevel')[1]})<cr>",
-						name = "Find Text",
-					},
-					{
-						key = "b",
-						command = ":Telescope buffers<cr>",
-						name = "Find open Buffers",
-					},
-					{
-						key = "h",
-						command = ":Telescope help_tags<cr>",
-						name = "Open help tags",
-					},
-					{
-						key = "c",
-						command = ":Telescope neoclip<cr>",
-						name = "Open neoclip history",
-					},
-					{
-						key = "m",
-						command = ":Telescope media_files<cr>",
-						name = "Open media files explorer",
-					},
-				},
-			},
-			{
-				prefix = "g",
-				name = "git",
-				commands = {
-					{
-						key = "d",
-						command = ":Neogit<cr>",
-						name = "Git commit dashboard",
-					},
-				},
-			},
 			{
 				prefix = "n",
 				name = "Notes / Todo",
@@ -128,49 +63,11 @@ local shortcuts = {
 						command = ":TodoQuickFix<cr>",
 						name = "List todo comments",
 					},
-					{
-						key = "tm",
-						command = ":Telekasten<cr>",
-						name = "Open telekasten menu",
-					},
 
-					{
-						key = "a",
-						command = ":Telekasten new_note<cr>",
-						name = "Open telekasten menu",
-					},
-
-					{
-						key = "to",
-						command = ":Telekasten toggle_todo<cr>",
-						name = "Open telekasten menu",
-					},
 					{
 						key = "n",
-						command = ":lua require('telescope.builtin').find_files({cwd ="
-							.. "'/home/racso/notes'})<cr>",
+						command = ":lua require('telescope.builtin').find_files({cwd =" .. "'/home/racso/notes'})<cr>",
 						name = "Find files",
-					},
-				},
-			},
-			{
-				prefix = "",
-				name = "lsp actions",
-				commands = {
-					{
-						key = "D",
-						command = vim.lsp.buf.type_definition,
-						name = "Type Definition",
-					},
-					{
-						key = "r",
-						command = vim.lsp.buf.type_definition,
-						name = "rename function or variable",
-					},
-					{
-						key = "c",
-						command = vim.lsp.buf.code_action,
-						name = "Code action",
 					},
 				},
 			},
@@ -187,18 +84,6 @@ local shortcuts = {
 						key = "<C-b>",
 						command = "<cmd>NvimTreeToggle<cr>",
 						name = "Open nvim tree lua",
-					},
-					{
-						key = "<C-c>",
-						mode = "n",
-						command = "<cmd>CommentToggle<cr>",
-						name = "Quick comment line",
-					},
-					{
-						key = "<C-c>",
-						mode = "v",
-						command = "<cmd>'<,'>CommentToggle<cr>",
-						name = "Quick comment line",
 					},
 					{
 						key = "<C-l>",
@@ -296,51 +181,6 @@ local shortcuts = {
 						command = ":source %<cr>",
 						name = "charge actual file",
 					},
-					{
-						key = "<c-k>",
-						command = vim.lsp.buf.hover,
-						name = "open function float menu",
-					},
-					{
-						key = "K",
-						command = vim.lsp.buf.signature_help,
-						name = "open signature help",
-					},
-				},
-			},
-		},
-	},
-	{
-		activator = "g",
-		name = "lsp Movement",
-		keymaps = {
-			{
-				prefix = "",
-				commands = {
-					{
-						key = "D",
-						command = vim.lsp.buf.declaration,
-						options = opts,
-						name = "Go to declaration",
-					},
-					{
-						key = "d",
-						command = vim.lsp.buf.definition,
-						options = opts,
-						name = "Go to definition",
-					},
-					{
-						key = "i",
-						command = vim.lsp.buf.implementation,
-						options = opts,
-						name = "Go to implementation",
-					},
-					{
-						key = "r",
-						command = vim.lsp.buf.references,
-						options = opts,
-						name = "Go to reference",
-					},
 				},
 			},
 		},
@@ -348,13 +188,6 @@ local shortcuts = {
 }
 keymaps.setup(shortcuts)
 
--- UltiSnips
-g.UltiSnipsExpandTrigger = "<M-a>"
-g.UltiSnipsJumpForwardTrigger = "<tab>"
-g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
-g.UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
-g.UltiSnipsListSnippets = "<space>sl"
-
 -- "emmet-vim
-g.user_emmet_mode = "a"
-g.user_emmet_leader_key = "<C-a>"
+-- g.user_emmet_mode = "a"
+-- g.user_emmet_leader_key = "<C-a>"

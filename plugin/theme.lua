@@ -1,19 +1,22 @@
-local transparent = racsonvim.safeRequire "transparent"
+local themes_table = {
+	"gruvbox",
+	"gruvbox-material",
+	"kanagawa-dragon",
+	"kanagawa",
+	"everforest",
+	"catppuccin-frappe",
+}
 
-transparent.setup({
-  enable = true, -- boolean: enable transparent
-  extra_groups = { -- table/string: additional groups that should be clear
-    -- In particular, when you set it to 'all', that means all available groups
+local get_random_theme = function()
+	math.randomseed(os.time())
+	local selected_index = math.random(1, #themes_table)
+	local selected_theme = themes_table[selected_index]
+	return selected_theme
+end
 
-    -- example of akinsho/nvim-bufferline.lua
-    'BufferLineTabClose',
-    'BufferlineBufferSelected',
-    'BufferLineFill',
-    'BufferLineBackground',
-    'BufferLineSeparator',
-    'BufferLineIndicatorSelected',
-  },
-  exclude = {}, -- table: groups you don't want to clear
-})
+local theme = get_random_theme()
+local set_theme = function()
+	vim.cmd("colorscheme " .. theme)
+end
 
-vim.cmd("colorscheme gruvbox")
+vim.api.nvim_create_autocmd("VimEnter", { callback = set_theme })

@@ -5,7 +5,7 @@ local opt = vim.opt -- to set options
 vim.o.completeopt = "menuone,noselect"
 cmd("set termguicolors")
 
--- syntax enable                           -- Enables syntax highlighing
+-- syntax enable                           -- Enables syntax highlighting
 opt.hidden = true -- Required to keep multiple buffers open multiple buffers
 opt.wrap = true -- No Display long lines as just one line
 opt.pumheight = 10 -- Makes popup menu smaller
@@ -28,8 +28,8 @@ opt.number = true
 opt.relativenumber = true
 
 opt.pumheight = 10 -- Makes popup menu smaller
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
 opt.showcmd = true
 
@@ -59,11 +59,10 @@ opt.smartcase = true -- searches are case insensitive...
 -- Your directory will always be the same as your working directory
 opt.autochdir = true
 
-g.mapleader = ","
+g.mapleader = " "
 
 -- Save undo history
 vim.o.undofile = true
-
 
 vim.g.python3_host_prog = "/home/racso/.pyenv/versions/nvim/bin/python"
 
