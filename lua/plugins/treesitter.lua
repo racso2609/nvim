@@ -19,6 +19,7 @@ return {
 				"typescript",
 				"tsx",
 				"http",
+				"json",
 			},
 			sync_install = false,
 			auto_install = true,

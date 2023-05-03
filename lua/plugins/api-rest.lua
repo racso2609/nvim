@@ -1,14 +1,20 @@
 -- TODO: "Fix rest plugin"
 return {
 	{
-		"rest-nvim/rest.nvim",
+		"aquach/vim-http-client",
 		event = {
 			"BufEnter *.http",
 		},
 		opts = {},
 		keys = {
 
-			{ "<leader>pr", ":RestNvim<cr>", desc = "run actual petition" },
+			{
+				"<leader>pr",
+				function()
+					vim.cmd(":HTTPClientDoRequest")
+				end,
+				desc = "run actual petition",
+			},
 			{ "<leader>pc", ":RestNvimPreview<cr>", desc = "get curl command" },
 		},
 		init = function()
