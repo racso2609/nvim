@@ -3,7 +3,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = {
-			"BufEnter",
+			"VimEnter",
 		},
 		dependencies = {
 			"p00f/nvim-ts-rainbow",
@@ -18,6 +18,7 @@ return {
 				"javascript",
 				"typescript",
 				"tsx",
+				"http",
 			},
 			sync_install = false,
 			auto_install = true,

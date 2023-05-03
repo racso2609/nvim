@@ -8,36 +8,6 @@ local shortcuts = {
 		activator = "<space>",
 		keymaps = {
 			{
-				prefix = "d",
-				name = "Diagnostic",
-				commands = {
-					{
-						key = "e",
-						command = vim.diagnostic.open_float,
-						options = opts,
-						name = "diagnostic float menu",
-					},
-					{
-						key = "[",
-						command = vim.diagnostic.goto_prev,
-						options = opts,
-						name = "go to prev error",
-					},
-					{
-						key = "]",
-						command = vim.diagnostic.goto_next,
-						options = opts,
-						name = "go to next error",
-					},
-					{
-						key = "q",
-						command = vim.diagnostic.setloclist,
-						options = opts,
-						name = "set loc list t",
-					},
-				},
-			},
-			{
 				prefix = "s",
 				name = "snippets",
 				commands = {

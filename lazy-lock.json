@@ -50,6 +50,7 @@
   "todo-comments.nvim": { "branch": "main", "commit": "8febc60a76feefd8203077ef78b6a262ea1a41f9" },
   "tree-sitter-solidity": { "branch": "master", "commit": "defd9e5a2aef4e6fd848d0a7e779400747bc45dd" },
   "twilight.nvim": { "branch": "main", "commit": "2e13bd1886562b737f38c418ed542677b41ef5cb" },
+  "typescript.nvim": { "branch": "main", "commit": "f66d4472606cb24615dfb7dbc6557e779d177624" },
   "ultisnips": { "branch": "3.2", "commit": "7dc30c55e5c41c98a8c7421bb01fec1d559256fd" },
   "vim-cairo": { "branch": "master", "commit": "fc655b4cc7631203e93774ff8aacf892fa5e50f5" },
   "vim-illuminate": { "branch": "master", "commit": "a2907275a6899c570d16e95b9db5fd921c167502" },

@@ -1,3 +1,5 @@
+local cmd = vim.api.nvim_create_autocmd
+
 local BufCommands = {
 	"BufEnter *.tsx",
 	"BufEnter *.jsx",
@@ -15,5 +17,10 @@ return {
 		"mlaursen/vim-react-snippets",
 		lazy = true,
 		event = BufCommands,
+	},
+	{
+		"jose-elias-alvarez/typescript.nvim",
+		event = BufCommands,
+		opts = {},
 	},
 }

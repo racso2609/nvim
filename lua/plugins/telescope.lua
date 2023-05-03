@@ -15,18 +15,23 @@ return {
 			{
 				"<leader>tb",
 				"<cmd>Telescope buffers show_all_buffers=true<cr>",
-				desc = "Switch Buffer",
+				desc = "Search Buffer",
 			},
 			-- Grep Search
 			{
 				"<leader>tT",
 				":lua require('telescope.builtin').live_grep()<cr>",
-				desc = "Find in Files (Grep)",
+				desc = "Find in current directory",
 			},
 			{
 				"<leader>tt",
 				":lua require('telescope.builtin').live_grep({cwd=vim.fn.systemlist('git rev-parse --show-toplevel')[1]})<cr>",
-				desc = "Grep (cwd)",
+				desc = "Find in root project",
+			},
+			{
+				"<leader>tsb",
+				"<cmd>Telescope current_buffer_fuzzy_find<cr>",
+				desc = "Find in current buffer",
 			},
 			-- Search Files
 			{
@@ -42,31 +47,21 @@ return {
 			{
 				"<leader>tfr",
 				"<cmd>Telescope oldfiles<cr>",
-				desc = "Recent",
+				desc = "Search recent file",
 			},
 			--	-- git
 			{
 				"<leader>tgc",
 				"<cmd>Telescope git_commits<CR>",
-				desc = "commits",
+				desc = "Search commits",
 			},
 			{
 				"<leader>tgs",
 				"<cmd>Telescope git_status<CR>",
-				desc = "status",
+				desc = "Search on modified file",
 			},
 
 			--	-- search
-			{
-				"<leader>tsb",
-				"<cmd>Telescope current_buffer_fuzzy_find<cr>",
-				desc = "Buffer",
-			},
-			{
-				"<leader>tsd",
-				"<cmd>Telescope diagnostics<cr>",
-				desc = "Diagnostics",
-			},
 			{
 				"<leader>tcs",
 				"<cmd>Telescope colorscheme<cr>",
@@ -80,13 +75,13 @@ return {
 			{
 				"<leader>tcc",
 				"<cmd>Telescope commands<cr>",
-				desc = "Commands",
+				desc = "Search commands",
 			},
 			-- sessions
 			{
 				"<leader>tS",
 				"<cmd>Telescope persisted<cr>",
-				desc = "Commands",
+				desc = "Search saved sessions",
 			},
 		},
 		opts = {
@@ -124,25 +119,16 @@ return {
 			local whichKey = racsonvim.safeRequire("which-key")
 
 			local mapping = {
-				t = {
-					name = "telescope",
-					f = {
-						name = "Find file",
-						f = "Find file on root project",
-						F = "Find file on current directory",
-						r = "Find recent files",
-					},
-					b = "Search buffer",
-					S = "Load saved sessions",
-					t = "Grep in root project",
-					T = "Grep in actual directory",
-					c = { name = "Commands", c = "List commands", h = "Command history", s = "Color scheme" },
-					g = { name = "Github", c = "Search commits", s = "Search edited files" },
-					s = { name = "Search", b = "Search on current buffer", d = "Search diagnostic on current file" },
+				name = "telescope",
+				f = {
+					name = "Find file",
 				},
+				c = { name = "Commands" },
+				g = { name = "Github" },
+				s = { name = "Search" },
 			}
 
-			whichKey.register(mapping, { prefix = "<leader>" })
+			whichKey.register(mapping, { prefix = "<leader>t" })
 
 			telescope.load_extension("persisted")
 			telescope.load_extension("neoclip")

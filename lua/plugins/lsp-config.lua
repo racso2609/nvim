@@ -1,3 +1,4 @@
+local wk = racsonvim.safeRequire("which-key")
 return {
 	{
 		-- LSP Configuration & Plugins
@@ -151,16 +152,18 @@ return {
 		config = function()
 			racsonvim.safeRequire("lspsaga").setup({})
 		end,
+		init = function()
+			wk.register({ name = "Diagnostic" }, { prefix = "<space>d" })
+		end,
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 			--Please make sure you install markdown and markdown_inline parser
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 		keys = {
-			{ "<leader>h", "<cmd>Lspsaga lsp_finder<CR>", desc = "Find symbol" },
 			{ "<leader>r", "<cmd>Lspsaga rename<CR>", desc = "Rename function" },
 			{ "<leader>R", "<cmd>Lspsaga rename ++project<CR>", desc = "Rename all concurrencies" },
-			{ "<leader>p", "<cmd>Lspsaga peek_definition<CR>", desc = "Edit from definition" },
+			{ "<leader>e", "<cmd>Lspsaga peek_definition<CR>", desc = "Edit from definition" },
 			{ "gd", "<cmd>Lspsaga goto_definition<CR>", desc = "goTo definition" },
 			{ "<leader>ds", "<cmd>Lspsaga show_buf_diagnostics<CR>", desc = "show buffer diagnostic" },
 			{ "<leader>dS", "<cmd>Lspsaga show_workspace_diagnostics<CR>", desc = "show workspace diagnostic" },

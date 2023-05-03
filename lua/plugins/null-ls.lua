@@ -20,6 +20,7 @@ local configNullLs = function()
 		formatting.trim_whitespace,
 		--[[ code actions ]]
 		code_actions.eslint_d,
+		racsonvim.safeRequire("typescript.extensions.null-ls.code-actions"),
 
 		-- spell
 		completion.spell,

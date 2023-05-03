@@ -1,7 +1,16 @@
+local wk = racsonvim.safeRequire("which-key")
+local mappings = {
+	name = "Git",
+	D = "Different",
+}
+
+wk.register(mappings, { prefix = "<leader>g" })
+
 return {
 	{
 		"TimUntersberger/neogit",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		init = function() end,
 		keys = {
 			{
 				"<leader>gd",

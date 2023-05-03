@@ -7,6 +7,8 @@ function racsonvim.lsp_formatting(bufnr)
 		timeout = 5000,
 		filter = function(client)
 			if client.name == "tsserver" then
+				vim.cmd("lua require('typescript').actions.addMissingImports()")
+				vim.cmd("lua require('typescript').actions.removeUnused()")
 				vim.cmd(":EslintFixAll")
 				return false
 			end
