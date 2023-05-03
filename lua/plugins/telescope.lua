@@ -1,10 +1,9 @@
 return {
-
 	{
 		"nvim-telescope/telescope.nvim",
 		version = false, -- telescope did only one release, so use HEAD for now
 		dependencies = {
-			"nvim-lua/plenary.nvim",
+			{ "nvim-lua/plenary.nvim", lazy = false },
 			"nvim-telescope/telescope-media-files.nvim",
 			"AckslD/nvim-neoclip.lua",
 			"BurntSushi/ripgrep",
@@ -83,6 +82,12 @@ return {
 				"<cmd>Telescope commands<cr>",
 				desc = "Commands",
 			},
+			-- sessions
+			{
+				"<leader>tS",
+				"<cmd>Telescope persisted<cr>",
+				desc = "Commands",
+			},
 		},
 		opts = {
 			defaults = {
@@ -91,6 +96,9 @@ return {
 				},
 			},
 			extensions = {
+				persisted = {
+					layout_config = { width = 0.55, height = 0.55 },
+				},
 				media_files = {
 					-- filetypes whitelist
 					-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
@@ -110,5 +118,13 @@ return {
 				},
 			},
 		},
+
+		init = function()
+			local telescope = racsonvim.safeRequire("telescope")
+
+			telescope.load_extension("persisted")
+			telescope.load_extension("neoclip")
+			telescope.load_extension("media_files")
+		end,
 	},
 }

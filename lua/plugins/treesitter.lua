@@ -20,6 +20,7 @@ return {
 				"tsx",
 			},
 			sync_install = false,
+			auto_install = true,
 			highlight = {
 				enable = true, -- false will disable the whole extension
 				-- disable = { 'json' }, -- list of language that will be disabled
@@ -44,7 +45,7 @@ return {
 			},
 		},
 		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
+			racsonvim.safeRequire("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 	{
@@ -66,7 +67,7 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 		config = function()
-			require("nvim-ts-autotag").setup({
+			racsonvim.safeRequire("nvim-ts-autotag").setup({
 				enable = true,
 			})
 		end,

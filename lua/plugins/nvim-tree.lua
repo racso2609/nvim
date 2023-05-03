@@ -1,8 +1,10 @@
 return {
-	"nvim-tree/nvim-web-devicons",
 	{
 		"kyazdani42/nvim-tree.lua",
-		dependencies = {},
+    dependencies = {
+
+	"nvim-tree/nvim-web-devicons",
+    },
 		opts = {
 			sort_by = "name",
 			update_cwd = true,

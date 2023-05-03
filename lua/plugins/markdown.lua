@@ -2,6 +2,7 @@ return {
 	{
 		"toppair/peek.nvim",
 		build = "deno task --quiet build:fast",
+		events = { "BufRead *.md" },
 		opts = {
 			auto_load = true, -- whether to automatically load preview when
 			-- entering another markdown buffer

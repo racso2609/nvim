@@ -1,10 +1,7 @@
 local themes_table = {
 	"gruvbox",
 	"gruvbox-material",
-	"kanagawa-dragon",
-	"kanagawa",
 	"everforest",
-	"catppuccin-frappe",
 }
 
 local get_random_theme = function()

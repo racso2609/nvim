@@ -1,6 +1,5 @@
 return {
 	{
-
 		"TimUntersberger/neogit",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
@@ -14,7 +13,13 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		config = true,
+		event = { "BufRead" },
 	},
-	-- TODO: check commands
-	"sindrets/diffview.nvim",
+	{
+		"sindrets/diffview.nvim",
+		keys = {
+			{ "<leader>gDo", ":DiffviewOpen<cr>", desc = "Open diffView" },
+			{ "<leader>gDc", ":DiffviewClose<cr>", desc = "Close diffView" },
+		},
+	},
 }

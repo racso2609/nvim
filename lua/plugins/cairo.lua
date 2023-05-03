@@ -9,6 +9,9 @@ return {
 			"miguelmota/cairo.vim",
 			{
 				"racso2609/cairo-support-nvim",
+				event = {
+					"BufEnter *.cairo",
+				},
 				opts = {
 					format = true,
 					compile = true,

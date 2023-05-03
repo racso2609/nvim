@@ -1,5 +1,5 @@
 local configNullLs = function()
-	local null_ls = racsonvim.safeRequire("null-ls")
+	local null_ls = require("null-ls")
 
 	local formatting = null_ls.builtins.formatting
 	local code_actions = null_ls.builtins.code_actions
@@ -26,7 +26,6 @@ local configNullLs = function()
 		diagnostics.codespell,
 		diagnostics.solhint,
 	}
-
 
 	-- if you want to set up formatting on save, you can use this as a callback
 	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

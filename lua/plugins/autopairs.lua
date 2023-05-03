@@ -1,6 +1,4 @@
 return {
 	"jiangmiao/auto-pairs",
-	{
-		"tpope/vim-surround",
-	},
+	"tpope/vim-surround",
 }

@@ -1,43 +1,49 @@
 return {
 	{
-		"terrortylor/nvim-comment",
-		name = "nvim_comment",
+		"numToStr/Comment.nvim",
+		event = { "BufReadPost" },
 		opts = {
-			-- Linters prefer comment and line to have a space in between markers
-			marker_padding = true,
-			-- should comment out empty or whitespace only lines
-			comment_empty = true,
-			-- trim empty comment whitespace
-			comment_empty_trim_whitespace = true,
-			-- Should key mappings be created
-			create_mappings = true,
-			-- Normal mode mapping left hand side
-			line_mapping = "gcc",
-			-- Visual/Operator mapping left hand side
-			operator_mapping = "gc",
-			-- text object mapping, comment chunk,,
-			comment_chunk_text_object = "ic",
-			-- Hook function to call before commenting takes place
-			hook = function()
-				require("ts_context_commentstring.internal").update_commentstring()
-			end,
-		},
-		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
-		},
-		keys = {
-			{
-				"<C-c>",
-				"<cmd>CommentToggle<cr>",
-				desc = "Quick comment line",
+			---Add a space b/w comment and the line
+			padding = true,
+			---Whether the cursor should stay at its position
+			sticky = true,
+			---Lines to be ignored while (un)comment
+			ignore = nil,
+			---LHS of toggle mappings in NORMAL mode
+			toggler = {
+				---Line-comment toggle keymap
+				line = "<C-c>",
+				---Block-comment toggle keymap
+				block = "gbc",
 			},
+			---LHS of operator-pending mappings in NORMAL and VISUAL mode
+			opleader = {
+				---Line-comment keymap
+				line = "<C-c>",
+				---Block-comment keymap
+				block = "cb",
+			},
+			---LHS of extra mappings
+			extra = {
+				---Add comment on the line above
+				above = "cO",
+				---Add comment on the line below
+				below = "co",
+				---Add comment at the end of line
+				eol = "cA",
+			},
+			---Enable keybindings
+			---NOTE: If given `false` then the plugin won't create any mappings
+			mappings = {
+				---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+				basic = true,
+				---Extra mapping; `gco`, `gcO`, `gcA`
+				extra = true,
+			},
+			---Function to call before (un)comment
+			pre_hook = nil,
+			---Function to call after (un)comment
+			post_hook = nil,
 		},
-	},
-	{
-		"folke/todo-comments.nvim",
-		lazy = false,
-		config = function()
-			require("todo-comments").setup()
-		end,
 	},
 }
