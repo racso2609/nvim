@@ -46,4 +46,5 @@ return {
 			post_hook = nil,
 		},
 	},
+	{ "folke/todo-comments.nvim", opts = {} },
 }

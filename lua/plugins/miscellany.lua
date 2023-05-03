@@ -100,13 +100,4 @@ return {
 			{ "<S-Down>", ":MoveLine 1<cr>", desc = "Move lines to up" },
 		},
 	},
-	{
-		"rest-nvim/rest.nvim",
-		opts = {},
-		keys = {
-
-			{ "<leader>hr", ":RestNvim<cr>", desc = "run actual petition" },
-			{ "<leader>hc", ":RestNvimPreview<cr>", desc = "get curl command" },
-		},
-	},
 }

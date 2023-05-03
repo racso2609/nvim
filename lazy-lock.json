@@ -47,6 +47,7 @@
   "ripgrep": { "branch": "master", "commit": "041544853c86dde91c49983e5ddd0aa799bd2831" },
   "telescope-media-files.nvim": { "branch": "master", "commit": "0826c7a730bc4d36068f7c85cf4c5b3fd9fb570a" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "766a45a972408f67e793a3b63e3c419ff5458753" },
+  "todo-comments.nvim": { "branch": "main", "commit": "8febc60a76feefd8203077ef78b6a262ea1a41f9" },
   "tree-sitter-solidity": { "branch": "master", "commit": "defd9e5a2aef4e6fd848d0a7e779400747bc45dd" },
   "twilight.nvim": { "branch": "main", "commit": "2e13bd1886562b737f38c418ed542677b41ef5cb" },
   "ultisnips": { "branch": "3.2", "commit": "7dc30c55e5c41c98a8c7421bb01fec1d559256fd" },

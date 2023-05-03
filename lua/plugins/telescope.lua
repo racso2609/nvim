@@ -121,6 +121,28 @@ return {
 
 		init = function()
 			local telescope = racsonvim.safeRequire("telescope")
+			local whichKey = racsonvim.safeRequire("which-key")
+
+			local mapping = {
+				t = {
+					name = "telescope",
+					f = {
+						name = "Find file",
+						f = "Find file on root project",
+						F = "Find file on current directory",
+						r = "Find recent files",
+					},
+					b = "Search buffer",
+					S = "Load saved sessions",
+					t = "Grep in root project",
+					T = "Grep in actual directory",
+					c = { name = "Commands", c = "List commands", h = "Command history", s = "Color scheme" },
+					g = { name = "Github", c = "Search commits", s = "Search edited files" },
+					s = { name = "Search", b = "Search on current buffer", d = "Search diagnostic on current file" },
+				},
+			}
+
+			whichKey.register(mapping, { prefix = "<leader>" })
 
 			telescope.load_extension("persisted")
 			telescope.load_extension("neoclip")
