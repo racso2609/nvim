@@ -4,6 +4,9 @@ local themes_table = {
 	"everforest",
 	"space-vim-dark",
 	"onedark",
+	"nightfox",
+	"nordfox",
+	"duskfox",
 }
 
 local get_random_theme = function()
@@ -16,6 +19,7 @@ end
 local theme = get_random_theme()
 local set_theme = function()
 	vim.cmd("colorscheme " .. theme)
+	vim.cmd(":TransparentEnable")
 end
 
 vim.api.nvim_create_autocmd("VimEnter", { callback = set_theme })

@@ -31,7 +31,6 @@ return {
 		},
 		config = function(opts)
 			racsonvim.safeRequire("nvim-transparent").setup(opts)
-			vim.cmd(":TransparentEnable<cr>")
 		end,
 	},
 	"morhetz/gruvbox",
@@ -39,4 +38,5 @@ return {
 	"sainnhe/everforest",
 	"liuchengxu/space-vim-dark",
 	"joshdick/onedark.vim",
+	"EdenEast/nightfox.nvim",
 }
