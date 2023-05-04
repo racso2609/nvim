@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "a89339ffbee677ab0521a483b6dac7e2e67c907e" },
+  "alpha-nvim": { "branch": "main", "commit": "447b821d22b0c1e80494638f84cb00ff696f4ef6" },
   "auto-pairs": { "branch": "master", "commit": "39f06b873a8449af8ff6a3eee716d3da14d63a76" },
   "cairo-support-nvim": { "branch": "main", "commit": "a462357f22bea6815625e468b3e982ee650386d2" },
   "cairo.vim": { "branch": "master", "commit": "d3cf09cec98fe35f4a07b3d1b90a3ecd55e231bc" },

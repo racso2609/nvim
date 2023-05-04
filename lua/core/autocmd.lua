@@ -25,7 +25,6 @@ local function open_nvim_tree(data)
 
 	-- open the tree
 	vim.cmd(":NvimTreeOpen<cr>")
-	-- vim.cmd("lua require('telescope.builtin').find_files({cwd =vim.fn.systemlist('git rev-parse --show-toplevel')[1]})")
 end
 
 cmd("VimEnter", { callback = open_nvim_tree })
