@@ -2,6 +2,8 @@ local themes_table = {
 	"gruvbox",
 	"gruvbox-material",
 	"everforest",
+	"space-vim-dark",
+	"onedark",
 }
 
 local get_random_theme = function()
