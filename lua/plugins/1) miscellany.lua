@@ -26,7 +26,9 @@ return {
 			vim.o.timeoutlen = 300
 		end,
 	},
+
 	{ "lukas-reineke/indent-blankline.nvim", event = { "BufRead" } },
+
 	-- minimap
 	{
 		"gorbit99/codewindow.nvim",
@@ -39,7 +41,7 @@ return {
 			local mappings = {
 				name = "Minimap",
 			}
-			-- wk.register(mappings, { prefix = "<space>m" })
+			wk.register(mappings, { prefix = "<space>m" })
 		end,
 	},
 	-- session manager
@@ -50,7 +52,7 @@ return {
 			local mappings = {
 				name = "Session manager",
 			}
-			-- wk.register(mappings, { prefix = "<space>S" })
+			wk.register(mappings, { prefix = "<space>S" })
 		end,
 		keys = {
 			{ "<leader>Sa", ":SessionSave <cr>", desc = "save current session" },

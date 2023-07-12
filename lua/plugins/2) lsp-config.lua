@@ -96,22 +96,6 @@ return {
 										},
 									},
 								})
-							elseif server_name == "solc" then
-								lspconfig.solc.setup({
-									on_attach = on_attach,
-									capabilities = capabilities,
-									settings = {
-										cmd = {
-											"nomicfoundation-solidity-language-server",
-											"--stdio",
-										},
-										filetypes = {
-											"solidity",
-										},
-										root_dir = racsonvim.safeRequire("lspconfig.util").find_git_ancestor,
-										single_file_support = true,
-									},
-								})
 							else
 								lspconfig[server_name].setup({
 									on_attach = on_attach,
