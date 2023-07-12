@@ -1,4 +1,5 @@
 return {
+	{ "Exafunction/codeium.vim" },
 	{
 		"hrsh7th/nvim-cmp",
 		event = "BufEnter",
@@ -150,23 +151,6 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
-			{
-				"tzachar/cmp-tabnine",
-				events = "BufEnter",
-				build = "./install.sh",
-				dependencies = "hrsh7th/nvim-cmp",
-				config = function()
-					local tabnine = racsonvim.safeRequire("cmp_tabnine.config")
-
-					tabnine.setup({
-						max_lines = 1000,
-						max_num_results = 50,
-						sort = true,
-						run_on_every_keystroke = true,
-						snippet_placeholder = "..",
-					})
-				end,
-			},
 		},
 	},
 }

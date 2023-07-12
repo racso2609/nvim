@@ -1,5 +1,3 @@
-local wk = racsonvim.safeRequire("which-key")
-
 local default_header = {
 	type = "text",
 	val = {
@@ -19,8 +17,15 @@ local default_header = {
 }
 
 return {
-	"racso2609/keymaps-nvim",
-	"folke/which-key.nvim",
+	{ "racso2609/keymaps-nvim", lazy = false },
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+	},
 	{ "lukas-reineke/indent-blankline.nvim", event = { "BufRead" } },
 	-- minimap
 	{
@@ -34,7 +39,7 @@ return {
 			local mappings = {
 				name = "Minimap",
 			}
-			wk.register(mappings, { prefix = "<space>m" })
+			-- wk.register(mappings, { prefix = "<space>m" })
 		end,
 	},
 	-- session manager
@@ -45,7 +50,7 @@ return {
 			local mappings = {
 				name = "Session manager",
 			}
-			wk.register(mappings, { prefix = "<space>S" })
+			-- wk.register(mappings, { prefix = "<space>S" })
 		end,
 		keys = {
 			{ "<leader>Sa", ":SessionSave <cr>", desc = "save current session" },
