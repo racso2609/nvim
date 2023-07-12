@@ -5,6 +5,7 @@ local BufCommands = {
 	"BufEnter *.jsx",
 	"BufEnter *.ts",
 	"BufEnter *.js",
+	"BufEnter *.mdx",
 }
 
 return {

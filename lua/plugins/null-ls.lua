@@ -8,24 +8,28 @@ local configNullLs = function()
 
 	local sources = {
 		--[[ formatting ]]
-		formatting.eslint,
 		formatting.autopep8,
 		formatting.stylua,
 		formatting.clang_format,
 		formatting.stylua,
-		formatting.stylelint,
 		formatting.prettier,
+		formatting.eslint,
 		formatting.phpcbf,
 		formatting.trim_newlines,
 		formatting.trim_whitespace,
+		formatting.rustfmt,
+		formatting.black,
+
 		--[[ code actions ]]
-		code_actions.eslint_d,
-		racsonvim.safeRequire("typescript.extensions.null-ls.code-actions"),
+		code_actions.eslint,
+		code_actions.ltrs,
 
 		-- spell
 		completion.spell,
 		diagnostics.codespell,
 		diagnostics.solhint,
+		diagnostics.flake8,
+		diagnostics.eslint,
 	}
 
 	-- if you want to set up formatting on save, you can use this as a callback
@@ -42,6 +46,18 @@ local configNullLs = function()
 				buffer = bufnr,
 				callback = function()
 					racsonvim.lsp_formatting(bufnr)
+				end,
+			})
+			vim.api.nvim_create_autocmd("BufWritePost", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+					local client2 = clients[#clients]
+					if client2.name == "tsserver" then
+						vim.cmd("lua require('typescript').actions.addMissingImports()")
+						vim.cmd("lua require('typescript').actions.removeUnused()")
+					end
 				end,
 			})
 		end
@@ -62,5 +78,6 @@ return {
 			"BufRead",
 		},
 		config = configNullLs,
+		dependencies = { { "lukas-reineke/lsp-format.nvim", opt = {} } },
 	},
 }

@@ -23,9 +23,9 @@ return {
 		"beauwilliams/focus.nvim",
 		event = { "BufRead" },
 		opts = {},
-		init = function()
-			vim.cmd(":FocusToggle<cr>")
-		end,
+		-- config = function()
+			-- vim.cmd(":FocusToggle<cr>")
+		-- end,
 		keys = {
 			{ "<leader>fr", ":FocusToggle<cr>", desc = "Toggle auto resize" },
 		},

@@ -3,17 +3,14 @@ _G.racsonvim = {}
 --- format buffers
 --- @param bufnr number of the actual buffer
 function racsonvim.lsp_formatting(bufnr)
+	-- require("lsp-format").on_attach(client)
 	vim.lsp.buf.format({
-		timeout = 5000,
+		-- name = client.name,
+		async = false,
+		-- timeout = 5000,
 		filter = function(client)
-			if client.name == "tsserver" then
-				vim.cmd("lua require('typescript').actions.addMissingImports()")
-				vim.cmd("lua require('typescript').actions.removeUnused()")
-				vim.cmd(":EslintFixAll")
-				return false
-			end
-			-- apply whatever logic you want (in this example, we'll only use null-ls)
-			return client.name == "null-ls"
+			return client.name
+				== "null-ls"
 		end,
 		bufnr = bufnr,
 	})
@@ -29,9 +26,12 @@ function racsonvim.notify(msg, type, opts)
 		vim.notify(
 			msg,
 			type,
-			racsonvim.default_tbl(opts, {
-				title = "RacsoNvim",
-			})
+			racsonvim.default_tbl(
+				opts,
+				{
+					title = "RacsoNvim",
+				}
+			)
 		)
 	end)
 end
@@ -40,7 +40,9 @@ end
 function racsonvim.delete_url_match()
 	for _, match in ipairs(vim.fn.getmatches()) do
 		if match.group == "HighlightURL" then
-			vim.fn.matchdelete(match.id)
+			vim.fn.matchdelete(
+				match.id
+			)
 		end
 	end
 end
@@ -49,7 +51,11 @@ end
 function racsonvim.set_url_match()
 	racsonvim.delete_url_match()
 	if vim.g.highlighturl_enabled then
-		vim.fn.matchadd("HighlightURL", racsonvim.url_matcher, 15)
+		vim.fn.matchadd(
+			"HighlightURL",
+			racsonvim.url_matcher,
+			15
+		)
 	end
 end
 
@@ -57,7 +63,9 @@ end
 function racsonvim.safeRequire(library)
 	local status, import = pcall(require, library)
 	if not status then
-		local msg = "fail " .. library .. " import"
+		local msg = "fail "
+			.. library
+			.. " import"
 		error(msg)
 	end
 	return import
