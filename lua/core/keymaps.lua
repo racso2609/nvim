@@ -29,12 +29,6 @@ local shortcuts = {
 				name = "Notes / Todo",
 				commands = {
 					{
-						key = "l",
-						command = ":TodoQuickFix<cr>",
-						name = "List todo comments",
-					},
-
-					{
 						key = "n",
 						command = ":lua require('telescope.builtin').find_files({cwd =" .. "'/home/racso/notes'})<cr>",
 						name = "Find files",

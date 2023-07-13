@@ -30,7 +30,10 @@ return {
 	},
 	{
 		"folke/todo-comments.nvim",
-		event = { "BufEnter" },
+		cmd = "TodoQuickFix",
 		opts = {},
+		keys = {
+			{ "<leader>nl", ":TodoTelescope<cr>", desc = "List todo comments" },
+		},
 	},
 }
