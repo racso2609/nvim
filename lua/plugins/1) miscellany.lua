@@ -1,22 +1,10 @@
-local default_header = {
-	type = "text",
-	val = {
-		[[▀███▀▀▀██▄       ██       ▄▄█▀▀▀█▄█▄█▀▀▀█▄█ ▄▄█▀▀██▄ ]],
-		[[  ██   ▀██▄     ▄██▄    ▄██▀     ▀███    ▀███▀    ▀██]],
-		[[  ██   ▄██     ▄█▀██▄   ██▀       ▀███▄   ██▀      ▀█]],
-		[[  ███████     ▄█  ▀██   ██          ▀█████▄█        █]],
-		[[  ██  ██▄     ████████  ██▄       ▄     ▀███▄      ▄█]],
-		[[  ██   ▀██▄  █▀      ██ ▀██▄     ▄▀█     ████▄    ▄██]],
-		[[▄████▄ ▄███▄███▄   ▄████▄ ▀▀█████▀█▀█████▀  ▀▀████▀▀ ]],
-	},
-	opts = {
-		position = "center",
-		hl = "Type",
-		-- wrap = "overflow";
-	},
-}
-
 return {
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			vim.notify = require("notify")
+		end,
+	},
 	{ "racso2609/keymaps-nvim", lazy = false },
 	{
 		"folke/which-key.nvim",
@@ -41,6 +29,7 @@ return {
 			local mappings = {
 				name = "Minimap",
 			}
+			local wk = racsonvim.safeRequire("which-key")
 			wk.register(mappings, { prefix = "<space>m" })
 		end,
 	},
@@ -52,6 +41,7 @@ return {
 			local mappings = {
 				name = "Session manager",
 			}
+			local wk = racsonvim.safeRequire("which-key")
 			wk.register(mappings, { prefix = "<space>S" })
 		end,
 		keys = {

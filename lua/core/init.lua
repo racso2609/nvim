@@ -20,15 +20,9 @@ end
 -- @param message type message
 -- @param opts the new options that should be merged with the default table
 -- @return the merged table
-function racsonvim.notify(msg, type, opts)
+function racsonvim.notify(msg, type)
 	vim.schedule(function()
-		vim.notify(
-			msg,
-			type,
-			racsonvim.default_tbl(opts, {
-				title = "RacsoNvim",
-			})
-		)
+		vim.notify(msg, type)
 	end)
 end
 
@@ -54,7 +48,7 @@ function racsonvim.safeRequire(library)
 	local status, import = pcall(require, library)
 	if not status then
 		local msg = "fail " .. library .. " import"
-		error(msg)
+		racsonvim.notify(msg, "error")
 	end
 	return import
 end
