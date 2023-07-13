@@ -13,6 +13,7 @@ cmd("TextYankPost", {
 })
 
 local function open_nvim_tree(data)
+	racsonvim.notify("hello mother fucker", "info")
 	-- buffer is a directory
 	local directory = vim.fn.isdirectory(data.file) == 1
 
