@@ -3,7 +3,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		version = false, -- telescope did only one release, so use HEAD for now
 		dependencies = {
-			{ "nvim-lua/plenary.nvim", lazy = false },
+			{ "nvim-lua/plenary.nvim" },
 			"nvim-telescope/telescope-media-files.nvim",
 			"AckslD/nvim-neoclip.lua",
 			"BurntSushi/ripgrep",
