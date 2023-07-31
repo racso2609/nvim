@@ -3,9 +3,9 @@ return {
 	{
 		-- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
-		lazy = true,
 		event = {
 			"BufRead",
+			"VeryLazy",
 		},
 		dependencies = {
 			-- Automatically install LSPs to stdpath for neovim
@@ -57,18 +57,7 @@ return {
 
 					masonConfig.setup_handlers({
 						function(server_name)
-							if server_name == "efm" then
-								lspconfig[server_name].setup({
-									init_options = {
-										documentFormatting = true,
-									},
-									settings = {
-										rootMarkers = {
-											".git/",
-										},
-									},
-								})
-							elseif server_name == "lua_ls" then
+							if server_name == "lua_ls" then
 								lspconfig[server_name].setup({
 									on_attach = on_attach,
 									capabilities = capabilities,

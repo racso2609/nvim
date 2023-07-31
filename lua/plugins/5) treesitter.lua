@@ -4,6 +4,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = {
 			"VimEnter",
+			"VeryLazy",
 		},
 		dependencies = {
 			"p00f/nvim-ts-rainbow",

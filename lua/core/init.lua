@@ -7,7 +7,7 @@ function racsonvim.lsp_formatting(bufnr)
 	vim.lsp.buf.format({
 		-- name = client.name,
 		async = true,
-		-- timeout = 5000,
+		-- timeout = 50000,
 		filter = function(client)
 			return client.name == "null-ls"
 		end,

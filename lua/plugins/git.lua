@@ -8,9 +8,12 @@ wk.register(mappings, { prefix = "<leader>g" })
 
 return {
 	{
-		"TimUntersberger/neogit",
+		"NeogitOrg/neogit",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		init = function() end,
+		opt = {},
+		config = function(opt)
+			require("neogit").setup(opt)
+		end,
 		keys = {
 			{
 				"<leader>gd",

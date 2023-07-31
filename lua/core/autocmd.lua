@@ -12,6 +12,16 @@ cmd("TextYankPost", {
 	end,
 })
 
+local format_sync_grp = vim.api.nvim_create_augroup("JsFormat", {})
+cmd("BufWritePre", {
+	pattern = { "*.ts", "*.js", "*.tsx", "*.jsx", "*.cjs", "*.mjs" },
+	group = format_sync_grp,
+	callback = function()
+		vim.cmd("lua require('typescript').actions.addMissingImports()")
+		vim.cmd("lua require('typescript').actions.removeUnused()")
+	end,
+})
+
 local function open_nvim_tree(data)
 	racsonvim.notify("hello mother fucker", "info")
 	-- buffer is a directory

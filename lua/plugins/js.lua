@@ -24,4 +24,5 @@ return {
 		event = BufCommands,
 		opts = {},
 	},
+	{ "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" }, event = BufCommands },
 }

@@ -2,7 +2,7 @@ local configNullLs = function()
 	local null_ls = require("null-ls")
 
 	local formatting = null_ls.builtins.formatting
-	local code_actions = null_ls.builtins.code_actions
+	-- local code_actions = null_ls.builtins.code_actions
 	local completion = null_ls.builtins.completion
 	local diagnostics = null_ls.builtins.diagnostics
 
@@ -21,15 +21,17 @@ local configNullLs = function()
 		formatting.black,
 
 		--[[ code actions ]]
-		code_actions.eslint,
-		code_actions.ltrs,
+		-- code_actions.eslint,
+		-- code_actions.ltrs,
 
 		-- spell
 		completion.spell,
 		diagnostics.codespell,
 		diagnostics.solhint,
 		diagnostics.flake8,
-		diagnostics.eslint,
+		diagnostics.eslint.with({
+			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+		}),
 	}
 
 	-- if you want to set up formatting on save, you can use this as a callback
@@ -46,18 +48,6 @@ local configNullLs = function()
 				buffer = bufnr,
 				callback = function()
 					racsonvim.lsp_formatting(bufnr)
-				end,
-			})
-			vim.api.nvim_create_autocmd("BufWritePost", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
-					local client2 = clients[#clients]
-					if client2.name == "tsserver" then
-						vim.cmd("lua require('typescript').actions.addMissingImports()")
-						vim.cmd("lua require('typescript').actions.removeUnused()")
-					end
 				end,
 			})
 		end
