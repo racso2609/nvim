@@ -159,7 +159,6 @@ return {
 				dependencies = {
 					{
 						"SirVer/ultisnips",
-						branch = "3.2",
 					},
 				},
 			},
