@@ -3,6 +3,9 @@ return {
 		"rcarriga/nvim-notify",
 		event = "VeryLazy",
 		init = function()
+      require("notify").setup({
+        background_color= "#000000"
+      })
 			vim.notify = require("notify")
 		end,
 	},

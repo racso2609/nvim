@@ -3,13 +3,10 @@ _G.racsonvim = {}
 --- format buffers
 --- @param bufnr number of the actual buffer
 function racsonvim.lsp_formatting(bufnr)
-	-- require("lsp-format").on_attach(client)
 	vim.lsp.buf.format({
-		-- name = client.name,
 		async = true,
-		-- timeout = 50000,
 		filter = function(client)
-			return client.name == "null-ls"
+			return client.name == "efm"
 		end,
 		bufnr = bufnr,
 	})

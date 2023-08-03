@@ -85,6 +85,32 @@ return {
 										},
 									},
 								})
+							elseif server_name == "efm" then
+								lspconfig[server_name].setup({
+									on_attach = on_attach,
+									capabilities = capabilities,
+									default_opts = {
+										root_dir = lspconfig.util.root_pattern({ ".git/", "." }),
+										init_options = { documentFormatting = true },
+										settings = {
+											rootMarkers = { ".git/", ".", "stylua.toml" },
+										},
+										filetypes = {
+											"javascript",
+											"javascriptreact",
+											"javascript.jsx",
+											"typescript",
+											"typescript.tsx",
+											"typescriptreact",
+											"lua",
+											"json",
+											"html",
+											-- "less",
+											-- "scss",
+											-- "css",
+										},
+									},
+								})
 							else
 								lspconfig[server_name].setup({
 									on_attach = on_attach,

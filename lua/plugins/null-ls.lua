@@ -61,13 +61,13 @@ local configNullLs = function()
 end
 
 return {
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		lazy = true,
-		event = {
-			"BufRead",
-		},
-		config = configNullLs,
-		dependencies = { { "lukas-reineke/lsp-format.nvim", opt = {} } },
-	},
+	-- {
+	-- 	"jose-elias-alvarez/null-ls.nvim",
+	-- 	lazy = true,
+	-- 	event = {
+	-- 		"BufRead",
+	-- 	},
+	-- 	config = configNullLs,
+	-- 	dependencies = { { "lukas-reineke/lsp-format.nvim", opt = {} } },
+	-- },
 }

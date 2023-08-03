@@ -13,7 +13,7 @@ cmd("TextYankPost", {
 })
 
 local format_sync_grp = vim.api.nvim_create_augroup("JsFormat", {})
-cmd("BufWritePre", {
+cmd("BufWritePost", {
 	pattern = { "*.ts", "*.js", "*.tsx", "*.jsx", "*.cjs", "*.mjs" },
 	group = format_sync_grp,
 	callback = function()
