@@ -30,6 +30,7 @@ return {
 	},
 	{
 		"folke/todo-comments.nvim",
+		event = { "VeryLazy" },
 		cmd = "TodoQuickFix",
 		opts = {},
 		keys = {

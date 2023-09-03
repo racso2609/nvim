@@ -6,6 +6,7 @@ function racsonvim.lsp_formatting(bufnr)
 	vim.lsp.buf.format({
 		async = true,
 		filter = function(client)
+      print(client.name)
 			return client.name == "efm"
 		end,
 		bufnr = bufnr,
