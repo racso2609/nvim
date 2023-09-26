@@ -1,0 +1,23 @@
+snippet propsType "propType" b
+interface propsType {
+ $1: $2;
+}
+endsnippet
+
+
+snippet propsTypeIcon "propType" b
+interface propsType {
+ style?: React.CSSProperties; 
+ onClick?: ()=>void;
+}
+endsnippet
+
+snippet rfc "React functional compoennt" b
+import {FC} from 'react';
+
+const $1:FC<$2> = ({}) => {
+	return <h1>$1</h1>;
+}
+
+export default $1;
+endsnippet
