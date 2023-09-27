@@ -2,6 +2,12 @@ local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local g = vim.g -- a table to access global variables
 local opt = vim.opt -- to set options
 
+if not vim.notify then
+	vim.notify = function(msg, type)
+		print(msg .. type)
+	end
+end
+
 vim.o.completeopt = "menuone,noselect"
 cmd("set termguicolors")
 
@@ -60,12 +66,7 @@ opt.smartcase = true -- searches are case insensitive...
 opt.autochdir = true
 opt.swapfile = false
 
-g.mapleader = " "
-
 -- Save undo history
 vim.o.undofile = true
 
 vim.g.python3_host_prog = "/home/racso/.pyenv/versions/nvim/bin/python"
-
--- cmd("au BufReadPost *.cairo set filetype=cairo")
--- cmd("au Filetype cairo set syntax=cairo")

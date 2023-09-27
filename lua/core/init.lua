@@ -6,7 +6,7 @@ function racsonvim.lsp_formatting(bufnr)
 	vim.lsp.buf.format({
 		async = true,
 		filter = function(client)
-      print(client.name)
+			print(client.name)
 			return client.name == "efm"
 		end,
 		bufnr = bufnr,
@@ -45,8 +45,21 @@ end
 function racsonvim.safeRequire(library)
 	local status, import = pcall(require, library)
 	if not status then
-		local msg = "fail " .. library .. " import"
-		racsonvim.notify(msg, "error")
+		-- local msg = "fail " .. library .. " import"
+		-- racsonvim.notify(msg, "error")
+    return status 
 	end
 	return import
+end
+
+function racsonvim.setMappingDescription(mapping, description)
+  local whichKey = racsonvim.safeRequire("which-key")
+  if whichKey then
+    whichKey.register({ name = description}, {prefix = mapping})
+  end
+end
+
+function racsonvim.setKeymap(mode, rhls,cmd, opts, description)
+  racsonvim.setMappingDescription(rhls, description)
+  vim.keymap.set(mode, rhls, cmd, opts)
 end
