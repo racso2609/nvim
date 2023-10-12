@@ -22,7 +22,7 @@ return {
 						"black",
 						"prettier",
 						"eslint-lsp",
-						"solidity",
+						-- "solidity",
 						"luaformatter",
 						"typescript-language-server",
 						"lua-language-server",
