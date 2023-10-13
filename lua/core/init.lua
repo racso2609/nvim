@@ -47,19 +47,11 @@ function racsonvim.safeRequire(library)
 	if not status then
 		-- local msg = "fail " .. library .. " import"
 		-- racsonvim.notify(msg, "error")
-    return status 
+		return status
 	end
 	return import
 end
 
-function racsonvim.setMappingDescription(mapping, description)
-  local whichKey = racsonvim.safeRequire("which-key")
-  if whichKey then
-    whichKey.register({ name = description}, {prefix = mapping})
-  end
-end
-
-function racsonvim.setKeymap(mode, rhls,cmd, opts, description)
-  racsonvim.setMappingDescription(rhls, description)
-  vim.keymap.set(mode, rhls, cmd, opts)
+function racsonvim.setKeymap(mode, rhls, cmd, opts, description)
+	vim.keymap.set(mode, rhls, cmd, opts)
 end

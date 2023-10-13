@@ -1,46 +1,65 @@
 -- leader key
+local whichKey = racsonvim.safeRequire("which-key")
 vim.g.mapleader = " "
+local g = vim.g
 
-
-local opts = { noremap = true, silent = true }
+local opts = { remap = true, silent = true }
 -- snippets
-racsonvim.setKeymap('n', '<leader>sa', ":UltiSnipsAddFileTypes<cr>", opts, "Add snippet fileType")
-racsonvim.setKeymap('n', '<leader>se', ":UltiSnipsEdit<cr>", opts, "Edit snippet file type")
+-- racsonvim.setKeymap("n", "<leader>sa", "<cmd>UltiSnipsAddFileTypes<cr>", opts, "Add snippet fileType")
+racsonvim.setKeymap("n", "<leader>se", "<cmd>UltiSnipsEdit<cr>", opts, "Edit snippet file type")
 
 -- note taking
-racsonvim.setKeymap('n', '<leader>nf', ":lua require('telescope.builtin').find_files({cwd =" .. "'/home/racso/notes'})<cr>", opts, "Fuzzy find notes")
+racsonvim.setKeymap(
+	"n",
+	"<leader>nf",
+	"lua require('telescope.builtin').find_files({cwd =" .. "'/home/racso/notes'})",
+	opts,
+	"Fuzzy find notes"
+)
 
--- NvimTree 
-racsonvim.setKeymap('n', '<C-b>', "<cmd>Explore<cr>", opts, "Open file explorer")
+-- NvimTree
+racsonvim.setKeymap("n", "<C-b>", "<cmd>Explore<cr>", opts, "Open file explorer")
 
 -- basic
-racsonvim.setKeymap('n', '<C-l>', ":noh<cr>", opts, "Clear highlights")
-racsonvim.setKeymap('n', '<C-s>', ":w!<cr>", opts, "save")
-racsonvim.setKeymap('n', '<C-q>', ":q<cr>", opts, "close")
-racsonvim.setKeymap('n', '<C-a>', ":gg<S-v>G<cr>", opts, "select all")
-racsonvim.setKeymap('n', '<C-z>', ":undo<cr>", opts, "select all")
-racsonvim.setKeymap('n', '<C-M-z>', ":redo<cr>", opts, "select all")
+racsonvim.setKeymap("n", "<C-l>", ":noh<cr>", opts, "Clear highlights")
+racsonvim.setKeymap("n", "<C-s>", "<cmd>w!<cr>", opts, "save")
+racsonvim.setKeymap("n", "<C-q>", "<cmd>q<cr>", opts, "close")
+racsonvim.setKeymap("n", "<C-a>", "gg<S-v>G", opts, "select all")
+racsonvim.setKeymap("n", "<C-z>", "<cmd>undo<cr>", opts, "select all")
+racsonvim.setKeymap("n", "<C-M-z>", "<cmd>redo<cr>", opts, "select all")
 
 --resize windows
 --- vertical
-racsonvim.setKeymap('n', '<C-M-Down>', ":resize -2<cr>", opts, "resize Down")
-racsonvim.setKeymap('n', '<C-M-Up>', ":resize +2<cr>", opts, "resize Up")
+racsonvim.setKeymap("n", "<C-M-Down>", "<cmd>resize -2<cr>", opts, "resize Down")
+racsonvim.setKeymap("n", "<C-M-Up>", "<cmd>resize +2<cr>", opts, "resize Up")
 --- horizontal
-racsonvim.setKeymap('n', '<C-M-Left>', ":vertical resize -2<cr>", opts, "resize Left")
-racsonvim.setKeymap('n', '<C-M-Right>', ":vertical resize +2<cr>", opts, "resize Right")
+racsonvim.setKeymap("n", "<C-M-Left>", "<cmd>vertical resize -2<cr>", opts, "resize Left")
+racsonvim.setKeymap("n", "<C-M-Right>", "<cmd>vertical resize +2<cr>", opts, "resize Right")
 
 -- move from buffers
 ----- vertical
-racsonvim.setKeymap('n', '<C-Down>', ":<C-w>j<cr>", opts, "move Down")
-racsonvim.setKeymap('n', '<C-Up>', ":<C-w>k<cr>", opts, "move Up")
+racsonvim.setKeymap("n", "<C-Down>", "<C-w>j", opts, "move Down")
+racsonvim.setKeymap("n", "<C-Up>", "<C-w>k", opts, "move Up")
+
 --- horizontal
-racsonvim.setKeymap('n', '<C-Left>', ":<C-w>h<cr>", opts, "move Left")
-racsonvim.setKeymap('n', '<C-Right>', ":<C-w>l<cr>", opts, "move Right")
+racsonvim.setKeymap("n", "<C-Left>", "<C-w>h", opts, "move Left")
+racsonvim.setKeymap("n", "<C-Right>", "<C-w>l", opts, "move Right")
 
+g.UltiSnipsExpandTrigger = "<M-a>"
+g.UltiSnipsJumpForwardTrigger = "<tab>z"
+g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
+g.UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
+g.UltiSnipsListSnippets = "<space>sl"
 
-
-
-
+if whichKey then
+	local mapping = {
+		d = "Diagnostic",
+		s = "Snippets",
+		n = "notes",
+		g = "git",
+	}
+	whichKey.register(mapping, { prefix = "<leader>" })
+end
 
 -- local shortcuts = {
 -- 	{
@@ -59,7 +78,7 @@ racsonvim.setKeymap('n', '<C-Right>', ":<C-w>l<cr>", opts, "move Right")
 -- 					-- redo and undo
 -- 					-- {
 -- 					-- 	key = "<C-r>",
--- 					-- 	command = ":source %<cr>",
+-- 					-- 	command = "source %",
 -- 					-- 	name = "charge actual file",
 -- 					-- },
 -- 				},
