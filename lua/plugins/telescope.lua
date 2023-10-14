@@ -117,6 +117,16 @@ return {
 		init = function()
 			local telescope = racsonvim.safeRequire("telescope")
 			local whichKey = racsonvim.safeRequire("which-key")
+			if not telescope then
+				return
+			end
+			-- telescope.load_extension("persisted")
+			telescope.load_extension("neoclip")
+			telescope.load_extension("media_files")
+
+			if not whichKey then
+				return
+			end
 
 			local mapping = {
 				name = "telescope",
@@ -129,10 +139,6 @@ return {
 			}
 
 			whichKey.register(mapping, { prefix = "<leader>t" })
-
-			telescope.load_extension("persisted")
-			telescope.load_extension("neoclip")
-			telescope.load_extension("media_files")
 		end,
 	},
 }

@@ -5,6 +5,7 @@ _G.racsonvim = {}
 function racsonvim.lsp_formatting(bufnr)
 	vim.lsp.buf.format({
 		async = true,
+		  name = 'efm',
 		filter = function(client)
 			print(client.name)
 			return client.name == "efm"
@@ -54,4 +55,30 @@ end
 
 function racsonvim.setKeymap(mode, rhls, cmd, opts, description)
 	vim.keymap.set(mode, rhls, cmd, opts)
+end
+
+racsonvim.lspFormattingGroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+function racsonvim.on_attach(client, bufnr)
+
+if client.supports_method("textDocument/formatting") then
+					vim.api.nvim_clear_autocmds({
+						group = racsonvim.lspFormattingGroup,
+						buffer = bufnr,
+					})
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = racsonvim.lspFormattingGroup,
+						buffer = bufnr,
+						callback = function()
+							racsonvim.lsp_formatting(bufnr)
+						end,
+					})
+	vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
+						racsonvim.lsp_formatting(bufnr)
+					end, {
+						desc = "Format current buffer with LSP",
+					})
+								end
+
+
 end

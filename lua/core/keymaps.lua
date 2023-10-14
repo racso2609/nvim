@@ -45,6 +45,11 @@ racsonvim.setKeymap("n", "<C-Up>", "<C-w>k", opts, "move Up")
 racsonvim.setKeymap("n", "<C-Left>", "<C-w>h", opts, "move Left")
 racsonvim.setKeymap("n", "<C-Right>", "<C-w>l", opts, "move Right")
 
+-- formatting
+racsonvim.setKeymap("n", "<C-f>", function()
+	vim.lsp.buf.format({ name = "efm" })
+end, opts, "move Right")
+
 g.UltiSnipsExpandTrigger = "<M-a>"
 g.UltiSnipsJumpForwardTrigger = "<tab>z"
 g.UltiSnipsJumpBackwardTrigger = "<s-tab>"

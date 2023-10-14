@@ -57,7 +57,7 @@ return {
 				"black",
 				"prettier",
 				"eslint-lsp",
-				"solidity",
+				-- "solidity",
 				"luaformatter",
 				"typescript-language-server",
 				"lua-language-server",
@@ -69,23 +69,7 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
-			local on_attach = function(client, bufnr)
-				-- Enable completion triggered by <c-x><c-o>
-				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-				vim.api.nvim_exec_autocmds("User", {
-					pattern = "LspAttached",
-				})
-				-- disable lsp formatting to use null-ls
-				client.server_capabilities.document_formatting = false
-				client.server_capabilities.document_range_formatting = false
-
-				-- Create a command `:Format` local to the LSP buffer
-				vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
-					racsonvim.lsp_formatting(bufnr)
-				end, {
-					desc = "Format current buffer with LSP",
-				})
-			end
+			local on_attach = racsonvim.on_attach
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			local masonConfig = racsonvim.safeRequire("mason-lspconfig")
 			local lspconfig = racsonvim.safeRequire("lspconfig")
@@ -120,6 +104,10 @@ return {
 										-- Make the server aware of Neovim runtime files
 										library = vim.api.nvim_get_runtime_file("", true),
 										checkThirdParty = false,
+									},
+									runtime = {
+
+										version = "LuaJIT",
 									},
 								},
 							},

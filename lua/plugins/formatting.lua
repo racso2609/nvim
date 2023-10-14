@@ -6,26 +6,9 @@ return {
 		config = function()
 			local efms = require("efmls-configs")
 
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-			local on_attach = function(client, bufnr)
-				if client.supports_method("textDocument/formatting") then
-					vim.api.nvim_clear_autocmds({
-						group = augroup,
-						buffer = bufnr,
-					})
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = augroup,
-						buffer = bufnr,
-						callback = function()
-							racsonvim.lsp_formatting(bufnr)
-						end,
-					})
-				end
-			end
-
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			efms.init({
-				on_attach = on_attach,
+				on_attach = racsonvim.on_attach,
 				init_options = { documentFormatting = true },
 				default_options = true,
 				capabilities = capabilities,
@@ -53,7 +36,12 @@ return {
 					linter = require("efmls-configs.linters.luacheck"),
 					formatter = require("efmls-configs.formatters.stylua"),
 				},
+				-- solidity = {
+				-- 	linter = require("efmls-configs.linters.slither"),
+				-- 	formatter = require("efmls-configs.formatters.forge_fmt"),
+				-- },
 			}
+			print("configuring")
 			efms.setup(formattersByLang)
 		end,
 	},
