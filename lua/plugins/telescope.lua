@@ -2,11 +2,13 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		version = false, -- telescope did only one release, so use HEAD for now
+		event = { "BufRead" },
 		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
+			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-media-files.nvim",
 			"AckslD/nvim-neoclip.lua",
 			"BurntSushi/ripgrep",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		branch = "0.1.x",
 		cmd = "Telescope",
@@ -86,17 +88,49 @@ return {
 		},
 		opts = {
 			defaults = {
-				path_display = {
-					"smart",
+				prompt_prefix = "   ",
+				selection_caret = "  ",
+				entry_prefix = "  ",
+				initial_mode = "insert",
+				selection_strategy = "reset",
+				sorting_strategy = "ascending",
+				layout_strategy = "horizontal",
+				layout_config = {
+					horizontal = {
+						prompt_position = "top",
+						preview_width = 0.55,
+						results_width = 0.8,
+					},
+					vertical = {
+						mirror = false,
+					},
+					width = 0.87,
+					height = 0.80,
+					preview_cutoff = 120,
 				},
+				-- file_sorter = require("telescope.sorters").get_fuzzy_file,
+				file_ignore_patterns = {},
+				-- generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+				path_display = { "truncate" },
+				winblend = 0,
+				border = {},
+				borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+				color_devicons = true,
+				set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+				-- file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+				-- grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+				-- qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+				-- Developer configurations: Not meant for general override
+				-- buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+				-- mappings = {
+				-- n = { ["q"] = require("telescope.actions").close },
+				-- },
 			},
 			extensions = {
 				persisted = {
 					layout_config = { width = 0.55, height = 0.55 },
 				},
 				media_files = {
-					-- filetypes whitelist
-					-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
 					filetypes = {
 						"png",
 						"webp",
@@ -107,7 +141,7 @@ return {
 				},
 				lazy = {
 					-- Optional theme (the extension doesn't set a default theme)
-					theme = "ivy",
+					-- theme = "ivy",
 					-- Whether or not to show the icon in the first column
 					show_icon = true,
 				},
@@ -116,29 +150,31 @@ return {
 
 		init = function()
 			local telescope = racsonvim.safeRequire("telescope")
-			local whichKey = racsonvim.safeRequire("which-key")
+			-- local whichKey = racsonvim.safeRequire("which-key")
+
 			if not telescope then
 				return
 			end
+
 			-- telescope.load_extension("persisted")
 			telescope.load_extension("neoclip")
 			telescope.load_extension("media_files")
 
-			if not whichKey then
-				return
-			end
-
-			local mapping = {
-				name = "telescope",
-				f = {
-					name = "Find file",
-				},
-				c = { name = "Commands" },
-				g = { name = "Github" },
-				s = { name = "Search" },
-			}
-
-			whichKey.register(mapping, { prefix = "<leader>t" })
+			-- if not whichKey then
+			-- 	return
+			-- end
+			--
+			-- local mapping = {
+			-- 	name = "telescope",
+			-- 	f = {
+			-- 		name = "Find file",
+			-- 	},
+			-- 	c = { name = "Commands" },
+			-- 	g = { name = "Github" },
+			-- 	s = { name = "Search" },
+			-- }
+			--
+			-- whichKey.register(mapping, { prefix = "<leader>t" })
 		end,
 	},
 }

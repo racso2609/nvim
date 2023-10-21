@@ -9,6 +9,8 @@ local BufCommands = {
 }
 
 return {
+	-- general
+	{ "nathom/filetype.nvim", config = true },
 	-- ts/js
 	{
 		"jose-elias-alvarez/typescript.nvim",
@@ -95,6 +97,5 @@ return {
 			},
 		},
 	},
-  -- solidity
-
+	-- solidity
 }

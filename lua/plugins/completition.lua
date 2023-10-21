@@ -1,7 +1,7 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		event = "BufEnter",
+		event = "BufRead",
 		config = function()
 			local cmp = racsonvim.safeRequire("cmp")
 			local lspkind = racsonvim.safeRequire("lspkind")

@@ -43,11 +43,6 @@ return {
 			"VeryLazy",
 		},
 	},
-	-- Automatically install LSPs to stdpath for neovim
-	{
-		"williamboman/mason.nvim",
-		config = true,
-	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		opts = {
@@ -68,6 +63,7 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		dependencies = { "creativenull/efmls-configs-nvim" },
 		config = function()
 			local on_attach = racsonvim.on_attach
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -80,6 +76,7 @@ return {
 
 			masonConfig.setup_handlers({
 				function(server_name)
+					-- print(server_name)
 					if server_name == "lua_ls" then
 						lspconfig[server_name].setup({
 							on_attach = on_attach,
@@ -113,35 +110,70 @@ return {
 							},
 						})
 					elseif server_name == "efm" then
-						lspconfig[server_name].setup({
-							on_attach = on_attach,
-							capabilities = capabilities,
-							default_opts = {
-								root_dir = lspconfig.util.root_pattern({ ".git/", "." }),
-								init_options = { documentFormatting = true },
-								settings = {
-									rootMarkers = { ".git/", ".", "stylua.toml" },
-								},
-								filetypes = {
-									"javascript",
-									"javascriptreact",
-									"javascript.jsx",
-									"typescript",
-									"typescript.tsx",
-									"typescriptreact",
-									"lua",
-									"json",
-									"html",
-									-- "less",
-									-- "scss",
-									-- "css",
-								},
+						local languages = {
+							typescriptreact = {
+								require("efmls-configs.linters.eslint"),
+								require("efmls-configs.formatters.prettier"),
 							},
-						})
+							javascriptreact = {
+								require("efmls-configs.linters.eslint"),
+								require("efmls-configs.formatters.prettier"),
+							},
+
+							typescript = {
+								require("efmls-configs.linters.eslint"),
+								require("efmls-configs.formatters.prettier"),
+							},
+							javascript = {
+								require("efmls-configs.linters.eslint"),
+								require("efmls-configs.formatters.prettier"),
+							},
+							lua = {
+								require("efmls-configs.linters.luacheck"),
+								require("efmls-configs.formatters.stylua"),
+							},
+							solidity = {
+								require("efmls-configs.linters.solhint"),
+								require("efmls-configs.formatters.forge_fmt"),
+							},
+							json = {
+								require("efmls-configs.linters.jq"),
+								require("efmls-configs.formatters.prettier"),
+							},
+							python = {
+								require("efmls-configs.linters.pylint"),
+								require("efmls-configs.formatters.black"),
+							},
+						}
+
+						local efmls_config = {
+							filetypes = vim.tbl_keys(languages),
+							settings = {
+								rootMarkers = { ".git/", ".gitmodule" },
+								languages = languages,
+							},
+							init_options = {
+								documentFormatting = true,
+								documentRangeFormatting = true,
+							},
+						}
+
+						lspconfig[server_name].setup(vim.tbl_extend("force", efmls_config, {
+							on_attach = racsonvim.on_attach,
+							capabilities = capabilities,
+						}))
+						-- print("efm stup")
 					else
 						lspconfig[server_name].setup({
 							on_attach = on_attach,
 							capabilities = capabilities,
+							settings = {
+								rootMarkers = { ".git/", ".gitmodule" },
+							},
+							init_options = {
+								documentFormatting = true,
+								documentRangeFormatting = true,
+							},
 						})
 					end
 				end,
@@ -195,5 +227,10 @@ return {
 			{ "<leader>ds", "<cmd>Lspsaga show_buf_diagnostics<CR>", desc = "show buffer diagnostic" },
 			{ "<leader>dS", "<cmd>Lspsaga show_workspace_diagnostics<CR>", desc = "show workspace diagnostic" },
 		},
+	},
+	-- Automatically install LSPs to stdpath for neovim
+	{
+		"williamboman/mason.nvim",
+		config = true,
 	},
 }

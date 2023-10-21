@@ -3,13 +3,22 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = {
-			"VimEnter",
-			"VeryLazy",
+			"BufRead",
 		},
 		dependencies = {
 			"p00f/nvim-ts-rainbow",
+			"YongJieYongJie/tree-sitter-solidity",
 			"JoosepAlviste/nvim-ts-context-commentstring",
+			"nvim-treesitter/nvim-treesitter-context",
 			"nvim-treesitter/nvim-treesitter-textobjects",
+			{
+				"windwp/nvim-ts-autotag",
+				config = function()
+					racsonvim.safeRequire("nvim-ts-autotag").setup({
+						enable = true,
+					})
+				end,
+			},
 		},
 		build = ":TSUpdate",
 		opts = {
@@ -53,28 +62,4 @@ return {
 			racsonvim.safeRequire("nvim-treesitter.configs").setup(opts)
 		end,
 	},
-	{
-		"YongJieYongJie/tree-sitter-solidity",
-		event = {
-			"BufEnter *.sol",
-		},
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-	},
-	{
-		"windwp/nvim-ts-autotag",
-		event = {
-			"InsertEnter",
-		},
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = function()
-			racsonvim.safeRequire("nvim-ts-autotag").setup({
-				enable = true,
-			})
-		end,
-	},
-	{ "nvim-treesitter/nvim-treesitter-context", opts = {}, dependencies = { "nvim-treesitter/nvim-treesitter" } },
 }

@@ -18,7 +18,7 @@ racsonvim.setKeymap(
 )
 
 -- NvimTree
-racsonvim.setKeymap("n", "<C-b>", "<cmd>Explore<cr>", opts, "Open file explorer")
+racsonvim.setKeymap("n", "<C-b>", "<cmd>NvimTreeToggle<cr>", opts, "Open file explorer")
 
 -- basic
 racsonvim.setKeymap("n", "<C-l>", ":noh<cr>", opts, "Clear highlights")
