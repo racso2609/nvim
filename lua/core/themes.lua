@@ -1,5 +1,5 @@
 local themes_table = {
-	"neon",
+	-- "neon",
 	"vscode",
 	"material",
 	-- "gruvbox-material",
