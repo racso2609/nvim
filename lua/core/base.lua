@@ -28,6 +28,8 @@ opt.expandtab = true -- Converts tabs to spaces
 opt.smartindent = true -- Makes indenting smart
 opt.autoindent = true -- Good auto indent
 opt.laststatus = 0 -- Always display the status line
+-- opt.filetype = true
+-- vim.g.did_load_filetypes = 1
 
 -- show line number
 opt.number = true

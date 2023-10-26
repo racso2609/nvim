@@ -2,15 +2,16 @@ return {
 	-- Highlight, edit, and navigate code
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "master",
 		event = {
 			"BufRead",
 		},
 		dependencies = {
 			"p00f/nvim-ts-rainbow",
 			"YongJieYongJie/tree-sitter-solidity",
-			"JoosepAlviste/nvim-ts-context-commentstring",
-			"nvim-treesitter/nvim-treesitter-context",
-			"nvim-treesitter/nvim-treesitter-textobjects",
+			-- "JoosepAlviste/nvim-ts-context-commentstring",
+			-- "nvim-treesitter/nvim-treesitter-context",
+			-- "nvim-treesitter/nvim-treesitter-textobjects",
 			{
 				"windwp/nvim-ts-autotag",
 				config = function()
@@ -32,8 +33,9 @@ return {
 				"http",
 				"json",
 				"yaml",
+				"bash",
 			},
-			sync_install = false,
+			sync_install = true,
 			auto_install = true,
 			highlight = {
 				enable = true, -- false will disable the whole extension

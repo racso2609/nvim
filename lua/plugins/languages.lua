@@ -10,7 +10,10 @@ local BufCommands = {
 
 return {
 	-- general
-	{ "nathom/filetype.nvim", config = true },
+	{
+		"nathom/filetype.nvim",
+		opt = {},
+	},
 	-- ts/js
 	{
 		"jose-elias-alvarez/typescript.nvim",
@@ -22,8 +25,8 @@ return {
 				pattern = { "*.ts", "*.js", "*.tsx", "*.jsx", "*.cjs", "*.mjs" },
 				group = format_sync_grp,
 				callback = function()
-					vim.cmd("lua require('typescript').actions.addMissingImports()")
-					vim.cmd("lua require('typescript').actions.removeUnused()")
+					require("typescript").actions.addMissingImports()
+					require("typescript").actions.removeUnused()
 				end,
 			})
 		end,

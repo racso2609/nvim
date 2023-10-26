@@ -1,8 +1,5 @@
- return {
---	"morhetz/gruvbox",
-	"sainnhe/gruvbox-material",
-	"liuchengxu/space-vim-dark",
-	"joshdick/onedark.vim",
-	-- "sainnhe/everforest",
-	-- "EdenEast/nightfox.nvim",
+return {
+	"rafamadriz/neon",
+	"Mofiqul/vscode.nvim",
+	"marko-cerovac/material.nvim",
 }
