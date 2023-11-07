@@ -64,4 +64,5 @@ return {
 			racsonvim.safeRequire("nvim-treesitter.configs").setup(opts)
 		end,
 	},
+	"/sheerun/vim-polyglot",
 }

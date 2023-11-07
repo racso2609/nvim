@@ -1,5 +1,4 @@
 -- leader key
-local whichKey = racsonvim.safeRequire("which-key")
 vim.g.mapleader = " "
 local g = vim.g
 
@@ -55,16 +54,6 @@ g.UltiSnipsJumpForwardTrigger = "<tab>z"
 g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
 g.UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
 g.UltiSnipsListSnippets = "<space>sl"
-
-if whichKey then
-	local mapping = {
-		d = "Diagnostic",
-		s = "Snippets",
-		n = "notes",
-		g = "git",
-	}
-	whichKey.register(mapping, { prefix = "<leader>" })
-end
 
 -- local shortcuts = {
 -- 	{

@@ -162,7 +162,6 @@ return {
 							on_attach = racsonvim.on_attach,
 							capabilities = capabilities,
 						}))
-						-- print("efm stup")
 					else
 						lspconfig[server_name].setup({
 							on_attach = on_attach,
