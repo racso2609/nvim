@@ -1,39 +1,3 @@
--- local lsp_configs_by_name = {
---   lua_ls = {},
---   efm = {}
--- }
---
--- function get_config(name)
--- local selected_config = lsp_config_by_name[name]
--- 			local capabilities = vim.lsp.protocol.make_client_capabilities()
--- local on_attach = function(client, bufnr)
--- 				-- Enable completion triggered by <c-x><c-o>
--- 				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
--- 				vim.api.nvim_exec_autocmds("User", {
--- 					pattern = "LspAttached",
--- 				})
--- 				-- disable lsp formatting to use null-ls
--- 				client.server_capabilities.document_formatting = false
--- 				client.server_capabilities.document_range_formatting = false
---
--- 				-- Create a command `:Format` local to the LSP buffer
--- 				vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
--- 					racsonvim.lsp_formatting(bufnr)
--- 				end, {
--- 					desc = "Format current buffer with LSP",
--- 				})
--- 			end
---
---
--- if not selected_config then
---   return {
---     capabilities = capabilities,
---     on_attach = on_attach
---
---   }
--- end
--- end
-
 return {
 	{
 		-- LSP Configuration & Plugins
@@ -63,7 +27,9 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		dependencies = { "creativenull/efmls-configs-nvim" },
+		dependencies = {
+			"creativenull/efmls-configs-nvim",
+		},
 		config = function()
 			local on_attach = racsonvim.on_attach
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -76,7 +42,6 @@ return {
 
 			masonConfig.setup_handlers({
 				function(server_name)
-					-- print(server_name)
 					if server_name == "lua_ls" then
 						lspconfig[server_name].setup({
 							on_attach = on_attach,
@@ -149,7 +114,10 @@ return {
 						local efmls_config = {
 							filetypes = vim.tbl_keys(languages),
 							settings = {
-								rootMarkers = { ".git/", ".gitmodule" },
+								rootMarkers = {
+									".git/",
+									".gitmodule",
+								},
 								languages = languages,
 							},
 							init_options = {
@@ -167,7 +135,10 @@ return {
 							on_attach = on_attach,
 							capabilities = capabilities,
 							settings = {
-								rootMarkers = { ".git/", ".gitmodule" },
+								rootMarkers = {
+									".git/",
+									".gitmodule",
+								},
 							},
 							init_options = {
 								documentFormatting = true,
@@ -215,16 +186,44 @@ return {
 			-- wk.register({ name = "Diagnostic" }, { prefix = "<space>d" })
 		end,
 		dependencies = {
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" },
+			{
+				"nvim-tree/nvim-web-devicons",
+			},
+			{
+				"nvim-treesitter/nvim-treesitter",
+			},
 		},
 		keys = {
-			{ "<leader>r", "<cmd>Lspsaga rename<CR>", desc = "Rename function" },
-			{ "<leader>R", "<cmd>Lspsaga rename ++project<CR>", desc = "Rename all concurrencies" },
-			{ "<leader>e", "<cmd>Lspsaga peek_definition<CR>", desc = "Edit from definition" },
-			{ "gd", "<cmd>Lspsaga goto_definition<CR>", desc = "goTo definition" },
-			{ "<leader>ds", "<cmd>Lspsaga show_buf_diagnostics<CR>", desc = "show buffer diagnostic" },
-			{ "<leader>dS", "<cmd>Lspsaga show_workspace_diagnostics<CR>", desc = "show workspace diagnostic" },
+			{
+				"<leader>r",
+				"<cmd>Lspsaga rename<CR>",
+				desc = "Rename function",
+			},
+			{
+				"<leader>R",
+				"<cmd>Lspsaga rename ++project<CR>",
+				desc = "Rename all concurrencies",
+			},
+			{
+				"<leader>e",
+				"<cmd>Lspsaga peek_definition<CR>",
+				desc = "Edit from definition",
+			},
+			{
+				"gd",
+				"<cmd>Lspsaga goto_definition<CR>",
+				desc = "goTo definition",
+			},
+			{
+				"<leader>ds",
+				"<cmd>Lspsaga show_buf_diagnostics<CR>",
+				desc = "show buffer diagnostic",
+			},
+			{
+				"<leader>dS",
+				"<cmd>Lspsaga show_workspace_diagnostics<CR>",
+				desc = "show workspace diagnostic",
+			},
 		},
 	},
 	-- Automatically install LSPs to stdpath for neovim
