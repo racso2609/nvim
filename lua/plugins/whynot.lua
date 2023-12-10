@@ -216,4 +216,44 @@ return {
 			},
 		},
 	},
+
+	-- AI
+	-- TODO:  create promps for document functions
+	-- TODO: install ollama on a server and expose it to be used by me (or more ram XD)
+	{
+		"David-Kunz/gen.nvim",
+		event = { "VeryLazy" },
+		opts = {
+			model = "mistral", -- The default model to use.
+			display_mode = "float", -- The display mode. Can be "float" or "split".
+			show_prompt = false, -- Shows the Prompt submitted to Ollama.
+			show_model = false, -- Displays which model you are using at the beginning of your chat session.
+			no_auto_close = false, -- Never closes the window automatically.
+			init = function(options)
+				pcall(io.popen, "ollama serve > /dev/null 2>&1 &")
+			end,
+			-- Function to initialize Ollama
+			command = "curl --silent --no-buffer -X POST http://localhost:11434/api/generate -d $body",
+			-- The command for the Ollama service. You can use placeholders $prompt, $model and $body (shellescaped).
+			-- This can also be a lua function returning a command string, with options as the input parameter.
+			-- The executed command must return a JSON object with { response, context }
+			-- (context property is optional).
+			list_models = "<function>", -- Retrieves a list of model names
+			debug = false, -- Prints errors and the command which is run.
+		},
+		keys = {
+			{ "<leader>gc", ":Gen<cr>", desc = "Start code generation" },
+		},
+		init = function()
+			require("gen").prompts["Generate_Documentation"] = {
+				prompt = "You are a $filetype developer with 5 years of experience please generate the documentation to this function (define parameters, principal job of the function and possible problems if exist) follow the code documentation standard: \n$text",
+				replace = false,
+			}
+
+			require("gen").prompts["Generate_Audit_Report"] = {
+				prompt = "You are a $filetype developer with 5 years of experience please generate a audit report about this issue following the $input template: \n$text",
+				replace = false,
+			}
+		end,
+	},
 }
