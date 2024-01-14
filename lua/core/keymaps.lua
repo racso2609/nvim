@@ -7,6 +7,12 @@ local opts = { remap = true, silent = true }
 -- racsonvim.setKeymap("n", "<leader>sa", "<cmd>UltiSnipsAddFileTypes<cr>", opts, "Add snippet fileType")
 racsonvim.setKeymap("n", "<leader>se", "<cmd>UltiSnipsEdit<cr>", opts, "Edit snippet file type")
 
+local toggleRelativeNumber = function()
+	vim.opt.relativenumber = not vim.wo.relativenumber
+end
+-- toggle relative number
+racsonvim.setKeymap("n", "<C-N>", toggleRelativeNumber, opts, "Toggle relative line number")
+
 -- note taking
 racsonvim.setKeymap(
 	"n",
