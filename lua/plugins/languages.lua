@@ -26,7 +26,7 @@ return {
 				group = format_sync_grp,
 				callback = function()
 					require("typescript").actions.addMissingImports()
-					require("typescript").actions.removeUnused()
+					-- require("typescript").actions.removeUnused()
 				end,
 			})
 		end,

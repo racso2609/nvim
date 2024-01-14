@@ -15,7 +15,7 @@ return {
 				"stylua",
 				"black",
 				"prettier",
-				"eslint-lsp",
+				-- "eslint-lsp",
 				-- "solidity",
 				"luaformatter",
 				"typescript-language-server",
@@ -77,20 +77,20 @@ return {
 					elseif server_name == "efm" then
 						local languages = {
 							typescriptreact = {
-								require("efmls-configs.linters.eslint"),
+								require("efmls-configs.linters.eslint_d"),
 								require("efmls-configs.formatters.prettier"),
 							},
 							javascriptreact = {
-								require("efmls-configs.linters.eslint"),
+								require("efmls-configs.linters.eslint_d"),
 								require("efmls-configs.formatters.prettier"),
 							},
 
 							typescript = {
-								require("efmls-configs.linters.eslint"),
+								require("efmls-configs.linters.eslint_d"),
 								require("efmls-configs.formatters.prettier"),
 							},
 							javascript = {
-								require("efmls-configs.linters.eslint"),
+								require("efmls-configs.linters.eslint_d"),
 								require("efmls-configs.formatters.prettier"),
 							},
 							lua = {
