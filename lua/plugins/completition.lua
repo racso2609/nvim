@@ -135,6 +135,7 @@ return {
 					{
 						"SirVer/ultisnips",
 					},
+					"honza/vim-snippets",
 				},
 			},
 			"hrsh7th/cmp-nvim-lsp",

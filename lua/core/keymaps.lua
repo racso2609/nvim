@@ -55,11 +55,11 @@ racsonvim.setKeymap("n", "<C-f>", function()
 	vim.lsp.buf.format({ name = "efm" })
 end, opts, "move Right")
 
-g.UltiSnipsExpandTrigger = "<M-a>"
-g.UltiSnipsJumpForwardTrigger = "<tab>z"
-g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
-g.UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
+g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
 g.UltiSnipsListSnippets = "<space>sl"
+vim.g.UltiSnipsExpandTrigger = "<tab>"
+-- vim.g.UltiSnipsJumpForwardTrigger = "<c-B>"
+-- vim.g.UltiSnipsJumpBackwardTrigger = "<c-z>"
 
 -- local shortcuts = {
 -- 	{

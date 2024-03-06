@@ -77,7 +77,7 @@ return {
 					elseif server_name == "efm" then
 						local languages = {
 							typescriptreact = {
-								require("efmls-configs.linters.eslint_d"),
+								require("efmls-configs.linters.eslint"),
 								require("efmls-configs.formatters.prettier"),
 							},
 							javascriptreact = {
