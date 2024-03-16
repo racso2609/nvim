@@ -222,7 +222,7 @@ return {
 	-- TODO: install ollama on a server and expose it to be used by me (or more ram XD)
 	{
 		"David-Kunz/gen.nvim",
-		event = { "VeryLazy" },
+		event = "VimEnter",
 		opts = {
 			model = "mistral", -- The default model to use.
 			display_mode = "split", -- The display mode. Can be "float" or "split".
@@ -239,7 +239,7 @@ return {
 			-- The executed command must return a JSON object with { response, context }
 			-- (context property is optional).
 			list_models = "<function>", -- Retrieves a list of model names
-			debug = false, -- Prints errors and the command which is run.
+			debug = true, -- Prints errors and the command which is run.
 		},
 		keys = {
 			{ "<leader>gc", ":Gen<cr>", desc = "Start code generation" },
@@ -248,15 +248,15 @@ return {
 			require("gen").prompts["Generate_Documentation"] = {
 				prompt = "You are a $filetype developer with 5 years of experience"
 					.. "please generate the documentation to the next code:  $text"
-					.. "avoid document $filetype functions"
-					.. "Only ouput the result following the next standard ```$filetype\n...\n``` and dont extend to much only document what do you see on the code: "
+					.. "avoid document proper $filetype functions"
+					.. "Only ouput the result following the next standard, dont extend to much only document what do you see on the code  ```$filetype\n : "
 					.. "/** "
 					.. "* @name <Function Name>"
 					.. "* @description <Description of the function and what it does>"
 					.. "* @param {<Type of parameter 1>} <Parameter name 1> - <Brief description of parameter 1>"
 					.. "* @param {<Type of parameter 2>} <Parameter name 2> - <Brief description of parameter 2>"
 					.. "* @returns {<Return type>} - <Description of what the function returns>"
-					.. "*/",
+					.. "*/...\n```",
 				replace = false,
 				model = "codellama",
 			}
