@@ -74,62 +74,6 @@ return {
 								},
 							},
 						})
-					elseif server_name == "efm" then
-						local languages = {
-							typescriptreact = {
-								require("efmls-configs.linters.eslint"),
-								require("efmls-configs.formatters.prettier"),
-							},
-							javascriptreact = {
-								require("efmls-configs.linters.eslint_d"),
-								require("efmls-configs.formatters.prettier"),
-							},
-
-							typescript = {
-								require("efmls-configs.linters.eslint_d"),
-								require("efmls-configs.formatters.prettier"),
-							},
-							javascript = {
-								require("efmls-configs.linters.eslint_d"),
-								require("efmls-configs.formatters.prettier"),
-							},
-							lua = {
-								require("efmls-configs.linters.luacheck"),
-								require("efmls-configs.formatters.stylua"),
-							},
-							solidity = {
-								require("efmls-configs.linters.solhint"),
-								require("efmls-configs.formatters.forge_fmt"),
-							},
-							json = {
-								require("efmls-configs.linters.jq"),
-								require("efmls-configs.formatters.prettier"),
-							},
-							python = {
-								require("efmls-configs.linters.pylint"),
-								require("efmls-configs.formatters.black"),
-							},
-						}
-
-						local efmls_config = {
-							filetypes = vim.tbl_keys(languages),
-							settings = {
-								rootMarkers = {
-									".git/",
-									".gitmodule",
-								},
-								languages = languages,
-							},
-							init_options = {
-								documentFormatting = true,
-								documentRangeFormatting = true,
-							},
-						}
-
-						lspconfig[server_name].setup(vim.tbl_extend("force", efmls_config, {
-							on_attach = racsonvim.on_attach,
-							capabilities = capabilities,
-						}))
 					else
 						lspconfig[server_name].setup({
 							on_attach = on_attach,
