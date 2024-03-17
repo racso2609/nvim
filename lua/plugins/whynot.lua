@@ -217,7 +217,7 @@ return {
 		},
 	},
 
-	-- AI
+	-- IA
 	-- TODO:  create promps for document functions
 	-- TODO: install ollama on a server and expose it to be used by me (or more ram XD)
 	{
@@ -225,7 +225,7 @@ return {
 		event = "VimEnter",
 		opts = {
 			model = "mistral", -- The default model to use.
-			display_mode = "split", -- The display mode. Can be "float" or "split".
+			display_mode = "float", -- The display mode. Can be "float" or "split".
 			show_prompt = true, -- Shows the Prompt submitted to Ollama.
 			show_model = true, -- Displays which model you are using at the beginning of your chat session.
 			no_auto_close = true, -- Never closes the window automatically.
@@ -233,7 +233,13 @@ return {
 				pcall(io.popen, "ollama serve > /dev/null 2>&1 &")
 			end,
 			-- Function to initialize Ollama
-			command = "curl --silent --no-buffer -X POST http://localhost:11434/api/generate -d $body",
+			command = function(options)
+				return "curl --silent --no-buffer -X POST http://"
+					.. options.host
+					.. ":"
+					.. options.port
+					.. "/api/chat -d $body"
+			end,
 			-- The command for the Ollama service. You can use placeholders $prompt, $model and $body (shellescaped).
 			-- This can also be a lua function returning a command string, with options as the input parameter.
 			-- The executed command must return a JSON object with { response, context }
@@ -246,24 +252,36 @@ return {
 		},
 		init = function()
 			require("gen").prompts["Generate_Documentation"] = {
-				prompt = "You are a $filetype developer with 5 years of experience"
-					.. "please generate the documentation to the next code:  $text"
-					.. "avoid document proper $filetype functions"
-					.. "Only ouput the result following the next standard, dont extend to much only document what do you see on the code  ```$filetype\n : "
-					.. "/** "
-					.. "* @name <Function Name>"
-					.. "* @description <Description of the function and what it does>"
-					.. "* @param {<Type of parameter 1>} <Parameter name 1> - <Brief description of parameter 1>"
-					.. "* @param {<Type of parameter 2>} <Parameter name 2> - <Brief description of parameter 2>"
-					.. "* @returns {<Return type>} - <Description of what the function returns>"
-					.. "*/...\n```",
-				replace = false,
+				prompt = "You are a $filetype developer with 5 years of experience "
+					.. "please generate the documentation to the next code"
+					.. " avoid document proper $filetype functions."
+					.. " Only ouput the result following the next standard ```$filetype\n "
+					.. "/** \n"
+					.. "* @name <Function Name> \n"
+					.. "* @description <Description of the function and what it does> \n"
+					.. "* @param {<Type of parameter 1>} <Parameter name 1> - <Brief description of parameter 1> \n"
+					.. "* @param {<Type of parameter 2>} <Parameter name 2> - <Brief description of parameter 2> \n"
+					.. "* @returns {<Return type>} - <Description of what the function returns>\n"
+					.. "*/\n"
+					.. "$text \n```: \n",
+				replace = true,
+				extract = "```$filetype\n(.-)```",
 			}
 
 			require("gen").prompts["Generate_Audit_Report"] = {
 				prompt = "You are a $filetype developer with 5 years of experience please generate a audit report about this issue following the $input template: \n$text",
-				replace = false,
+				replace = true,
 			}
+		end,
+	},
+	{
+		"Exafunction/codeium.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
+		config = function()
+			require("codeium").setup({})
 		end,
 	},
 }

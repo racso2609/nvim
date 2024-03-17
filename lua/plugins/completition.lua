@@ -12,6 +12,9 @@ return {
 						vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 					end,
 				},
+				experimental = {
+					ghost_text = { hlgroup = "Comment" },
+				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -40,6 +43,8 @@ return {
 					{
 						name = "path",
 					},
+
+					{ name = "codeium" },
 					{
 						name = "nvim_lsp",
 						keyword_length = 3,
