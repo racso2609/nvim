@@ -3,15 +3,16 @@ _G.racsonvim = {}
 --- format buffers
 --- @param bufnr number of the actual buffer
 function racsonvim.lsp_formatting(bufnr)
-	vim.lsp.buf.format({
-		async = true,
-		-- name = "efm",
-		filter = function(client)
-			print(client.name)
-			return client.name == "efm"
-		end,
-		bufnr = bufnr,
-	})
+	require("conform").format({ bufnr = bufnr })
+	-- vim.lsp.buf.format({
+	-- 	async = true,
+	-- 	-- name = "efm",
+	-- 	filter = function(client)
+	-- 		print(client.name)
+	-- 		return client.name == "efm"
+	-- 	end,
+	-- 	bufnr = bufnr,
+	-- })
 end
 
 --- show messages to  user

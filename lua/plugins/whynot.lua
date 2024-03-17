@@ -258,7 +258,6 @@ return {
 					.. "* @returns {<Return type>} - <Description of what the function returns>"
 					.. "*/...\n```",
 				replace = false,
-				model = "codellama",
 			}
 
 			require("gen").prompts["Generate_Audit_Report"] = {
