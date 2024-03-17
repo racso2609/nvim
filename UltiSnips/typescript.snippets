@@ -46,7 +46,12 @@ export default $1;
 endsnippet
 
 snippet clo "console.log()" b
-console.log('$1', $1)
+console.log('=== $1', $1)
+endsnippet
+
+
+snippet col "console.log('=== hola')" b
+console.log('=== $1')
 endsnippet
 
 snippet clg "console.log(hola)" b
@@ -88,47 +93,4 @@ snippet desc "describe('', () => {})" b
 describe('$1', () => {
   $2
 })
-endsnippet
-
-
-snippet rfc "React function component" b
-import {FC} from 'react'
-const $1:FC = ${2:($3)} => {
-  return (
-    <$4>
-      $5
-    </$4>
-  )
-}
-
-export default $1
-endsnippet
-
-snippet rnfc "React native function component" b
-import React, {FC} from 'react'
-import { ${4} } from 'react-native'
-
-const $1:FC = ${2:($3)} => {
-  return (
-    <$4>
-      $5
-    </$4>
-  )
-}
-
-export default $1
-endsnippet
-
-snippet rhc "React hook" b
-
-export type $1 = {
-
-}
-
-const $1 = ({}: $1) => {
-
-	return {}
-}
-
-export default $1;
 endsnippet
