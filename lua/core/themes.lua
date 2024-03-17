@@ -1,10 +1,7 @@
 local themes_table = {
-	-- "neon",
+	"bamboo",
 	"vscode",
-	"material",
-	-- "gruvbox-material",
-	-- "gruvbox",
-	-- "onedark",
+	"catppuccin-macchiato",
 }
 
 local get_random_theme = function()
