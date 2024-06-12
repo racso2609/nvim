@@ -174,9 +174,10 @@ return {
 	{
 		"stevearc/conform.nvim",
 		opts = {
+			log_level = vim.log.levels.TRACE,
 			format_on_save = {
 				-- These options will be passed to conform.format()
-				timeout_ms = 500,
+				timeout_ms = 10000,
 				lsp_fallback = true,
 			},
 			formatters_by_ft = {
@@ -184,10 +185,10 @@ return {
 				-- Conform will run multiple formatters sequentially
 				python = { "isort", "black" },
 				-- Use a sub-list to run only the first available formatter
-				javascript = { { "prettierd", "prettier" } },
-				javascriptreact = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				typescriptreact = { { "prettierd", "prettier" } },
+				javascript = { { "prettier", "prettierd" } },
+				javascriptreact = { { "prettier", "prettierd" } },
+				typescript = { { "prettier", "prettierd" } },
+				typescriptreact = { { "prettier", "prettierd" } },
 			},
 		},
 	},
@@ -195,6 +196,19 @@ return {
 	-- {
 	-- 	"mfussenegger/nvim-lint",
 	-- 	opts = {},
+	-- 	config = function()
+	-- 		local linters_by_ft = {
+	-- 			-- lua = { "stylua" },
+	-- 			-- Conform will run multiple formatters sequentially
+	-- 			-- python = { "isort", "black" },
+	-- 			-- Use a sub-list to run only the first available formatter
+	-- 			javascript = { "eslint" },
+	-- 			javascriptreact = { "eslint" },
+	-- 			typescript = { "eslint" },
+	-- 			typescriptreact = { "eslint" },
+	-- 		}
+	-- 		require("lint").linters_by_ft = linters_by_ft
+	-- 	end,
 	-- 	init = function()
 	-- 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	-- 			callback = function()

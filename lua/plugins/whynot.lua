@@ -59,7 +59,7 @@ return {
 				},
 				lualine_b = { "filename", "branch", "diagnostics" },
 				lualine_c = { "fileformat" },
-				lualine_x = {},
+				lualine_x = { "copilot", "encoding", "fileformat", "filetype" }, -- I added copilot here
 				lualine_y = { "filetype" },
 				lualine_z = {
 					{ "location", separator = { right = "" }, left_padding = 2 },
@@ -80,7 +80,6 @@ return {
 	{
 		"kyazdani42/nvim-tree.lua",
 		dependencies = {
-
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
@@ -122,7 +121,13 @@ return {
 				n = "notes",
 				g = "git",
 				l = "languages",
-				t = { "telescope", c = "commands and colorschemes", f = "Files", g = "github", s = "search" },
+				t = {
+					"telescope",
+					c = "commands and colorschemes",
+					f = "Files",
+					g = { "github", c = "copilot" },
+					s = "search",
+				},
 			}
 
 			whichKey.register(mapping, { prefix = "<leader>" })
@@ -272,16 +277,97 @@ return {
 				prompt = "You are a $filetype developer with 5 years of experience please generate a audit report about this issue following the $input template: \n$text",
 				replace = true,
 			}
+
+			require("gen").prompts["Generate_Swagger"] = {
+				prompt = "#swagger.tags=['Authentication']\n"
+					.. '#swagger.summary="Login with user address and signature"\n'
+					.. '#swagger.description="Authenticates a user by providing their address and a valid signature."\n'
+					.. "#swagger.response[number]={description: <string>, schema:  <array>, <object>, <string>, <number> or <boolean>}\n"
+					.. "#swagger.parameters['<name>']={\n"
+					.. "    description: <string>\n"
+					.. "}\n"
+					.. "You are a $filetype developer with 5 years of experience. "
+					.. "Please generate the Swagger documentation for the following code:\n\n"
+					.. "```$filetype\n$text```"
+					.. "return only documentation comment",
+				extract = "```$filetype\n(.-)```",
+			}
 		end,
 	},
 	{
-		"Exafunction/codeium.nvim",
+		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "canary",
 		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
+			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 		},
-		config = function()
-			require("codeium").setup({})
+		opts = {
+			debug = true, -- Enable debugging
+			window = {
+				layout = "float",
+				title = "My Title",
+			},
+			-- See Configuration section for rest
+		},
+		keys = {
+			{
+				"<leader>tgco",
+				function()
+					local chat = require("CopilotChat")
+					chat.toggle()
+				end,
+				desc = "Open copilot chat",
+			},
+			{
+				"<leader>tgch",
+				function()
+					local chat = require("CopilotChat")
+					chat.ask("Explain how it works.", {
+						selection = require("CopilotChat.select").get_selection_lines,
+					})
+				end,
+				desc = "CopilotChat - Explain",
+				mode = { "v", "n" },
+			},
+			-- Show prompts actions with telescope
+			{
+				"<leader>tgcp",
+				function()
+					local actions = require("CopilotChat.actions")
+					require("CopilotChat.integrations.telescope").pick(actions.prompt_actions({
+						selection = require("CopilotChat.select").get_selection_lines,
+					}))
+				end,
+				desc = "CopilotChat - Prompt actions",
+				mode = { "v", "n" },
+			},
+			{
+				"<leader>tgcc",
+				function()
+					local chat = require("CopilotChat")
+					chat.ask("Create a commit message and title for the next changes", {
+
+						selection = require("CopilotChat.select").gitdiff,
+					})
+				end,
+				desc = "CopilotChat - commit message",
+				mode = { "n" },
+			},
+		},
+		-- See Commands section for default commands if you want to lazy load on them
+	},
+	{
+		"github/copilot.vim",
+		-- // help
+		-- write a documentation for this function
+		--
+		init = function()
+			vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+				expr = true,
+				replace_keycodes = false,
+			})
+			vim.g.copilot_no_tab_map = true
 		end,
 	},
+	{ "AndreM222/copilot-lualine" },
 }
