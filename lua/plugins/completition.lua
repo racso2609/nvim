@@ -6,6 +6,10 @@ return {
 			local cmp = racsonvim.safeRequire("cmp")
 			local lspkind = racsonvim.safeRequire("lspkind")
 
+			if not cmp or not lspkind then
+				return
+			end
+
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -17,25 +21,20 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					-- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					-- ["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({
-						select = true,
-					}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-					["<M-a>"] = cmp.mapping(function(fallback)
-						cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-					end, {
-						"i",
-						"s", --[[ "c" (to enable the mapping in command mode) ]]
-					}),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						cmp_ultisnips_mappings.jump_backwards(fallback)
-					end, {
-						"i",
-						"s", --[[ "c" (to enable the mapping in command mode) ]]
-					}),
+					-- ["<C-e>"] = cmp.mapping.abort(),
+					-- ["<CR>"] = cmp.mapping.confirm({
+					-- select = true,
+					-- }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					-- ["<M-a>"] = cmp.mapping(function(fallback)
+					-- cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+					-- end, {
+					-- "i",
+					-- "s", --[[ "c" (to enable the mapping in command mode) ]]
+					-- }),
 				}),
+
 				formatting = {
 					format = lspkind.cmp_format(),
 				},
@@ -128,6 +127,9 @@ return {
 				},
 				config = function(_, opts)
 					local lspkind = racsonvim.safeRequire("lspkind")
+					if not lspkind then
+						return
+					end
 					lspkind.init(opts)
 				end,
 			},
