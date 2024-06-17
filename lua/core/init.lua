@@ -55,6 +55,13 @@ function racsonvim.safeRequire(library)
 end
 
 function racsonvim.setKeymap(mode, rhls, cmd, opts, description)
+	local whichKey = racsonvim.safeRequire("which-key")
+	if description and whichKey then
+		whichKey.register({
+			[rhls] = { cmd, description },
+		})
+	end
+
 	vim.keymap.set(mode, rhls, cmd, opts)
 end
 
