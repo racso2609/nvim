@@ -19,6 +19,18 @@ return {
 		"jose-elias-alvarez/typescript.nvim",
 		event = BufCommands,
 		opts = {},
+		keys = {
+			{
+				"<leader>ai",
+				":lua require('typescript').actions.addMissingImports()<cr>",
+				desc = "Add missing imports",
+			},
+			{
+				"<leader>rm",
+				":lua require('typescript').actions.removeUnused()<cr>",
+				desc = "Remove unused imports",
+			},
+		},
 		init = function()
 			local format_sync_grp = vim.api.nvim_create_augroup("JsFix", {})
 			cmd("BufWritePost", {
