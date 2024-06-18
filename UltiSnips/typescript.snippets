@@ -1,24 +1,3 @@
-snippet grcpE "gcp communt error" b
-const error = '$1';
-pinologger.info({
-		Error: '$2: ${error}'
-})
-return void callback({
- code: Status.$3,
- details: error
-})
-endsnippet
-
-snippet grcpUE "gcp Unexpected error" b
-pinologger.info({
-		Error: '$2: ${error}'
-})
-return void callback({
- code: Status.UNKNOWN,
- details: "Unexpected error!"
-})
-endsnippet
-
 snippet error ".get(async(req,res)=>{})"
 return next(new AppError("$1",$2))
 
@@ -100,3 +79,18 @@ snippet eMetadata "endpoint metadata"
     // #swagger.summary = '$2'
     // #swagger.description = '$3'
 endsnippet
+
+snippet rhc "React hook" b
+
+export type $1 = {
+
+}
+
+const $1 = ({}: $1) => {
+
+	return {}
+}
+
+export default $1;
+endsnippet
+
