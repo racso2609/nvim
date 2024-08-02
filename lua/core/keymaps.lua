@@ -58,36 +58,3 @@ end, opts, "move Right")
 g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
 g.UltiSnipsListSnippets = "<space>sl"
 vim.g.UltiSnipsExpandTrigger = "<tab>"
--- vim.g.UltiSnipsJumpForwardTrigger = "<c-B>"
--- vim.g.UltiSnipsJumpBackwardTrigger = "<c-z>"
-
--- local shortcuts = {
--- 	{
--- 		activator = "",
--- 		name = "Direct keymaps",
--- 		keymaps = {
--- 			{
--- 				prefix = "",
--- 				commands = {
--- 					-- custom shortcuts
--- 					-- {
--- 					--	key = "dw",
--- 						--command = 'vb"_d',
--- 						--name = "delete back word",
--- 					--},
--- 					-- redo and undo
--- 					-- {
--- 					-- 	key = "<C-r>",
--- 					-- 	command = "source %",
--- 					-- 	name = "charge actual file",
--- 					-- },
--- 				},
--- 			},
--- 		},
--- 	},
--- }
--- keymaps.setup(shortcuts)
-
--- "emmet-vim
--- g.user_emmet_mode = "a"
--- g.user_emmet_leader_key = "<C-a>"

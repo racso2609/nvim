@@ -1,6 +1,6 @@
 local themes_table = {
-	"bamboo",
-	"vscode",
+	-- "bamboo",
+	-- "vscode",
 	"catppuccin-macchiato",
 }
 
