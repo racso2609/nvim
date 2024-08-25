@@ -69,6 +69,11 @@ return {
 								},
 							},
 						})
+					elseif server_name == "solidity_ls" then
+						lspconfig[server_name].setup({
+							on_attach = on_attach,
+							capabilities = capabilities,
+						})
 					else
 						lspconfig[server_name].setup({
 							on_attach = on_attach,
@@ -184,6 +189,7 @@ return {
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
 				python = { "isort", "black" },
+				solidity = { "solhint" },
 				-- Use a sub-list to run only the first available formatter
 				javascript = { { "prettier", "prettierd" } },
 				javascriptreact = { { "prettier", "prettierd" } },
