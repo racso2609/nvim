@@ -80,6 +80,11 @@ return {
 				"<cmd>Telescope commands<cr>",
 				desc = "Search commands",
 			},
+			{
+				"/",
+				"<cmd>Telescope current_buffer_fuzzy_find<cr>",
+				{ desc = "Search in current buffer" },
+			},
 			-- sessions
 			{
 				"<leader>tS",
@@ -90,6 +95,7 @@ return {
 		opts = {
 			defaults = {
 				prompt_prefix = "   ",
+				prompt_title = "Sexo anal",
 				selection_caret = "  ",
 				entry_prefix = "  ",
 				initial_mode = "insert",
@@ -98,15 +104,15 @@ return {
 				layout_strategy = "horizontal",
 				layout_config = {
 					horizontal = {
-						prompt_position = "top",
+						prompt_position = "bottom",
 						preview_width = 0.55,
 						results_width = 0.8,
 					},
 					vertical = {
 						mirror = false,
 					},
-					width = 0.87,
-					height = 0.80,
+					width = 0.70,
+					height = 0.50,
 					preview_cutoff = 120,
 				},
 				-- file_sorter = require("telescope.sorters").get_fuzzy_file,
@@ -126,6 +132,11 @@ return {
 				-- mappings = {
 				-- n = { ["q"] = require("telescope.actions").close },
 				-- },
+			},
+			pickers = {
+				current_buffer_fuzzy_find = {
+					previewer = false,
+				},
 			},
 			extensions = {
 				["ui-select"] = {
@@ -161,7 +172,7 @@ return {
 				},
 				lazy = {
 					-- Optional theme (the extension doesn't set a default theme)
-					-- theme = "ivy",
+					theme = "ivy",
 					-- Whether or not to show the icon in the first column
 					show_icon = true,
 				},
