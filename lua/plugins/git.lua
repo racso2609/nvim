@@ -331,4 +331,9 @@ return {
 			{ "<leader>gDc", ":DiffviewClose<cr>", desc = "Close diffView" },
 		},
 	},
+	{
+		"pwntester/octo.nvim",
+		config = true,
+		event = { "BufRead" },
+	},
 }

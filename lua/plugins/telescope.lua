@@ -10,6 +10,7 @@ return {
 			"AckslD/nvim-neoclip.lua",
 			"BurntSushi/ripgrep",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			{ "barrett-ruth/http-codes.nvim", config = true },
 		},
 		branch = "0.1.x",
 		cmd = "Telescope",
@@ -90,6 +91,12 @@ return {
 				"<leader>tS",
 				"<cmd>Telescope persisted<cr>",
 				desc = "Search saved sessions",
+			},
+			-- why not things
+			{
+				"<leader>tlh",
+				"<cmd>HTTPCodes<cr>",
+				{ desc = "list https codes" },
 			},
 		},
 		opts = {
