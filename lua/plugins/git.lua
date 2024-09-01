@@ -334,6 +334,5 @@ return {
 	{
 		"pwntester/octo.nvim",
 		config = true,
-		event = { "BufRead" },
 	},
 }
