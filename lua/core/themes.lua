@@ -1,12 +1,7 @@
 local themes_table = {
-	"gruvbox",
-	"gruvbox-material",
-	"everforest",
-	"space-vim-dark",
-	"onedark",
-	"nightfox",
-	"nordfox",
-	"duskfox",
+	-- "bamboo",
+	-- "vscode",
+	"catppuccin-macchiato",
 }
 
 local get_random_theme = function()
@@ -18,6 +13,13 @@ end
 
 local theme = get_random_theme()
 local set_theme = function()
+	if theme == "vscode" then
+		local vscode = racsonvim.safeRequire("vscode")
+		if vscode then
+			vscode.setup({ transparent = true })
+			return vscode.load()
+		end
+	end
 	vim.cmd("colorscheme " .. theme)
 end
 

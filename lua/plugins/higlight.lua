@@ -2,27 +2,40 @@ return {
 	-- Highlight, edit, and navigate code
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "master",
 		event = {
-			"VimEnter",
-			"VeryLazy",
+			"BufRead",
 		},
 		dependencies = {
 			"p00f/nvim-ts-rainbow",
-			"JoosepAlviste/nvim-ts-context-commentstring",
-			"nvim-treesitter/nvim-treesitter-textobjects",
+			"YongJieYongJie/tree-sitter-solidity",
+			-- "JoosepAlviste/nvim-ts-context-commentstring",
+			-- "nvim-treesitter/nvim-treesitter-context",
+			-- "nvim-treesitter/nvim-treesitter-textobjects",
+			{
+				"windwp/nvim-ts-autotag",
+				config = function()
+					racsonvim.safeRequire("nvim-ts-autotag").setup({
+						enable = true,
+					})
+				end,
+			},
 		},
 		build = ":TSUpdate",
 		opts = {
 			ensure_installed = {
-				"rust",
 				"lua",
+				"solidity",
 				"javascript",
 				"typescript",
 				"tsx",
+				"rust",
 				"http",
 				"json",
+				"yaml",
+				"bash",
 			},
-			sync_install = false,
+			sync_install = true,
 			auto_install = true,
 			highlight = {
 				enable = true, -- false will disable the whole extension
@@ -32,9 +45,6 @@ return {
 				enable = true,
 			},
 			autopairs = {
-				enable = true,
-			},
-			autotag = {
 				enable = true,
 			},
 			rainbow = {
@@ -52,27 +62,22 @@ return {
 		end,
 	},
 	{
-		"YongJieYongJie/tree-sitter-solidity",
-		event = {
-			"BufEnter *.sol",
-		},
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-	},
-	{
-		"windwp/nvim-ts-autotag",
-		event = {
-			"InsertEnter",
-		},
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = function()
-			racsonvim.safeRequire("nvim-ts-autotag").setup({
-				enable = true,
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+		init = function()
+			local highlight = {
+				"CursorColumn",
+				"Whitespace",
+			}
+			require("ibl").setup({
+				indent = { highlight = highlight, char = "" },
+				whitespace = {
+					highlight = highlight,
+					remove_blankline_trail = false,
+				},
+				scope = { enabled = false },
 			})
 		end,
 	},
-	{ "nvim-treesitter/nvim-treesitter-context", opts = {}, dependencies = { "nvim-treesitter/nvim-treesitter" } },
 }
