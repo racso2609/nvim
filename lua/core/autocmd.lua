@@ -11,3 +11,14 @@ cmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+-- vim
+
+cmd({ "BufReadPost", "BufNewFile" }, {
+	callback = function(ev)
+		local filetype = vim.filetype.match({ buf = ev.bufnr })
+		vim.notify("Buffer: " .. ev.bufnr, "info")
+		vim.notify("Filetype: " .. filetype, "info")
+
+		vim.cmd("set filetype=" .. filetype)
+	end,
+})

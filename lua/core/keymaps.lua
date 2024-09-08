@@ -1,10 +1,9 @@
 -- leader key
-vim.g.mapleader = " "
 local g = vim.g
 
 local opts = { remap = true, silent = true }
 -- snippets
--- racsonvim.setKeymap("n", "<leader>sa", "<cmd>UltiSnipsAddFileTypes<cr>", opts, "Add snippet fileType")
+racsonvim.setKeymap("n", "<leader>sa", "<cmd>UltiSnipsAddFileTypes<cr>", opts, "Add snippet fileType")
 racsonvim.setKeymap("n", "<leader>se", "<cmd>UltiSnipsEdit<cr>", opts, "Edit snippet file type")
 
 local toggleRelativeNumber = function()
@@ -49,6 +48,12 @@ racsonvim.setKeymap("n", "<C-Up>", "<C-w>k", opts, "move Up")
 --- horizontal
 racsonvim.setKeymap("n", "<C-Left>", "<C-w>h", opts, "move Left")
 racsonvim.setKeymap("n", "<C-Right>", "<C-w>l", opts, "move Right")
+-- ident
+racsonvim.setKeymap("v", "<Tab>", ">", opts, "ident selected")
+racsonvim.setKeymap("v", "<C-Tab>", "<", opts, "unident selected")
+
+racsonvim.setKeymap("n", "<Tab>", ">%", opts, "ident matching")
+racsonvim.setKeymap("n", "<S-Tab>", "<%", opts, "unident matching")
 
 -- formatting
 racsonvim.setKeymap("n", "<C-f>", function()
@@ -58,3 +63,11 @@ end, opts, "move Right")
 g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
 g.UltiSnipsListSnippets = "<space>sl"
 vim.g.UltiSnipsExpandTrigger = "<tab>"
+
+-- remove command that i didnt user
+
+vim.keymap.del("n", "yS")
+vim.keymap.del("n", "ySs")
+vim.keymap.del("n", "ySS")
+vim.keymap.del("n", "yss")
+vim.keymap.del("n", "ys")

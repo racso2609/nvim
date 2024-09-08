@@ -10,10 +10,10 @@ local BufCommands = {
 
 return {
 	-- general
-	{
-		"nathom/filetype.nvim",
-		opt = {},
-	},
+	-- {
+	-- "nathom/filetype.nvim",
+	-- opt = {},
+	-- },
 	-- ts/js
 	{
 		"jose-elias-alvarez/typescript.nvim",
@@ -26,7 +26,7 @@ return {
 				desc = "Add missing imports",
 			},
 			{
-				"<leader>rm",
+				"<leader>ri",
 				":lua require('typescript').actions.removeUnused()<cr>",
 				desc = "Remove unused imports",
 			},
@@ -59,6 +59,37 @@ return {
 	-- yuck (eww)
 	{ "elkowar/yuck.vim", event = { "BufRead *.yuck" } },
 	--  markdown
+	--  higlight
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		-- lazy = true,
+		-- ft = "markdown",
+		dependencies = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+		},
+		opts = {
+			ui = { enable = false },
+			workspaces = {
+				{
+					name = "personal",
+					path = "~/notes/personal",
+				},
+				{
+					name = "work",
+					path = "~/notes/work",
+				},
+			},
+
+			-- see below for full list of optional dependencies 👇
+		},
+	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		opts = {},
+		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" },
+	},
 	{
 		"iamcco/markdown-preview.nvim",
 		config = function()

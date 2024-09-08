@@ -139,7 +139,7 @@ return {
 		},
 		keys = {
 			{
-				"<leader>r",
+				"<leader>rf",
 				"<cmd>Lspsaga rename<CR>",
 				desc = "Rename function",
 			},

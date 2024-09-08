@@ -1,4 +1,4 @@
-local wk = racsonvim.safeRequire("which-key")
+-- local wk = racsonvim.safeRequire("which-key")
 return {
 	{
 		-- LSP Configuration & Plugins
@@ -151,9 +151,9 @@ return {
 		config = function()
 			racsonvim.safeRequire("lspsaga").setup({})
 		end,
-		init = function()
-			wk.register({ name = "Diagnostic" }, { prefix = "<space>d" })
-		end,
+		-- init = function()
+		-- wk.register({ name = "Diagnostic" }, { prefix = "<space>d" })
+		-- end,
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 			--Please make sure you install markdown and markdown_inline parser

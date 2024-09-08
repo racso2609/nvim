@@ -1,4 +1,5 @@
 _G.racsonvim = {}
+vim.g.mapleader = " "
 
 --- format buffers
 --- @param bufnr number of the actual buffer
@@ -57,8 +58,8 @@ end
 function racsonvim.setKeymap(mode, rhls, cmd, opts, description)
 	local whichKey = racsonvim.safeRequire("which-key")
 	if description and whichKey then
-		whichKey.register({
-			[rhls] = { cmd, description },
+		whichKey.add({
+			{ rhls, cmd, desc = description },
 		})
 	end
 

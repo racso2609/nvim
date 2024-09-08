@@ -55,7 +55,7 @@ return {
 			},
 			--	-- git
 			{
-				"<leader>tgc",
+				"<leader>tgcm",
 				"<cmd>Telescope git_commits<CR>",
 				desc = "Search commits",
 			},
@@ -82,7 +82,7 @@ return {
 				desc = "Search commands",
 			},
 			{
-				"/",
+				"<leader>/",
 				"<cmd>Telescope current_buffer_fuzzy_find<cr>",
 				{ desc = "Search in current buffer" },
 			},
@@ -102,7 +102,6 @@ return {
 		opts = {
 			defaults = {
 				prompt_prefix = "   ",
-				prompt_title = "Sexo anal",
 				selection_caret = "  ",
 				entry_prefix = "  ",
 				initial_mode = "insert",
