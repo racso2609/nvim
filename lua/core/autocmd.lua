@@ -15,7 +15,13 @@ cmd("TextYankPost", {
 
 cmd({ "BufReadPost", "BufNewFile" }, {
 	callback = function(ev)
-		local filetype = vim.filetype.match({ buf = ev.bufnr })
+		local status, filetype = pcall(vim.filetype.match, { buf = ev.bufnr })
+
+		if not status then
+			vim.notify("Error: " .. filetype, "error")
+			return
+		end
+
 		vim.notify("Buffer: " .. ev.bufnr, "info")
 		vim.notify("Filetype: " .. filetype, "info")
 

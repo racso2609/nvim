@@ -128,34 +128,12 @@ return {
 				{ "<leader>tg", desc = "github" },
 				{ "<leader>tgc", desc = "copilot" },
 				{ "<leader>ts", desc = "search" },
+				{ "<leader>c", desc = "checkpoint/harpoon" },
 			}
 
 			whichKey.add(mapping)
 		end,
 		opts = {},
-	},
-
-	-- ui changers
-	{
-		"rcarriga/nvim-notify",
-		init = function()
-			vim.notify = require("notify")
-			vim.notify("Holaaaa")
-		end,
-		config = function()
-			require("notify").setup({
-				stages = "fade",
-				timeout = 5000,
-				background_colour = "#000000",
-				icons = {
-					ERROR = "",
-					WARN = "",
-					INFO = "",
-					DEBUG = "",
-					TRACE = "✎",
-				},
-			})
-		end,
 	},
 
 	-- IA
@@ -306,4 +284,20 @@ return {
 		end,
 	},
 	{ "AndreM222/copilot-lualine" },
+	-- movement
+
+	{
+		"cbochs/grapple.nvim",
+		opts = {
+			scope = "git", -- also try out "git_branch"
+		},
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = "Grapple",
+		keys = {
+			{ "<leader>ca", "<cmd>Grapple toggle<cr>", desc = "Grapple toggle tag" },
+			{ "<leader>cl", "<cmd>Grapple toggle_tags<cr>", desc = "Grapple open tags window" },
+			{ "<leader>cn", "<cmd>Grapple cycle_tags next<cr>", desc = "Grapple cycle next tag" },
+			{ "<leader>cp", "<cmd>Grapple cycle_tags prev<cr>", desc = "Grapple cycle previous tag" },
+		},
+	},
 }

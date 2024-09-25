@@ -195,6 +195,7 @@ return {
 				javascriptreact = { { "prettier", "prettierd" } },
 				typescript = { { "prettier", "prettierd" } },
 				typescriptreact = { { "prettier", "prettierd" } },
+				json = { { "prettier", "prettierd" } },
 			},
 		},
 	},

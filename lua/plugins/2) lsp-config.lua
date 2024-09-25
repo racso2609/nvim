@@ -90,10 +90,10 @@ return {
 									on_attach = on_attach,
 									capabilities = capabilities,
 									default_opts = {
-										root_dir = lspconfig.util.root_pattern({ ".git/", "." }),
+										root_dir = lspconfig.util.root_pattern({ ".git/", ".", "node_modules/", ".*" }),
 										init_options = { documentFormatting = true },
 										settings = {
-											rootMarkers = { ".git/", ".", "stylua.toml" },
+											rootMarkers = { ".git/", ".*", "stylua.toml" },
 										},
 										filetypes = {
 											"javascript",
