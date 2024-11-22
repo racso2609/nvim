@@ -155,4 +155,5 @@ return {
 		},
 	},
 	-- solidity
+	{ "tomlion/vim-solidity" },
 }

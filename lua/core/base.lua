@@ -9,11 +9,12 @@ end
 
 vim.o.completeopt = "menuone,noselect"
 cmd("set termguicolors")
+cmd("set spell")
 
 -- syntax enable                           -- Enables syntax highlighting
 opt.hidden = true -- Required to keep multiple buffers open multiple buffers
 opt.wrap = true -- No Display long lines as just one line
-opt.pumheight = 10 -- Makes popup menu smaller
+opt.pumheight = 10 -- Makes pop-up menu smaller
 opt.ruler = true -- Show the cursor position all the time
 opt.cmdheight = 2 -- More space for displaying messages
 opt.mouse = "a" -- Enable your mouse
@@ -48,8 +49,6 @@ opt.wildmode = { "list", "longest" }
 -- Copy paste between vim and everything else
 opt.clipboard = "unnamedplus"
 
--- require'general'
-
 -- ---- Searching
 -- highlight matches
 opt.hlsearch = true
@@ -57,14 +56,13 @@ opt.hlsearch = true
 -- incremental searching
 opt.incsearch = true
 
--- ... unless they contain at least one capital letter
+-- search unless they contain at least one capital letter
 opt.ignorecase = true -- searches are case insensitive...
 opt.smartcase = true -- searches are case insensitive...
 
 -- Your directory will always be the same as your working directory
 opt.autochdir = true
 opt.swapfile = false
-
 -- Save undo history
 vim.o.undofile = true
 
