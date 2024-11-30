@@ -14,9 +14,11 @@ local ensure_installed = {
 	},
 }
 return {
-			{ "williamboman/mason.nvim", opts = {} },
+	{ "williamboman/mason.nvim", opts = {} },
 	{
 		"williamboman/mason-lspconfig.nvim",
+		event = "BufRead",
+		after = "nvim-lspconfig",
 		config = function()
 			local on_attach = racsonvim.on_attach
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -95,11 +97,11 @@ return {
 			"neovim/nvim-lspconfig",
 		},
 		keys = {
-			{
-				"gd",
-				"<cmd>lua vim.lsp.buf.definition()<CR>",
-				desc = "go to definition",
-			},
+			-- {
+			-- 	"gd",
+			-- 	"<cmd>lua vim.lsp.buf.definition()<CR>",
+			-- 	desc = "go to definition",
+			-- },
 			{
 				"gi",
 				vim.lsp.buf.implementation,
@@ -124,6 +126,7 @@ return {
 	},
 	{
 		"glepnir/lspsaga.nvim",
+		after = "nvim-lspconfig",
 		event = "LspAttach",
 		config = function()
 			local lspsaga = racsonvim.safeRequire("lspsaga")
@@ -138,9 +141,6 @@ return {
 		dependencies = {
 			{
 				"nvim-tree/nvim-web-devicons",
-			},
-			{
-				"nvim-treesitter/nvim-treesitter",
 			},
 		},
 		keys = {
@@ -159,11 +159,11 @@ return {
 				"<cmd>Lspsaga peek_definition<CR>",
 				desc = "Edit from definition",
 			},
-			-- {
-			-- "gd",
-			-- "<cmd>Lspsaga goto_definition<CR>",
-			-- desc = "goTo definition",
-			-- },
+			{
+				"gd",
+				"<cmd>Lspsaga goto_definition<CR>",
+				desc = "goTo definition",
+			},
 			{
 				"<leader>ds",
 				"<cmd>Lspsaga show_buf_diagnostics<CR>",

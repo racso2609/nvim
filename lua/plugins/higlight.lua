@@ -2,65 +2,94 @@ return {
 	-- Highlight, edit, and navigate code
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "master",
-		event = {
-			"BufRead",
-		},
-		dependencies = {
-			"p00f/nvim-ts-rainbow",
-			"YongJieYongJie/tree-sitter-solidity",
-			-- "JoosepAlviste/nvim-ts-context-commentstring",
-			-- "nvim-treesitter/nvim-treesitter-context",
-			-- "nvim-treesitter/nvim-treesitter-textobjects",
-			{
-				"windwp/nvim-ts-autotag",
-				config = function()
-					racsonvim.safeRequire("nvim-ts-autotag").setup({
-						enable = true,
-					})
-				end,
-			},
-		},
+		version = false, -- last release is way too old and doesn't work on Windows
+		after = "nvim-lspconfig",
 		build = ":TSUpdate",
+		event = { "VeryLazy" },
+		lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+		init = function(plugin)
+			-- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
+			-- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
+			-- no longer trigger the **nvim-treesitter** module to be loaded in time.
+			-- Luckily, the only things that those plugins need are the custom queries, which we make available
+			-- during startup.
+			require("lazy.core.loader").add_to_rtp(plugin)
+			require("nvim-treesitter.query_predicates")
+		end,
+		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+		keys = {
+			{ "<c-space>", desc = "Increment Selection" },
+			{ "<bs>", desc = "Decrement Selection", mode = "x" },
+		},
+		opts_extend = { "ensure_installed" },
+		---@type TSConfig
+		---@diagnostic disable-next-line: missing-fields
 		opts = {
+			highlight = { enable = true },
+			indent = { enable = true },
 			ensure_installed = {
-				"lua",
-				"solidity",
-				"javascript",
-				"typescript",
-				"tsx",
-				"rust",
-				"http",
-				"json",
-				"yaml",
 				"bash",
+				"c",
+				"diff",
+				"html",
+				"javascript",
+				"jsdoc",
+				"json",
+				"jsonc",
+				"lua",
+				"luadoc",
+				"luap",
+				"markdown",
+				"markdown_inline",
+				"printf",
+				"python",
+				"query",
+				"regex",
+				"toml",
+				"tsx",
+				"typescript",
+				"vim",
+				"vimdoc",
+				"xml",
+				"yaml",
 			},
-			sync_install = true,
-			auto_install = true,
-			highlight = {
-				enable = true, -- false will disable the whole extension
-				-- disable = { 'json' }, -- list of language that will be disabled
-			},
-			indent = {
+			incremental_selection = {
 				enable = true,
+				keymaps = {
+					init_selection = "<C-space>",
+					node_incremental = "<C-space>",
+					scope_incremental = false,
+					node_decremental = "<bs>",
+				},
 			},
-			autopairs = {
-				enable = true,
-			},
-			rainbow = {
-				enable = true,
-				extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-				max_file_lines = nil, -- Do not enable for files with more than n lines, int
-			},
-			context_commentstring = {
-				enable = true,
-				enable_autocmd = false,
+			textobjects = {
+				move = {
+					enable = true,
+					goto_next_start = {
+						["]f"] = "@function.outer",
+						["]c"] = "@class.outer",
+						["]a"] = "@parameter.inner",
+					},
+					goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
+					goto_previous_start = {
+						["[f"] = "@function.outer",
+						["[c"] = "@class.outer",
+						["[a"] = "@parameter.inner",
+					},
+					goto_previous_end = {
+						["[F"] = "@function.outer",
+						["[C"] = "@class.outer",
+						["[A"] = "@parameter.inner",
+					},
+				},
 			},
 		},
+		---@param opts TSConfig
 		config = function(_, opts)
-			racsonvim.safeRequire("nvim-treesitter.configs").setup(opts)
+			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
+
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
