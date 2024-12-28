@@ -1,70 +1,55 @@
 return {
 	{
-		"Exafunction/codeium.vim",
-		config = function()
-			-- Change '<C-g>' here to any keycode you like.
-			vim.keymap.set("i", "<C-g>", function()
-				return vim.fn["codeium#Accept"]()
-			end, { expr = true })
-			vim.keymap.set("i", "<C-;>", function()
-				return vim.fn["codeium#CycleCompletions"](1)
-			end, { expr = true })
-			vim.keymap.set("i", "<C-,>", function()
-				return vim.fn["codeium#CycleCompletions"](-1)
-			end, { expr = true })
-			vim.keymap.set("i", "<C-x>", function()
-				return vim.fn["codeium#Clear"]()
-			end, { expr = true })
-		end,
-	},
-	{
 		"hrsh7th/nvim-cmp",
-		event = "BufEnter",
+		event = "BufRead",
 		config = function()
-			local g = vim.g
 			local cmp = racsonvim.safeRequire("cmp")
 			local lspkind = racsonvim.safeRequire("lspkind")
-			-- UltiSnips
-			g.UltiSnipsExpandTrigger = "<M-a>"
-			g.UltiSnipsJumpForwardTrigger = "<tab>z"
-			g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
-			g.UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
-			g.UltiSnipsListSnippets = "<space>sl"
-			--
+
+			if not cmp or not lspkind then
+				return
+			end
+
 			cmp.setup({
 				snippet = {
 					expand = function(args)
 						vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 					end,
 				},
+				experimental = {
+					ghost_text = { hlgroup = "Comment" },
+				},
 				mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					-- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+					-- ["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
+					-- add movement keymaps
+					["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+					["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+					-- ["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({
 						select = true,
 					}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-					["<M-a>"] = cmp.mapping(function(fallback)
-						cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-					end, {
-						"i",
-						"s", --[[ "c" (to enable the mapping in command mode) ]]
-					}),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						cmp_ultisnips_mappings.jump_backwards(fallback)
-					end, {
-						"i",
-						"s", --[[ "c" (to enable the mapping in command mode) ]]
-					}),
+					-- ["<M-a>"] = cmp.mapping(function(fallback)
+					-- cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+					-- end, {
+					-- "i",
+					-- "s", --[[ "c" (to enable the mapping in command mode) ]]
+					-- }),
 				}),
+
 				formatting = {
 					format = lspkind.cmp_format(),
 				},
 				sources = cmp.config.sources({
 					{
+						name = "nvim_lsp_signature_help",
+					},
+					{
 						name = "path",
 					},
+
+					{ name = "codeium" },
 					{
 						name = "nvim_lsp",
 						keyword_length = 3,
@@ -80,9 +65,7 @@ return {
 					{
 						name = "buffer",
 					},
-					{
-						name = "nvim_lsp_signature_help",
-					},
+
 					{
 						name = "plugins",
 					},
@@ -147,6 +130,9 @@ return {
 				},
 				config = function(_, opts)
 					local lspkind = racsonvim.safeRequire("lspkind")
+					if not lspkind then
+						return
+					end
 					lspkind.init(opts)
 				end,
 			},
@@ -160,6 +146,7 @@ return {
 					{
 						"SirVer/ultisnips",
 					},
+					"honza/vim-snippets",
 				},
 			},
 			"hrsh7th/cmp-nvim-lsp",

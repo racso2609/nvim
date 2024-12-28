@@ -1,24 +1,3 @@
-snippet grcpE "gcp communt error" b
-const error = '$1';
-pinologger.info({
-		Error: '$2: ${error}'
-})
-return void callback({
- code: Status.$3,
- details: error
-})
-endsnippet
-
-snippet grcpUE "gcp Unexpected error" b
-pinologger.info({
-		Error: '$2: ${error}'
-})
-return void callback({
- code: Status.UNKNOWN,
- details: "Unexpected error!"
-})
-endsnippet
-
 snippet error ".get(async(req,res)=>{})"
 return next(new AppError("$1",$2))
 
@@ -46,7 +25,12 @@ export default $1;
 endsnippet
 
 snippet clo "console.log()" b
-console.log('$1', $1)
+console.log('=== $1', $1)
+endsnippet
+
+
+snippet col "console.log('=== hola')" b
+console.log('=== $1')
 endsnippet
 
 snippet clg "console.log(hola)" b
@@ -90,73 +74,23 @@ describe('$1', () => {
 })
 endsnippet
 
+snippet eMetadata "endpoint metadata"
+    // #swagger.tags = ['$1']
+    // #swagger.summary = '$2'
+    // #swagger.description = '$3'
+endsnippet
 
-snippet rfc "React function component" b
-import {FC} from 'react'
-const $1:FC = ${2:($3)} => {
-  return (
-    <$4>
-      $5
-    </$4>
-  )
+snippet rhc "React hook" b
+
+export type $1 = {
+
 }
 
-export default $1
-endsnippet
+const $1 = ({}: $1) => {
 
-snippet rnfc "React native function component" b
-import React, {FC} from 'react'
-import { ${4} } from 'react-native'
-
-const $1:FC = ${2:($3)} => {
-  return (
-    <$4>
-      $5
-    </$4>
-  )
+	return {}
 }
 
-export default $1
+export default $1;
 endsnippet
 
-snippet rhc "React function component" b
-import React from 'react'
-const $1 = ${2:($3)} => {
-  return {}
-}
-
-export default $1
-endsnippet
-
-snippet sdkM "ini module to sdk"
-import { NetworkContract } from '../../base/NetworkContract'
-import {  ContractInterface } from 'ethers'
-import { BaseModule } from '../base/BaseModule'
-import { BundledAbis } from '../../BundledAbis'
-
-export class $1Module extends BaseModule {
-
-	/**
-   * Instantiates a $1 module.
-   * @param networkContract the network contract this module should use
-   */
-
-	constructor(protected networkContract: NetworkContract, abis: ContractInterface[] = []) {
-    super(networkContract, [BundledAbis.$2].concat(abis))
-  }
-}
-endsnippet
-
-snippet sdkRead "create read function"
-public $1 = async():Promise<$2> => this.read("$1")
-endsnippet
-
-snippet sdkTx "create tx function"
-public $1 = async($2):Promise<Transaction> => this.transaction("$1",$2)
-endsnippet
-
-snippet sdkfTx "create tx function"
-public async $1 ($2):Promise<Transaction> {
-	return this.transaction("$1",$2)
-}
-endsnippet

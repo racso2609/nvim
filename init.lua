@@ -2,9 +2,9 @@ local foldersTable = {
 	"core",
 	"core.base",
 	"core.plugin",
+	"core.keymaps",
 	"core.themes",
 	"core.autocmd",
-	"core.keymaps",
 }
 
 for _, folder in ipairs(foldersTable) do
@@ -14,8 +14,8 @@ for _, folder in ipairs(foldersTable) do
 	end
 end
 
-if vim.fn.has("nvim-0.8") ~= 1 or vim.version().prerelease then
-	vim.schedule(function()
-		racsonvim.notify("Unsupported Neovim Version! Please check the requirements", "error")
-	end)
-end
+-- if vim.fn.has("nvim-0.10") ~= 1 or vim.version().prerelease then
+-- 	vim.schedule(function()
+-- 		racsonvim.notify("Unsupported Neovim Version! Please check the requirements", "error")
+-- 	end)
+-- end

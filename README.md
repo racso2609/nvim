@@ -109,3 +109,9 @@ Basic nvim config inpired on Astrovim and chad nvim
 44. [JoosepAlviste/nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
 45. [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 46. [YongJieYongJie/tree-sitter-solidity](https://github.com/YongJieYongJie/tree-sitter-solidity)
+
+## TODO
+- [] check  different  alternative for NvimTree
+- [] better higlight for markdown
+- [] fix lua globals
+- [] solidity support (cmd, formatting) 
