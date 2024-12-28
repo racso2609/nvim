@@ -292,7 +292,7 @@ return {
 		-- write a documentation for this function
 		--
 		init = function()
-			vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+			vim.keymap.set("i", "<C-h>", 'copilot#Accept("\\<CR>")', {
 				expr = true,
 				replace_keycodes = false,
 			})
