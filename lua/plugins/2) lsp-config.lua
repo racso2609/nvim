@@ -11,6 +11,7 @@ local ensure_installed = {
 		"prettier",
 		"stylua",
 		"typescript-language-server",
+		"ts_ls",
 	},
 }
 return {
@@ -31,6 +32,10 @@ return {
 
 			masonConfig.setup_handlers({
 				function(server_name)
+					if server_name == "tsserver" then
+						server_name = "ts_ls"
+					end
+
 					if server_name == "lua_ls" then
 						lspconfig[server_name].setup({
 							on_attach = on_attach,

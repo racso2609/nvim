@@ -81,3 +81,10 @@ vim.keymap.del("n", "ySs")
 vim.keymap.del("n", "ySS")
 vim.keymap.del("n", "yss")
 vim.keymap.del("n", "ys")
+
+-- vim.keymap.del("n", "yS")
+-- racsonvim.setKeymap("n", "yS", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", opts, "Symbols")
+racsonvim.setKeymap("n", "<C-y>", '<cmd>let @+ = expand("%:p")<cr>', opts, "Symbols")
+
+--
+--
