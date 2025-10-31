@@ -9,53 +9,54 @@ local BufCommands = {
 }
 
 return {
+
 	-- general
-	-- {
-	-- "nathom/filetype.nvim",
-	-- opt = {},
-	-- },
-	-- ts/js
 	{
-		"jose-elias-alvarez/typescript.nvim",
-		event = BufCommands,
-		opts = {},
-		keys = {
-			{
-				"<leader>ai",
-				":lua require('typescript').actions.addMissingImports()<cr>",
-				desc = "Add missing imports",
-			},
-			{
-				"<leader>ri",
-				":lua require('typescript').actions.removeUnused()<cr>",
-				desc = "Remove unused imports",
-			},
-		},
-		init = function()
-			local format_sync_grp = vim.api.nvim_create_augroup("JsFix", {})
-			cmd("BufWritePost", {
-				pattern = { "*.ts", "*.js", "*.tsx", "*.jsx", "*.cjs", "*.mjs" },
-				group = format_sync_grp,
-				callback = function()
-					require("typescript").actions.addMissingImports()
-					-- require("typescript").actions.removeUnused()
-				end,
-			})
-		end,
-		dependencies = {
-			-- { "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" }, event = BufCommands },
-			{
-				"mlaursen/vim-react-snippets",
-				lazy = true,
-				event = BufCommands,
-			},
-			{
-				"styled-components/vim-styled-components",
-				lazy = true,
-				event = BufCommands,
-			},
-		},
+		"nathom/filetype.nvim",
+		opt = {},
 	},
+	-- ts/js
+	-- {
+	-- 	"jose-elias-alvarez/typescript.nvim",
+	-- 	event = BufCommands,
+	-- 	opts = {},
+	-- 	keys = {
+	-- 		{
+	-- 			"<leader>ai",
+	-- 			":lua require('typescript').actions.addMissingImports()<cr>",
+	-- 			desc = "Add missing imports",
+	-- 		},
+	-- 		{
+	-- 			"<leader>ri",
+	-- 			":lua require('typescript').actions.removeUnused()<cr>",
+	-- 			desc = "Remove unused imports",
+	-- 		},
+	-- 	},
+	-- 	init = function()
+	-- 		local format_sync_grp = vim.api.nvim_create_augroup("JsFix", {})
+	-- 		cmd("BufWritePost", {
+	-- 			pattern = { "*.ts", "*.js", "*.tsx", "*.jsx", "*.cjs", "*.mjs" },
+	-- 			group = format_sync_grp,
+	-- 			callback = function()
+	-- 				require("typescript").actions.addMissingImports()
+	-- 				-- require("typescript").actions.removeUnused()
+	-- 			end,
+	-- 		})
+	-- 	end,
+	-- 	dependencies = {
+	-- 		-- { "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" }, event = BufCommands },
+	-- 		{
+	-- 			"mlaursen/vim-react-snippets",
+	-- 			lazy = true,
+	-- 			event = BufCommands,
+	-- 		},
+	-- 		{
+	-- 			"styled-components/vim-styled-components",
+	-- 			lazy = true,
+	-- 			event = BufCommands,
+	-- 		},
+	-- 	},
+	-- },
 	-- yuck (eww)
 	{ "elkowar/yuck.vim", event = { "BufRead *.yuck" } },
 	--  markdown
@@ -88,7 +89,6 @@ return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		opts = {},
-		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" },
 	},
 	{
 		"iamcco/markdown-preview.nvim",

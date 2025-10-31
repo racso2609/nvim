@@ -1,106 +1,46 @@
 -- local wk = racsonvim.safeRequire("which-key")
 local ensure_installed = {
-	{
-		"lua_ls",
-		"rust_analyzer",
-		"eslint",
-		"jsonls",
-		"ltex",
-		"solang",
-		"black",
-		"prettier",
-		"stylua",
-		"typescript-language-server",
-		"ts_ls",
-	},
+	"lua_ls",
+	"rust_analyzer",
+	"eslint",
+	"jsonls",
+	"ltex",
+	"solang",
+	"stylua",
+	"ts_ls",
 }
+
+--  | lazy.nvim: Failed to run `config` for mason-lspconfig.nvim
+--
+-- /home/racso/.config/nvim/lua/plugins/2) lsp-config.lua:33: attempt to call field 'setup_handlers' (a nil value)
+--
+-- # stacktrace:
+-- - ~/.config/nvim/lua/plugins/2) lsp-config.lua:33 _in_ **config**
+
 return {
 	{ "williamboman/mason.nvim", opts = {} },
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		event = "BufRead",
-		after = "nvim-lspconfig",
-		config = function()
-			local on_attach = racsonvim.on_attach
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			local masonConfig = racsonvim.safeRequire("mason-lspconfig")
-			local lspconfig = racsonvim.safeRequire("lspconfig")
-
-			if not masonConfig or not lspconfig then
-				return
-			end
-
-			masonConfig.setup_handlers({
-				function(server_name)
-					if server_name == "tsserver" then
-						server_name = "ts_ls"
-					end
-
-					if server_name == "lua_ls" then
-						lspconfig[server_name].setup({
-							on_attach = on_attach,
-							capabilities = capabilities,
-							settings = {
-								Lua = {
-									diagnostics = {
-										globals = {
-											"vim",
-											"racsonvim",
-										},
-									},
-									path = {
-										"?.lua",
-										"?/init.lua",
-										vim.fn.expand("~/.luarocks/share/lua/5.3/?.lua"),
-										vim.fn.expand("~/.luarocks/share/lua/5.3/?/init.lua"),
-										"/usr/share/5.3/?.lua",
-										"/usr/share/lua/5.3/?/init.lua",
-									},
-									workspace = {
-										-- Make the server aware of Neovim runtime files
-										library = vim.api.nvim_get_runtime_file("", true),
-										checkThirdParty = false,
-									},
-									runtime = {
-										version = "LuaJIT",
-									},
-								},
-							},
-						})
-					else
-						lspconfig[server_name].setup({
-							on_attach = on_attach,
-							capabilities = capabilities,
-							settings = {
-								rootMarkers = {
-									".git/",
-									".gitmodule",
-								},
-							},
-							init_options = {
-								documentFormatting = true,
-								documentRangeFormatting = true,
-							},
-						})
-					end
-				end,
-			})
-		end,
 		opts = {
 			ensure_installed = ensure_installed,
 			automatic_installation = true,
 		},
-		dependencies = {
-			{
-				"WhoIsSethDaniel/mason-tool-installer.nvim",
-				opts = {
-					ensure_installed = ensure_installed,
-					auto_update = true,
-					run_on_start = true,
-				},
-			},
-			"neovim/nvim-lspconfig",
-		},
+		on_attach = function(client, bufnr)
+			-- clean unused imports on save
+			if client.name == "tsserver" then
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					callback = function()
+						-- local params = {
+						-- 	command = "_typescript.organizeImports",
+						-- 	arguments = { vim.api.nvim_buf_get_name(bufnr) },
+						-- }
+						vim.lsp.buf.code_action.organizeImports()
+					end,
+				})
+			end
+		end,
 		keys = {
 			-- {
 			-- 	"gd",

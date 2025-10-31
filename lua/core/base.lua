@@ -66,4 +66,7 @@ opt.swapfile = false
 -- Save undo history
 vim.o.undofile = true
 
-vim.g.python3_host_prog = "/home/racso/.pyenv/versions/nvim/bin/python"
+vim.cmd("syntax on")
+vim.cmd("filetype plugin indent on")
+
+vim.g.python3_host_prog = "/home/racso/.pyenv/versions/neovim/bin/python"

@@ -1,3 +1,4 @@
+--
 -- leader key
 local g = vim.g
 
