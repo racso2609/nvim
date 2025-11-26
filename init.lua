@@ -1,10 +1,10 @@
 local foldersTable = {
 	"core",
 	"core.base",
-	"core.plugin",
+	"core.plugins",
 	"core.keymaps",
 	"core.themes",
-	"core.autocmd",
+	 "core.cmd",
 }
 
 for _, folder in ipairs(foldersTable) do

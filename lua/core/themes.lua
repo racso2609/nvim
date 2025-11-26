@@ -1,7 +1,8 @@
 local themes_table = {
 	-- "bamboo",
 	-- "vscode",
-	"catppuccin-macchiato",
+	 -- "catppuccin-macchiato",
+   "default"
 }
 
 local get_random_theme = function()
