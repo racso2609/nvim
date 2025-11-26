@@ -1,11 +1,11 @@
 -- leader key
 local g = vim.g
+g.mapleader = " "
 
 local opts = { remap = true, silent = true }
 
-
 local toggleRelativeNumber = function()
-	vim.opt.relativenumber = not vim.wo.relativenumber
+  vim.opt.relativenumber = not vim.wo.relativenumber
 end
 
 -- toggle relative number
@@ -21,9 +21,3 @@ racsonvim.setKeymap("n", "<C-z>", "<cmd>redo<cr>", opts, "redo")
 -- select with Shift arrow (L,H)
 racsonvim.setKeymap({ "n", "v" }, "L", "ve", opts, "select until end of the word")
 racsonvim.setKeymap({ "n", "v" }, "H", "vb", opts, "select until start of the word")
-
-
--- formatting
-racsonvim.setKeymap("n", "<C-f>", function()
-	vim.lsp.buf.format({ name = "efm" })
-end, opts, "move Right")

@@ -4,6 +4,7 @@ return {
   dependencies = {
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/lazydev.nvim", opts = {} },
+    { "glepnir/lspsaga.nvim", opts = {} },
   },
   config = function()
     -- import cmp-nvim-lsp plugin
@@ -16,4 +17,11 @@ return {
       capabilities = capabilities,
     })
   end,
+  keys = {
+    {
+      "<leader>ds",
+      "<cmd>Lspsaga show_buf_diagnostics<CR>",
+      desc = "show buffer diagnostic",
+    },
+  },
 }

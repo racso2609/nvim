@@ -1,17 +1,17 @@
 local foldersTable = {
-	"core",
-	"core.base",
-	"core.plugins",
-	"core.keymaps",
-	"core.themes",
-	 "core.cmd",
+  "core",
+  "core.base",
+  "core.plugins",
+  "core.keymaps",
+  "core.themes",
+  "core.cmd",
 }
 
 for _, folder in ipairs(foldersTable) do
-	local status, fail = pcall(require, folder)
-	if not status then
-		vim.api.nvim_err_writeln("Failed to load " .. folder .. "\n\n" .. fail)
-	end
+  local status, fail = pcall(require, folder)
+  if not status then
+    vim.api.nvim_err_writeln("Failed to load " .. folder .. "\n\n" .. fail)
+  end
 end
 
 -- if vim.fn.has("nvim-0.10") ~= 1 or vim.version().prerelease then
