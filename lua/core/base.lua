@@ -69,4 +69,9 @@ vim.o.undofile = true
 vim.cmd("syntax on")
 vim.cmd("filetype plugin indent on")
 
+-- vim.diagnostic.config({
+-- virtual_lines = true,
+-- virtual_text = true,
+-- })
+
 vim.g.python3_host_prog = "/home/racso/.pyenv/versions/neovim/bin/python"

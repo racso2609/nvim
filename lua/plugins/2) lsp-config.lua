@@ -18,30 +18,19 @@ local ensure_installed = {
 -- - ~/.config/nvim/lua/plugins/2) lsp-config.lua:33 _in_ **config**
 
 return {
-	{ "williamboman/mason.nvim", opts = {} },
 	{
 		"mason-org/mason-lspconfig.nvim",
-		event = "BufRead",
+    event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			{ "neovim/nvim-lspconfig" },
+		},
 		opts = {
 			ensure_installed = ensure_installed,
 			automatic_installation = true,
 		},
-		on_attach = function(client, bufnr)
-			-- clean unused imports on save
-			if client.name == "tsserver" then
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufnr,
-					callback = function()
-						-- local params = {
-						-- 	command = "_typescript.organizeImports",
-						-- 	arguments = { vim.api.nvim_buf_get_name(bufnr) },
-						-- }
-						vim.lsp.buf.code_action.organizeImports()
-					end,
-				})
-			end
-		end,
-		keys = {
+
+		  keys = {
 			-- {
 			-- 	"gd",
 			-- 	"<cmd>lua vim.lsp.buf.definition()<CR>",
