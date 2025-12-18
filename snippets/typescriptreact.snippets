@@ -1,63 +1,63 @@
 snippet propsType "propType" b
-interface propsType {
- $1: $2;
-}
-endsnippet
+	interface propsType {
+	 $1: $2;
+	}
+
 
 
 snippet propsTypeIcon "propType" b
-interface propsType {
- style?: React.CSSProperties; 
- onClick?: ()=>void;
-}
-endsnippet
+	interface propsType {
+	 style?: React.CSSProperties; 
+	 onClick?: ()=>void;
+	}
 
-snippet rfc "React functional compoennt" b
-import {FC} from 'react';
 
-type $1 = {
-	$3
-}
+snippet rfc "React functional component" b
+	import {FC} from 'react';
 
-const $1:FC<$2> = ({}) => {
-	return <h1>$1</h1>;
-}
+	type ${1}Props = {
+	        $3
+	}
 
-export default $1;
-endsnippet
+	const $1:FC<${1}Props> = ({}) => {
+	        return <h1>$1</h1>;
+	}
+
+	export default $1;
+
 
 snippet clo "console.log()" b
-console.log('=== $1', $1)
-endsnippet
+	console.log('=== $1', $1)
+
 
 
 snippet col "console.log('=== hola')" b
-console.log('=== $1')
-endsnippet
+	console.log('=== $1')
+
 
 snippet clg "console.log(hola)" b
-console.log($1)
-endsnippet
+	console.log($1)
+
 
 snippet try "try and catch"
-try{
+	try{
 
-}catch(${1:error}){
+	}catch(${1:error}){
 
-}
-endsnippet
+	}
+
 
 snippet rhc "React hook" b
 
-export type $1 = {
+	export type $1 = {
 
-}
+	}
 
-const $1 = ({}: $1) => {
+	const $1 = ({}: $1) => {
 
-	return {}
-}
+		return {}
+	}
 
-export default $1;
-endsnippet
+	export default $1;
+
 

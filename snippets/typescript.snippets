@@ -1,43 +1,43 @@
 snippet error "get(async(req,res)=>{})"
-  return next(new AppError("$1",$2))
-endsnippet
+	  return next(new AppError("$1",$2))
+
 
 snippet col "console.log('=== hola')"
-  console.log('=== $1')
-endsnippet
+	  console.log('=== $1')
+
 
 snippet clg "console.log(hola)"
-console.log($1)
-endsnippet
+	console.log($1)
+
 
 snippet try "try and catch"
-  try{
+	  try{
   
-  }catch(${1:error}){
+	  }catch(${1:error}){
   
-  }
-endsnippet
+	  }
+
 
 snippet ress "res.json"
-res.status($1)
-.json({
-	success: true,
-	status: "success",
-	$2
-})
-endsnippet
+	res.status($1)
+	.json({
+		success: true,
+		status: "success",
+		$2
+	})
+
 
 
 snippet rhc "React hook" b
-  export type $1 = {
+	  export type $1 = {
   
-  }
+	  }
   
-  const $1 = ({}: $1) => {
+	  const $1 = ({}: $1) => {
   
-  	return {}
-  }
+	  	return {}
+	  }
   
-  export default $1;
-endsnippet
+	  export default $1;
+
 

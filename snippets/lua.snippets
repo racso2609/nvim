@@ -1,4 +1,4 @@
 snippet imp "secure require" b
-local status, $2 = pcall(require, "$1")
-if (not status) then return end
-endsnippet
+	local status, $2 = pcall(require, "$1")
+	if (not status) then return end
+

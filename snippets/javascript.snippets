@@ -1,81 +1,81 @@
 snippet clo "console.log()" b
-console.log('$1', $1)
-endsnippet
+	console.log('$1', $1)
+
 
 snippet clg "console.log(hola)" b
-console.log($1)
-endsnippet
+	console.log($1)
+
 
 
 snippet error "next(new AppError())"
-return next(new AppError("$1",$2))
+	return next(new AppError("$1",$2))
 
-endsnippet
+
 
 snippet impErr "imp asyncHandler and app error"
-const {asyncHandler}= require('../utils/asyncHandler')
-const {AppError} = require('../utils/AppError')
-endsnippet
+	const {asyncHandler}= require('../utils/asyncHandler')
+	const {AppError} = require('../utils/AppError')
+
 
 snippet asH "asyncHandler"
-asyncHandler(async(req,res,_next)=>{
+	asyncHandler(async(req,res,_next)=>{
 
-})
-endsnippet
+	})
+
 
 snippet router "express router"
-const router = require('express').Router();
+	const router = require('express').Router();
 
 
 
-module.exports = router
-endsnippet
+	module.exports = router
+
 
 snippet try "try and catch"
-try{
+	try{
 
-}catch(${1:error}){
+	}catch(${1:error}){
 
-}
-endsnippet
+	}
+
 
 snippet ress "res.json"
-res.status($1)
-.json({
-	success: true,
-	status: "success",
-	$2
-})
-endsnippet
+	res.status($1)
+	.json({
+		success: true,
+		status: "success",
+		$2
+	})
+
 snippet res "res.json"
-res
-.json({
-	success: true,
-	status: "success",
-	$2
-})
-endsnippet
+	res
+	.json({
+		success: true,
+		status: "success",
+		$2
+	})
+
 
 snippet it "it('', () => {})" b
-it('$1', async() => {
-  $2
-})
-endsnippet
+	it('$1', async() => {
+	  $2
+	})
+
 
 snippet desc "describe('', () => {})" b
-describe('$1', () => {
-  $2
-})
-endsnippet
+	describe('$1', () => {
+	  $2
+	})
+
 
 snippet rfc "React function component" b
-import React from 'react'
-export default function $1  () {
-  return (
-    <$2>
-      $3
-    </$2>
-  )
-}
+	import React from 'react'
+	export default function $1  () {
+	  return (
+	    <$2>
+	      $3
+	    </$2>
+	  )
+	}
 
-endsnippet
+
