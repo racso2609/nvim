@@ -14,6 +14,10 @@ return {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
+    "quangnguyen30192/cmp-nvim-ultisnips",
+    {
+      "SirVer/ultisnips",
+    },
   },
   config = function()
     local cmp = require("cmp")
@@ -23,7 +27,8 @@ return {
     local lspkind = require("lspkind")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-    require("luasnip.loaders.from_vscode").lazy_load()
+    -- require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_snipmate").lazy_load()
 
     cmp.setup({
       snippet = { -- configure how nvim-cmp interacts with snippet engine
@@ -46,6 +51,10 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        {
+          name = "ultisnips",
+          keyword_length = 2,
+        }, -- For ultisnips users.
       }),
 
       -- configure lspkind for vs-code like pictograms in completion menu
