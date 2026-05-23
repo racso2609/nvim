@@ -5,6 +5,7 @@ local foldersTable = {
   "core.keymaps",
   "core.themes",
   "core.cmd",
+  "core.bigfile",
 }
 
 for _, folder in ipairs(foldersTable) do

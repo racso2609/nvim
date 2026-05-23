@@ -35,7 +35,7 @@ opt.relativenumber = true
 
 opt.pumheight = 10 -- Makes popup menu smaller
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 opt.showcmd = true
 
